@@ -205,7 +205,8 @@ public class ventanabotones extends javax.swing.JFrame {
             String dni = jTextField1.getText();
 
              CallableStatement sql = conexion.prepareCall("{call LISTARUNTRABAJADOR(?)(?)}");
-          sql.setString( 1, dni);
+            sql.registerOutParameter(2, OracleTypes.CURSOR);
+            sql.setString( 1, dni);
             sql.execute();
             
             ResultSet resul = (ResultSet) sql.getObject(2);
