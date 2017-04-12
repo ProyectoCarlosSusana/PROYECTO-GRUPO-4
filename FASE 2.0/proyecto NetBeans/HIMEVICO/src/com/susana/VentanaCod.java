@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package himevico;
+package com.susana;
 
 import static java.lang.ProcessBuilder.Redirect.from;
 import java.sql.CallableStatement;
@@ -19,7 +19,17 @@ import oracle.jdbc.OracleTypes;
  *
  * @author acer
  */
-public class HIMEVICO {
+
+
+    /**
+     * @return the principal
+     */
+
+  
+
+    /**
+     * @param principal the principal to set
+     */
 
     /**
      * @param args the command line arguments

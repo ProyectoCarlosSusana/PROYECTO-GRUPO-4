@@ -10,3 +10,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/FASE 2.0/ProyectoHimevico/nbproject/private/
+/FASE 2.0/ProyectoHimevico/build/
+/FASE 2.0/JavaApplication7/nbproject/private/
