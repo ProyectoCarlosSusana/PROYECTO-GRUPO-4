@@ -25,7 +25,11 @@ public class Login extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
-
+void limpiar(){
+    jTextField2usuario.setText("");
+    jPasswordField1.setText("");
+    
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,6 +100,11 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jButton1Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, -1, -1));
 
         jPasswordField1.setBackground(new java.awt.Color(0, 204, 204));
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 230, 40));
 
         jButton2Sesion.setBackground(new java.awt.Color(0, 0, 153));
@@ -164,6 +173,10 @@ if (jTextField2usuario.getText().equals(usuario) && pass.equals(motDePass));
     private void jButton2SesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2SesionMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2SesionMouseClicked
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
