@@ -8,8 +8,12 @@ package com.susana;
 import static java.lang.reflect.Array.set;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,13 +27,15 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
-void limpiar(){
-    jTextField2usuario.setText("");
-    jPasswordField1.setText("");
-    
-}
+
+    void limpiar() {
+        jTextField2usuario.setText("");
+        jPasswordField1.setText("");
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -141,32 +147,47 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
     }//GEN-LAST:event_jTextField2usuarioActionPerformed
 
     private void jButton2SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2SesionActionPerformed
-String usuario; //este usuario y contraseña tendrán que coincidir con los de cada uno de la base de datos
-String motDePass;
-  try {
+        String usuario = jTextField2usuario.getText(); //este usuario y contraseña tendrán que coincidir con los de cada uno de la base de datos
+        char[] contr = jPasswordField1.getPassword();
+        try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
-            Statement sentencia = conexion.createStatement();
-            ResultSet resul = (ResultSet) sentencia.executeQuery('SELECT * FROM TRABAJADOR');
-           
-            resul.close();
+            String sql = "SELECT CATEGORIA FROM TRABAJADOR WHERE USUARIO = ? and CONTRASENA = ?";
+            PreparedStatement sentencia = conexion.prepareStatement(sql);
+            sentencia.setString(1, usuario);
+            sentencia.setString(2, new String(contr));
+            ResultSet resul = sentencia.executeQuery();
+            if (resul == null) {
+                System.out.println("Me devuelve nulo");
+            } else {
+                resul.next();
+                if ("TRANSPORTISTA".equalsIgnoreCase(resul.getString(1))) {
+                 
+                    
+               System.out.println("Es un transportista");
+                } else if ("ADMINISTRATIVO".equalsIgnoreCase(resul.getString(1))) {
+                    System.out.println("Es un administrativo");
+                } else {
+                    System.out.println("No tiene categoría");
+                }
+
+                resul.close();
+            }
             sentencia.close();
             conexion.close();
         } catch (ClassNotFoundException cn) {
-            cn.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            }         
-/*
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, cn);
+        } catch (SQLException ex) { 
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        /*
 
 
-*/
+         */
 
-String pass = new String(jPasswordField1.getPassword());
-//si usuario, cntraseña pertenecen a administrador se accede a ventana con opciones para administrador
-//y si es transportista accederá a las opciones del transportista
-if (jTextField2usuario.getText().equals(usuario) && pass.equals(motDePass));
+
 
     }//GEN-LAST:event_jButton2SesionActionPerformed
 

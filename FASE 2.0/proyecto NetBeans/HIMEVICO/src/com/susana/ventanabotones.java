@@ -53,6 +53,14 @@ public class ventanabotones extends javax.swing.JFrame {
         jTextField1inserCentro = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextPane3unCentro = new javax.swing.JTextPane();
+        jButton3botonPartes = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextPane3listaPartes = new javax.swing.JTextPane();
+        jButton3 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1fechaParte = new javax.swing.JTextField();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextPane3listadoPartesPorFecha = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,6 +110,26 @@ public class ventanabotones extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(jTextPane3unCentro);
 
+        jButton3botonPartes.setText("Listar partes");
+        jButton3botonPartes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3botonPartesActionPerformed(evt);
+            }
+        });
+
+        jScrollPane5.setViewportView(jTextPane3listaPartes);
+
+        jButton3.setText("Partes por fecha");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Introducir fecha");
+
+        jScrollPane6.setViewportView(jTextPane3listadoPartesPorFecha);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,33 +137,45 @@ public class ventanabotones extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane4)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jScrollPane4)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton3centro)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField1inserCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3untrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton3centro)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
-                                .addComponent(jTextField1inserDni, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 395, Short.MAX_VALUE))))
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField1inserCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane6)
+                        .addGap(135, 135, 135)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3botonPartes)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jButton3untrabajador, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(26, 26, 26)
+                            .addComponent(jTextField1inserDni, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(238, 238, 238)
+                        .addComponent(jButton3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1fechaParte, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 145, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,12 +183,23 @@ public class ventanabotones extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1fechaParte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3botonPartes))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3untrabajador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -297,6 +348,67 @@ public class ventanabotones extends javax.swing.JFrame {
             }         
     }//GEN-LAST:event_jButton3centroActionPerformed
 
+    private void jButton3botonPartesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3botonPartesActionPerformed
+  try {
+            Class.forName("java.sql.DriverManager");
+            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+            Statement sentencia = conexion.createStatement();
+
+             CallableStatement sql = conexion.prepareCall("{call LISTARPARTES(?)}");
+              sql.registerOutParameter(1, OracleTypes.CURSOR);
+            sql.execute();
+
+            ResultSet resul = (ResultSet) sql.getObject(1);
+                Document otroDocumento = jTextPane3listaPartes.getStyledDocument();
+            while (resul.next()) {
+              try { 
+                otroDocumento.insertString(otroDocumento.getLength(),
+                        resul.getString(1) +" / "+resul.getString(2) +" / "+resul.getString(3) +" / "+resul.getString(4) + " / "+ resul.getString(5) +" / "+resul.getString(6) +" / "+resul.getString(7) +" / "+resul.getString(8) +" / "+resul.getString(9) + " / "+ resul.getString(10)  + " / "+ resul.getString(11)  + "\n", null);
+               } catch (BadLocationException ble){ ble.printStackTrace();}}
+            resul.close();
+            sentencia.close();
+            conexion.close();
+        } catch (ClassNotFoundException cn) {
+            cn.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            }                   
+                                            
+    }//GEN-LAST:event_jButton3botonPartesActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+ try {
+            Class.forName("java.sql.DriverManager");
+            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+            
+            Statement sentencia = conexion.createStatement();
+            String fecha = jTextField1fechaParte.getText();
+
+             CallableStatement sql = conexion.prepareCall("{call PARTESPORFECHA(?, ?)}");
+            sql.registerOutParameter(2, OracleTypes.CURSOR);
+            sql.setString( 1, fecha);
+            sql.execute();
+            
+            ResultSet resul = (ResultSet) sql.getObject(2);
+                Document otroDocumento = jTextPane3listadoPartesPorFecha.getStyledDocument();
+                while (resul.next()) {
+              try { 
+                  // KM_PRINCIPIO, KM_FINAL, FECHA, ESTADO, GASTO_GASOIL, GASTO_AUTOPISTA, GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS
+                otroDocumento.insertString(otroDocumento.getLength(),
+                        resul.getString(1) +" / "+resul.getString(2) +" / "+resul.getString(3) +" / "+resul.getString(4) +" / "+resul.getString(5) +" / "+resul.getString(6) + " / "+ resul.getString(7) +" / "+resul.getString(8) +" / "+resul.getString(9) + "\n", null);
+               } catch (BadLocationException ble){ ble.printStackTrace();}}
+
+           
+            resul.close();
+            sentencia.close();
+            conexion.close();
+        } catch (ClassNotFoundException cn) {
+            cn.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            }             }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -335,18 +447,26 @@ public class ventanabotones extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton3botonPartes;
     private javax.swing.JButton jButton3centro;
     private javax.swing.JButton jButton3untrabajador;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextField jTextField1fechaParte;
     private javax.swing.JTextField jTextField1inserCentro;
     private javax.swing.JTextField jTextField1inserDni;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JTextPane jTextPane3listaPartes;
+    private javax.swing.JTextPane jTextPane3listadoPartesPorFecha;
     private javax.swing.JTextPane jTextPane3unCentro;
     private javax.swing.JTextPane jTextPane4unTrabaj;
     // End of variables declaration//GEN-END:variables
