@@ -167,7 +167,10 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
                     
                System.out.println("Es un transportista");
                 } else if ("ADMINISTRATIVO".equalsIgnoreCase(resul.getString(1))) {
-                    System.out.println("Es un administrativo");
+                    VentanaAdministrador vadmin = new VentanaAdministrador();
+                    vadmin.setVisible(true);
+                    dispose();
+                  //  System.out.println("Es un administrativo");
                 } else {
                     System.out.println("No tiene categoría");
                 }
