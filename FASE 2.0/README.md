@@ -11,3 +11,7 @@ Termino 5 procedimientos.
 Comienzo conexion java/BaseDatos.
 
 Lunes: Solucionar GitHub y GitKraken. para subir lo realizado hasta el momento en la fase 2 y las correcciones de la fase 1
+
+vacaciones:
+Terminar ventana gestión usuarios y centros enlazada con administrador y crear opción para que el usuario pueda cambiar la contraseña.
+

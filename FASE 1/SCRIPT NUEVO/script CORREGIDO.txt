@@ -37,8 +37,8 @@ ALTER TABLE CENTRO ADD CONSTRAINT CENTRO_Nombre_UN UNIQUE ( Nombre ) ;
 
 CREATE TABLE TRABAJADOR
   (
-    Usuario          VARCHAR2 (20),
-    Contrasena       VARCHAR2 (20),
+    Usuario          VARCHAR2 (20), NOT NULL ,
+    Contrasena       VARCHAR2 (20), NOT NULL ,
     Dni              VARCHAR2 (10) NOT NULL ,
     Nombre           VARCHAR2 (20) NOT NULL ,
     Apellido_1       VARCHAR2 (33) NOT NULL ,

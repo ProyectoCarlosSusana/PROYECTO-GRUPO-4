@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +27,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+         jTextField2usuario.requestFocus();
         this.setLocationRelativeTo(null);
 
     }
@@ -172,15 +174,19 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
             } else {
                 resul.next();
                 if ("TRANSPORTISTA".equalsIgnoreCase(resul.getString(1))) {
-
-                    System.out.println("Es un transportista");
+                    JOptionPane.showMessageDialog(this, "Bienvenido, accede a opciones de categoría TRANSPORTISTA");
+                    // System.out.println("Es un transportista");
                 } else if ("ADMINISTRATIVO".equalsIgnoreCase(resul.getString(1))) {
                     VentanaAdministrador vadmin = new VentanaAdministrador();
                     vadmin.setVisible(true);
                     dispose();
+                    JOptionPane.showMessageDialog(this, "Bienvenido, accede a opciones de categoría ADMINISTRATIVO");
+
                     //  System.out.println("Es un administrativo");
                 } else {
-                    System.out.println("No tiene categoría");
+                    JOptionPane.showMessageDialog(this, "Usuario sin indicación de categoría profesional");
+
+                    //  System.out.println("No tiene categoría");
                 }
 
                 resul.close();
