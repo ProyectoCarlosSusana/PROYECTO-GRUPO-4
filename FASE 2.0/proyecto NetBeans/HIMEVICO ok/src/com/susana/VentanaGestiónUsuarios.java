@@ -75,8 +75,19 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
         jButton3Atras = new javax.swing.JButton();
         jButton3exit = new javax.swing.JButton();
         jButton3borrarTrab = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButton3NuevoTrab = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jTextField1Usuario = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField2Contrase = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jTextField1Salario = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jTextField1TelEmpresa = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jTextField1TelPersonal = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jDateChooser1FechaNac = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -121,8 +132,9 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 590, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 190, -1));
 
+        jTextField1dni.setText("6");
         jTextField1dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1dniActionPerformed(evt);
@@ -193,11 +205,37 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3borrarTrab, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 240, -1));
 
-        jButton3.setText("Nuevo trabajador");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 270, 290, 30));
+        jButton3NuevoTrab.setText("Nuevo trabajador");
+        jButton3NuevoTrab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3NuevoTrabActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3NuevoTrab, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 260, -1));
 
-        jLabel3.setText("DNI");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, -1, -1));
+        jLabel3.setText("Usuario");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, -1, -1));
+        getContentPane().add(jTextField1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 90, -1));
+
+        jLabel13.setText("Contraseña");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
+        getContentPane().add(jTextField2Contrase, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, 180, -1));
+
+        jLabel14.setText("Salario");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 40, 20));
+        getContentPane().add(jTextField1Salario, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 80, -1));
+
+        jLabel15.setText("Teléfono Empresa");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 320, -1, -1));
+        getContentPane().add(jTextField1TelEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 320, 120, -1));
+
+        jLabel16.setText("Teléfono Personal");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, -1, -1));
+        getContentPane().add(jTextField1TelPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 120, -1));
+
+        jLabel17.setText("Fecha nacimiento");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, -1, -1));
+        getContentPane().add(jDateChooser1FechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 380, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -266,11 +304,19 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
                     t.setMano(resul.getString(8));
                     t.setCategoria(resul.getString(9));
                     t.setCentro(Integer.parseInt(resul.getString(10)));
+                    t.setTelefonoEmpresa(resul.getString(11));
+                    t.setTelefonoPersonal(resul.getString(12));
+                    t.setSalario(resul.getDouble(13));
+                    t.setFecha(resul.getDate(14));
+
                     otroDocumento.insertString(otroDocumento.getLength(),
                             "DNI: "+t.getDni() + "\n"+ "NOMBRE: "+ t.getNombre() + "\n" +"PRIMER APELLIDO: "+ t.getApellido1()
                             + "\n" +"SEGUNDO APELLIDO: "+ t.getApellido2() + "\n" +"DIRECCIÓN: "+ t.getCalle()
                             + " , " + t.getPortal() + " - " + t.getPiso()
-                            + "  " + t.getMano() + "\n" +"CATEGORÍA: "+ t.getCategoria() + "\n" +"CENTRO AL QUE PERTENECE: "+ t.getCentro() + "\n", null);
+                            + "  " + t.getMano() + "\n" +"CATEGORÍA: "+ t.getCategoria() + "\n" +"CENTRO AL QUE PERTENECE: "+ t.getCentro()
+                                    +"TEL. EMPRESA: "+ t.getTelefonoEmpresa()+
+                                    "TEL. PERSONAL: "+ t.getTelefonoPersonal()+"SALARIO: "+ t.getSalario()+
+                                    "FECHA NACIMIENTO: "+ t.getFecha()+ "\n", null);
 
                     jTextField1dni.setText(t.getDni());
                     jTextField1nombre.setText(t.getNombre());
@@ -282,6 +328,13 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
                     jTextField1Mano.setText(t.getMano());
                     jTextField1Categoria.setText(t.getCategoria());
                     jTextField1Centro.setText(t.getCentro().toString());
+                    jTextField1TelEmpresa.setText(t.getTelefonoEmpresa());
+                    jTextField1TelPersonal.setText(t.getTelefonoPersonal());
+                    Double sal = t.getSalario();
+                    String salar = sal.toString();
+                    jTextField1Salario.setText(salar);
+                    jDateChooser1FechaNac.setDate(t.getFecha());
+
 
                 } catch (BadLocationException ble) {
                     ble.printStackTrace();
@@ -308,7 +361,9 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 //DNI, NOMBRE, APELLIDO_1, APELLIDO_2, CALLE, PORTAL, PISO, MANO, CATEGORIA, CENTRO_CENTRO_ID
-            String sql = "UPDATE TRABAJADOR SET DNI = ?, NOMBRE = ?, APELLIDO_1 = ?, APELLIDO_2 = ?,CALLE=?, PORTAL=?, PISO=?, MANO=?, CATEGORIA=?, CENTRO_CENTRO_ID=? WHERE DNI=?";
+            String sql = "UPDATE TRABAJADOR SET DNI = ?, NOMBRE = ?, APELLIDO_1 = ?, APELLIDO_2 = ?,CALLE=?,"
+                    + " PORTAL=?, PISO=?, MANO=?, CATEGORIA=?, CENTRO_CENTRO_ID=?,"
+                    + " TELEFONO_EMPRESA=?, TELEFONO_PERSONAL=?, SALARIO=?, FECHA_NACIMIENTO=? WHERE DNI=?";
             PreparedStatement sentencia = conexion.prepareStatement(sql);
             sentencia.setString(1, jTextField1dni.getText());
             sentencia.setString(2, jTextField1nombre.getText());
@@ -320,7 +375,13 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
             sentencia.setString(8, jTextField1Mano.getText());
             sentencia.setString(9, jTextField1Categoria.getText());
             sentencia.setInt(10, Integer.parseInt(jTextField1Centro.getText()));
-            sentencia.setString(11, t.getDni());
+            sentencia.setString  (11, jTextField1TelEmpresa.getText());
+            sentencia.setString (12, jTextField1TelPersonal.getText());
+            sentencia.setDouble (13, Double.parseDouble(jTextField1Salario.getText()));
+            java.util.Date ff = jDateChooser1FechaNac.getDate();
+            java.sql.Date fech = new java.sql.Date(ff.getTime());
+            sentencia.setDate(14, fech);
+            sentencia.setString(15, t.getDni());
 
             int filas = sentencia.executeUpdate();
             if (filas == 1) {
@@ -368,6 +429,45 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1dniActionPerformed
 
+    private void jButton3NuevoTrabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3NuevoTrabActionPerformed
+           try {
+            Class.forName("java.sql.DriverManager");
+            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+//DNI, NOMBRE, APELLIDO_1, APELLIDO_2, CALLE, PORTAL, PISO, MANO, CATEGORIA, CENTRO_CENTRO_ID
+            String sql = "INSERT INTO  TRABAJADOR( DNI, NOMBRE, APELLIDO_1, "
+                    + "APELLIDO_2, CALLE, PORTAL, PISO, MANO, CATEGORIA, "
+                    + "CENTRO_CENTRO_ID, USUARIO, CONTRASENA, TELEFONO_EMPRESA, TELEFONO_PERSONAL, SALARIO, FECHA_NACIMIENTO) VALUES (?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement sentencia = conexion.prepareStatement(sql);
+            sentencia.setString(1, jTextField1dni.getText());
+            sentencia.setString(2, jTextField1nombre.getText());
+            sentencia.setString(3, jTextField1apellido1.getText());
+            sentencia.setString(4, jTextField1apellido2.getText());
+            sentencia.setString(5, jTextField1Calle.getText());
+            sentencia.setString(6, jTextField1portal.getText());
+            sentencia.setString(7, jTextField1piso.getText());
+            sentencia.setString(8, jTextField1Mano.getText());
+            sentencia.setString(9, jTextField1Categoria.getText());
+            sentencia.setInt(10, Integer.parseInt(jTextField1Centro.getText()));
+            sentencia.setString(11, jTextField1Usuario.getText());
+            sentencia.setString (12, jTextField2Contrase.getText());
+            sentencia.setString  (13, jTextField1TelEmpresa.getText());
+            sentencia.setString (14, jTextField1TelPersonal.getText());
+            sentencia.setDouble (15, Double.parseDouble(jTextField1Salario.getText()));
+            java.util.Date ff = jDateChooser1FechaNac.getDate();
+            java.sql.Date fech = new java.sql.Date(ff.getTime());
+            sentencia.setDate(16, fech);
+
+            sentencia.execute();
+            
+            sentencia.close();
+            conexion.close();
+        } catch (ClassNotFoundException cn) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, cn);
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }         
+    }//GEN-LAST:event_jButton3NuevoTrabActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -406,15 +506,21 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton3Atras;
+    private javax.swing.JButton jButton3NuevoTrab;
     private javax.swing.JButton jButton3borrarTrab;
     private javax.swing.JButton jButton3exit;
     private javax.swing.JButton jButton3untrabajador;
+    private com.toedter.calendar.JDateChooser jDateChooser1FechaNac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -429,6 +535,10 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
     private javax.swing.JTextField jTextField1Categoria;
     private javax.swing.JTextField jTextField1Centro;
     private javax.swing.JTextField jTextField1Mano;
+    private javax.swing.JTextField jTextField1Salario;
+    private javax.swing.JTextField jTextField1TelEmpresa;
+    private javax.swing.JTextField jTextField1TelPersonal;
+    private javax.swing.JTextField jTextField1Usuario;
     private javax.swing.JTextField jTextField1apellido1;
     private javax.swing.JTextField jTextField1apellido2;
     private javax.swing.JTextField jTextField1dni;
@@ -436,6 +546,7 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
     private javax.swing.JTextField jTextField1nombre;
     private javax.swing.JTextField jTextField1piso;
     private javax.swing.JTextField jTextField1portal;
+    private javax.swing.JTextField jTextField2Contrase;
     private javax.swing.JTextPane jTextPane2;
     private javax.swing.JTextPane jTextPane4unTrabaj;
     // End of variables declaration//GEN-END:variables

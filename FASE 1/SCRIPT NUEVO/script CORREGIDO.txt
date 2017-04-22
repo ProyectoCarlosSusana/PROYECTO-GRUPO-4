@@ -37,8 +37,8 @@ ALTER TABLE CENTRO ADD CONSTRAINT CENTRO_Nombre_UN UNIQUE ( Nombre ) ;
 
 CREATE TABLE TRABAJADOR
   (
-    Usuario          VARCHAR2 (20) NOT NULL ,
-    Contrasena       VARCHAR2 (20) NOT NULL ,
+    Usuario          VARCHAR2 (20),
+    Contrasena       VARCHAR2 (20),
     Dni              VARCHAR2 (10) NOT NULL ,
     Nombre           VARCHAR2 (20) NOT NULL ,
     Apellido_1       VARCHAR2 (33) NOT NULL ,
@@ -48,8 +48,12 @@ CREATE TABLE TRABAJADOR
     Piso             VARCHAR2 (4) ,
     Mano             VARCHAR2 (4) ,
     Categoria        VARCHAR2 (14) NOT NULL  CONSTRAINT TRAB_CAT_CK CHECK (CATEGORIA IN ('ADMINISTRATIVO', 'TRANSPORTISTA')),
+	CENTRO_CENTRO_ID NUMBER,
+	Telefono_Empresa VARCHAR2 (9) NOT NULL,
+	Telefono_Personal VARCHAR2 (9),
+	Salario NUMBER (6,2),
+	Fecha_Nacimiento DATE NOT NULL
 
-    CENTRO_CENTRO_ID NUMBER NOT NULL
   ) ;
 ALTER TABLE TRABAJADOR ADD CONSTRAINT TRABAJADOR_PK PRIMARY KEY ( Usuario ) ;
 
@@ -77,7 +81,8 @@ CREATE TABLE PARTE
     Gastos_varios      NUMBER (10) ,
     Indicencias        VARCHAR2 (300) ,
     Validar            NUMBER  DEFAULT 0,
-    TRABAJADOR_Usuario VARCHAR2 (20) NOT NULL
+    TRABAJADOR_Usuario VARCHAR2 (20) NOT NULL,
+	EXCESO NUMBER(5,2)
   ) ;
 ALTER TABLE PARTE ADD CONSTRAINT PARTE_PK PRIMARY KEY ( Fecha ) ;
 

@@ -13,7 +13,7 @@ public class Parte {
    private int kmPrincipio;
    private int kmFinal;
    private String fecha;
-   private String estado;
+   private boolean estado;
    private int gastoGasoil;
    private int gastoAutopista;
    private int gastoDietas;
@@ -24,7 +24,7 @@ public class Parte {
     public Parte() {
     }
 
-    public Parte(int kmPrincipio, int kmFinal, String fecha, String estado, int gastoGasoil, int gastoAutopista, int gastoDietas, int gastosVarios, String incidencias, boolean validar) {
+    public Parte(int kmPrincipio, int kmFinal, String fecha, boolean estado, int gastoGasoil, int gastoAutopista, int gastoDietas, int gastosVarios, String incidencias, boolean validar) {
         this.kmPrincipio = kmPrincipio;
         this.kmFinal = kmFinal;
         this.fecha = fecha;
@@ -63,11 +63,11 @@ public class Parte {
         this.fecha = fecha;
     }
 
-    public String getEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 

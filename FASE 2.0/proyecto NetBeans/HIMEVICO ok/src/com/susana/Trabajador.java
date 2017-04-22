@@ -5,6 +5,12 @@
  */
 package com.susana;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author acer
@@ -23,6 +29,28 @@ public abstract class Trabajador {
     private String mano;
     private String categoria;
     private Integer centro;
+    private String telefonoEmpresa;
+    private String telefonoPersonal;
+    private double salario;
+    private java.util.Date fecha;
+    
+    public static boolean cambioContrase (String usu, String contraNuev, String contraViej) throws SQLException{
+        try {
+            ConexionTest.conectar();
+            String sql = ("UPDATE TRABAJADOR SET CONTRASENA = ? WHERE USUARIO = ? AND CONTRASENA = ?");
+            PreparedStatement ps = ConexionTest.getConexion().prepareStatement(sql);
+            ps.setString(1, contraNuev);
+            ps.setString(2, usu);
+            ps.setString(3, contraViej);
+            ps.executeUpdate();
+          ConexionTest.desconectar();
+          return true;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Trabajador.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+     
+    }
 
     public String getCategoria() {
         return categoria;
@@ -118,6 +146,38 @@ public abstract class Trabajador {
 
     public void setMano(String mano) {
         this.mano = mano;
+    }
+
+    public String getTelefonoEmpresa() {
+        return telefonoEmpresa;
+    }
+
+    public void setTelefonoEmpresa(String telefonoEmpresa) {
+        this.telefonoEmpresa = telefonoEmpresa;
+    }
+
+    public String getTelefonoPersonal() {
+        return telefonoPersonal;
+    }
+
+    public void setTelefonoPersonal(String telefonoPersonal) {
+        this.telefonoPersonal = telefonoPersonal;
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
 }

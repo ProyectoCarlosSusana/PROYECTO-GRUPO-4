@@ -53,6 +53,7 @@ public class Login extends javax.swing.JFrame {
         jButton1Salir = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton2Sesion = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1fond = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -129,6 +130,14 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 100, -1));
 
+        jButton1.setText("Cambio contraseña");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, -1, -1));
+
         jLabel1fond.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/46374.jpg"))); // NOI18N
         getContentPane().add(jLabel1fond, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 0, 600, 371));
 
@@ -163,14 +172,13 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
             } else {
                 resul.next();
                 if ("TRANSPORTISTA".equalsIgnoreCase(resul.getString(1))) {
-                 
-                    
-               System.out.println("Es un transportista");
+
+                    System.out.println("Es un transportista");
                 } else if ("ADMINISTRATIVO".equalsIgnoreCase(resul.getString(1))) {
                     VentanaAdministrador vadmin = new VentanaAdministrador();
                     vadmin.setVisible(true);
                     dispose();
-                  //  System.out.println("Es un administrativo");
+                    //  System.out.println("Es un administrativo");
                 } else {
                     System.out.println("No tiene categoría");
                 }
@@ -181,16 +189,14 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
             conexion.close();
         } catch (ClassNotFoundException cn) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, cn);
-        } catch (SQLException ex) { 
+        } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         /*
 
 
          */
-
-
 
     }//GEN-LAST:event_jButton2SesionActionPerformed
 
@@ -201,6 +207,12 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        VentanaCambioContras vcc = new VentanaCambioContras();
+        vcc.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,6 +250,7 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton1Salir;
     private javax.swing.JButton jButton2Sesion;
     private javax.swing.JLabel jLabel1;
