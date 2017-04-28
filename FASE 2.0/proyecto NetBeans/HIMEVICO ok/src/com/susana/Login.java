@@ -16,11 +16,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author acer
  */
 public class Login extends javax.swing.JFrame {
+    private Trabajador trabajador;
+
 
     /**
      * Creates new form Login
@@ -163,11 +166,13 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
         try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-
+      //      Trabajador t = new Trabajador;
+                    jTextField2usuario.getText();
             String sql = "SELECT CATEGORIA FROM TRABAJADOR WHERE USUARIO = ? and CONTRASENA = ?";
             PreparedStatement sentencia = conexion.prepareStatement(sql);
             sentencia.setString(1, usuario);
             sentencia.setString(2, new String(contr));
+            
             ResultSet resul = sentencia.executeQuery();
             if (resul == null) {
                 System.out.println("Me devuelve nulo");

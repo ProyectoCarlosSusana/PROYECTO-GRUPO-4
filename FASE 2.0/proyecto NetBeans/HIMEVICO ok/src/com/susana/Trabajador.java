@@ -34,6 +34,8 @@ public abstract class Trabajador {
     private double salario;
     private java.util.Date fecha;
     
+    private Login login;
+    
     public static boolean cambioContrase (String usu, String contraNuev, String contraViej) throws SQLException{
         try {
             ConexionTest.conectar();

@@ -47,6 +47,7 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2Trabajadores = new javax.swing.JTextPane();
@@ -55,7 +56,6 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
         jTextField1inserDni = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextPane4unTrabaj = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
         jTextField1dni = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -75,7 +75,7 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jTextField1piso = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1Centro = new javax.swing.JTextField();
+        jTextField1CentroUsu = new javax.swing.JTextField();
         jButton3Atras = new javax.swing.JButton();
         jButton3exit = new javax.swing.JButton();
         jButton3borrarTrab = new javax.swing.JButton();
@@ -92,6 +92,13 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
         jTextField1TelPersonal = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jDateChooser1FechaNac = new com.toedter.calendar.JDateChooser();
+
+        jButton1.setText("Actualizar trabajador");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,14 +146,6 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 89, 240, 100));
 
-        jButton1.setText("Actualizar trabajador");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 240, -1));
-
         jTextField1dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1dniActionPerformed(evt);
@@ -191,7 +190,7 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
 
         jLabel12.setText("Centro");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
-        getContentPane().add(jTextField1Centro, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 70, -1));
+        getContentPane().add(jTextField1CentroUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 70, -1));
 
         jButton3Atras.setText("Volver atrás");
         jButton3Atras.addActionListener(new java.awt.event.ActionListener() {
@@ -227,6 +226,12 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
 
         jLabel3.setText("Usuario");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
+
+        jTextField1Usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1UsuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(jTextField1Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 150, -1));
 
         jLabel13.setText("Contraseña");
@@ -268,7 +273,10 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
             while (resul.next()) {
                 try {
                     otroDocumento.insertString(otroDocumento.getLength(),
-                            resul.getString(1) + " / " + resul.getString(2) + " / " + resul.getString(3) + " / " + resul.getString(4) + " / " + resul.getString(5) + " / " + resul.getString(6) + " / " + resul.getString(7) + " / " + resul.getString(8) + " / " + resul.getString(9) + " / " + resul.getString(10) + "\n", null);
+                            "USUARIO: " + resul.getString(1) + " / CONTRASEÑA " + resul.getString(2) + " / DNI: " + resul.getString(3) + " / NOMBRE: " + resul.getString(4) + " / APELLIDO 1: " + resul.getString(5)
+                            + " / APELLIDO 2" + resul.getString(6) + " / CALLE: " + resul.getString(7) + " / PORTAL: "
+                            + resul.getString(8) + " / PISO: " + resul.getString(9) + " / MANO: " + resul.getString(10) + " / CATEGORÍA: " + resul.getString(11)
+                            + " / CENTRO: " + resul.getString(12) + " / TELÉFONO EMPRESA: " + resul.getString(13) + " / TELÉFONO PERSONAL: " + resul.getString(14) + " / SALARIO : " + resul.getDouble(15) + " / FECHA NACIMIENTO: " + resul.getString(16) + "\n" + "\n", null);
 
                 } catch (BadLocationException ble) {
                     ble.printStackTrace();
@@ -291,7 +299,6 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
             Statement sentencia = conexion.createStatement();
-            jTextField1inserDni.transferFocus();
             String dni = jTextField1inserDni.getText();
 
             CallableStatement sql = conexion.prepareCall("{call LISTARUNTRABAJADOR(?, ?)}");
@@ -303,34 +310,37 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
             Document otroDocumento = jTextPane4unTrabaj.getStyledDocument();
             while (resul.next()) {
                 try {
-                    if ("TRANSPORTISTA".equalsIgnoreCase(resul.getString(9))) {
+                    if ("TRANSPORTISTA".equalsIgnoreCase(resul.getString(11))) {
                         t = new Transportista();
                     } else {
                         t = new Administrativo();
                     }
-                    t.setDni(resul.getString(1));
-                    t.setNombre(resul.getString(2));
-                    t.setApellido1(resul.getString(3));
-                    t.setApellido2(resul.getString(4));
-                    t.setCalle(resul.getString(5));
-                    t.setPortal(resul.getString(6));
-                    t.setPiso(resul.getString(7));
-                    t.setMano(resul.getString(8));
-                    t.setCategoria(resul.getString(9));
-                    t.setCentro(Integer.parseInt(resul.getString(10)));
-                    t.setTelefonoEmpresa(resul.getString(11));
-                    t.setTelefonoPersonal(resul.getString(12));
-                    t.setSalario(resul.getDouble(13));
-                    t.setFecha(resul.getDate(14));
+                    t.setDni(resul.getString(3));
 
+                    t.setUsuario(resul.getString(1));
+                    t.setContrasena(resul.getString(2));
+                    t.setNombre(resul.getString(4));
+                    t.setApellido1(resul.getString(5));
+                    t.setApellido2(resul.getString(6));
+                    t.setCalle(resul.getString(7));
+                    t.setPortal(resul.getString(8));
+                    t.setPiso(resul.getString(9));
+                    t.setMano(resul.getString(10));
+                    t.setCategoria(resul.getString(11));
+                    t.setCentro(Integer.parseInt(resul.getString(12)));
+                    t.setTelefonoEmpresa(resul.getString(13));
+                    t.setTelefonoPersonal(resul.getString(14));
+                    t.setSalario(resul.getDouble(15));
+                    t.setFecha(resul.getDate(16));
+                  
                     otroDocumento.insertString(otroDocumento.getLength(),
                             "DNI: " + t.getDni() + "\n" + "NOMBRE: " + t.getNombre() + "\n" + "PRIMER APELLIDO: " + t.getApellido1()
                             + "\n" + "SEGUNDO APELLIDO: " + t.getApellido2() + "\n" + "DIRECCIÓN: " + t.getCalle()
                             + " , " + t.getPortal() + " - " + t.getPiso()
-                            + "  " + t.getMano() + "\n" + "CATEGORÍA: " + t.getCategoria() + "\n" + "CENTRO AL QUE PERTENECE: " + t.getCentro()
-                            + "TEL. EMPRESA: " + t.getTelefonoEmpresa()
-                            + "TEL. PERSONAL: " + t.getTelefonoPersonal() + "SALARIO: " + t.getSalario()
-                            + "FECHA NACIMIENTO: " + t.getFecha() + "\n", null);
+                            + "  " + t.getMano() + "\n" + "CATEGORÍA: " + t.getCategoria() + "\n" + "CENTRO AL QUE PERTENECE: " + t.getCentro()+"\n" 
+                            + "TEL. EMPRESA: " + t.getTelefonoEmpresa()+"\n" 
+                            + "TEL. PERSONAL: " + t.getTelefonoPersonal() +"\n" + "SALARIO: " + t.getSalario()+"\n" 
+                            + "FECHA NACIMIENTO: " + t.getFecha() + "\n" + "USUARIO: " + t.getUsuario() +"\n" + "CONTRASEÑA: " + t.getContrasena() + "\n", null);
 
                     jTextField1dni.setText(t.getDni());
                     jTextField1nombre.setText(t.getNombre());
@@ -341,13 +351,15 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
                     jTextField1piso.setText(t.getPiso());
                     jTextField1Mano.setText(t.getMano());
                     jTextField1Categoria.setText(t.getCategoria());
-                    jTextField1Centro.setText(t.getCentro().toString());
+                    jTextField1CentroUsu.setText(t.getCentro().toString());
                     jTextField1TelEmpresa.setText(t.getTelefonoEmpresa());
                     jTextField1TelPersonal.setText(t.getTelefonoPersonal());
                     Double sal = t.getSalario();
                     String salar = sal.toString();
                     jTextField1Salario.setText(salar);
                     jDateChooser1FechaNac.setDate(t.getFecha());
+                    jTextField1Usuario.setText(t.getUsuario());
+                    jTextField2Contrase.setText(t.getContrasena());
 
                     if (jTextPane4unTrabaj.getText().length() == 0) {
                         JOptionPane.showMessageDialog(this, "trabajador inexistente con los datos indicados");
@@ -399,7 +411,7 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
             sentencia.setString(7, jTextField1piso.getText());
             sentencia.setString(8, jTextField1Mano.getText());
             sentencia.setString(9, jTextField1Categoria.getText());
-            sentencia.setInt(10, Integer.parseInt(jTextField1Centro.getText()));
+            sentencia.setInt(10, Integer.parseInt(jTextField1CentroUsu.getText()));
             sentencia.setString(11, jTextField1TelEmpresa.getText());
             sentencia.setString(12, jTextField1TelPersonal.getText());
             sentencia.setDouble(13, Double.parseDouble(jTextField1Salario.getText()));
@@ -420,7 +432,7 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
                 jTextField1piso.setText("");
                 jTextField1Mano.setText("");
                 jTextField1Categoria.setText("");
-                jTextField1Centro.setText("");
+                jTextField1CentroUsu.setText("");
                 jTextField1TelEmpresa.setText("");
                 jTextField1TelPersonal.setText("");
                 jTextField1Salario.setText(null);
@@ -428,6 +440,8 @@ public class VentanaGestiónUsuarios extends javax.swing.JFrame {
                 jTextPane4unTrabaj.setText("");
                 jTextField1inserDni.setText("");
                 jTextPane2Trabajadores.setText("");
+                jTextField1Usuario.setText("");
+                jTextField2Contrase.setText("");
             }
 
             sentencia.close();
@@ -485,6 +499,7 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 //DNI, NOMBRE, APELLIDO_1, APELLIDO_2, CALLE, PORTAL, PISO, MANO, CATEGORIA, CENTRO_CENTRO_ID
+
             String sql = "INSERT INTO  TRABAJADOR( DNI, NOMBRE, APELLIDO_1, "
                     + "APELLIDO_2, CALLE, PORTAL, PISO, MANO, CATEGORIA, "
                     + "CENTRO_CENTRO_ID, USUARIO, CONTRASENA, TELEFONO_EMPRESA, TELEFONO_PERSONAL, SALARIO, FECHA_NACIMIENTO) VALUES (?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -498,7 +513,7 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
             sentencia.setString(7, jTextField1piso.getText());
             sentencia.setString(8, jTextField1Mano.getText());
             sentencia.setString(9, jTextField1Categoria.getText());
-            sentencia.setInt(10, Integer.parseInt(jTextField1Centro.getText()));
+            sentencia.setInt(10, Integer.parseInt(jTextField1CentroUsu.getText()));
             sentencia.setString(11, jTextField1Usuario.getText());
             sentencia.setString(12, jTextField2Contrase.getText());
             sentencia.setString(13, jTextField1TelEmpresa.getText());
@@ -508,18 +523,37 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
             java.sql.Date fech = new java.sql.Date(ff.getTime());
             sentencia.setDate(16, fech);
 
-            sentencia.execute();
+            //   sentencia.execute();
+            int filas = sentencia.executeUpdate();
+            if (filas == 1) {
+                JOptionPane.showMessageDialog(this, "Trabajador creado");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error datos, introduzca datos correctos");
 
+            }
             sentencia.close();
             conexion.close();
+            
+            /*
+            try {
+....aqui tu codigo
+} catch ( NumberFormatException ex ) {
+.....aqui lo que quieras hacer si los campos estan vacios y tratan de calcular el total...
+}
+            */
+        } catch ( NumberFormatException ex ) {
+        
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error datos, introduzca datos correctos");
+
         } catch (ClassNotFoundException cn) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, cn);
+            JOptionPane.showMessageDialog(this, "Error datos, introduzca datos correctos");
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Error datos, introduzca datos correctos");
         }
-        if (jTextPane4unTrabaj.getText().length() == 0) {
-            JOptionPane.showMessageDialog(this, "trabajador inexistente con los datos indicados");
-        }
+
     }//GEN-LAST:event_jButton3NuevoTrabActionPerformed
 
     private void jTextField1inserDniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1inserDniFocusGained
@@ -529,6 +563,10 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
     private void jTextField1inserDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1inserDniFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1inserDniFocusLost
+
+    private void jTextField1UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1UsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1UsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -595,7 +633,7 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField jTextField1Calle;
     private javax.swing.JTextField jTextField1Categoria;
-    private javax.swing.JTextField jTextField1Centro;
+    private javax.swing.JTextField jTextField1CentroUsu;
     private javax.swing.JTextField jTextField1Mano;
     private javax.swing.JTextField jTextField1Salario;
     private javax.swing.JTextField jTextField1TelEmpresa;
