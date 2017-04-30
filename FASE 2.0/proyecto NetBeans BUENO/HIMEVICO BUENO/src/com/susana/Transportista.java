@@ -5,15 +5,15 @@
  */
 package com.susana;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author acer
  */
-public class Aviso {
-  private String fechaAviso;
-  private String comentario;
-  
-  //metodo listado avisos(usuario, fechaaviso)?
+public class Transportista extends Trabajador {
     
+    private ArrayList<Vehiculo>vehiculos;
+    private ArrayList<Parte> partes;
     
 }

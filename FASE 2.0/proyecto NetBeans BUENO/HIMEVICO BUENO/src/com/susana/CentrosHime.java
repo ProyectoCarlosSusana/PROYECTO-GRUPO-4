@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package com.susana;
+import java.util.ArrayList;
 
 /**
  *
  * @author acer
  */
-public class Centro {
+public class CentrosHime {
     private String nombre;
     private String calle;
     private String numero;
@@ -19,10 +20,12 @@ public class Centro {
     private String provincia;
     private Integer idCentro;  //ojo esto se hace con una secuencia al hacer el insert en la base de datos
 
-    public Centro() {
+    private ArrayList<Trabajador>trabajadores;
+    
+    public CentrosHime() {
     }
 
-    public Centro(String nombre, String calle, String numero, String codigoPostal, String telefono, String ciudad, String provincia, Integer idCentro) {
+    public CentrosHime(String nombre, String calle, String numero, String codigoPostal, String telefono, String ciudad, String provincia, Integer idCentro) {
         this.nombre = nombre;
         this.calle = calle;
         this.numero = numero;

@@ -29,7 +29,7 @@ import javax.swing.JTextField;
  */
 public class VentanaGestiónCentros extends javax.swing.JFrame {
 
-    Centro c;
+    CentrosHime c;
 
     /**
      * Creates new form VentanaGestiónUsuarios
@@ -256,7 +256,7 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
             while (resul.next()) {
                 try {
 
-                    Centro c = new Centro();
+                    CentrosHime c = new CentrosHime();
 
                     c.setNombre(resul.getString(1));
                     c.setCalle(resul.getString(2));
@@ -441,7 +441,6 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
 
             }
             //sentencia.setInt(8, Integer.parseInt(jTextFieldIdCentro.getText()));
-            sentencia.execute();
             sentencia.close();
             conexion.close();
         } catch (ClassNotFoundException cn) {

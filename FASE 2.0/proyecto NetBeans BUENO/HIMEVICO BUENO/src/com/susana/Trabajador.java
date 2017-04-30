@@ -7,6 +7,7 @@ package com.susana;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +36,8 @@ public abstract class Trabajador {
     private java.util.Date fecha;
     
     private Login login;
+    private ArrayList<Aviso>avisos;
+    private CentrosHime centrosHimes;
     
     public static boolean cambioContrase (String usu, String contraNuev, String contraViej) throws SQLException{
         try {

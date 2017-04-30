@@ -16,6 +16,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
      */
     public VentanaAdministrador() {
         initComponents();
+         this.dispose();
     }
 
     /**
@@ -33,7 +34,7 @@ public class VentanaAdministrador extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setText("Gestión usuarios");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -118,21 +119,22 @@ public class VentanaAdministrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VentanaGestiónUsuarios gu = new VentanaGestiónUsuarios();
+        VentanaGestiónUsuarios1 gu = new VentanaGestiónUsuarios1();
         gu.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-System.exit(0); 
+        System.exit(0);        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-         VentanaGestiónCentros gc = new VentanaGestiónCentros();
+        VentanaGestiónCentros gc = new VentanaGestiónCentros();
         gc.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        VentanaGestionPartes gp = new VentanaGestionPartes();
+        gp.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
