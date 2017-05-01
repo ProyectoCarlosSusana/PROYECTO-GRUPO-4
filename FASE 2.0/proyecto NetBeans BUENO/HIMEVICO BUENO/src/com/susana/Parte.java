@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.susana;
+import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 public class Parte {
    private double kmPrincipio;
    private double kmFinal;
-   private String fecha;
+   private Date fecha;
    private String estado;
    private double gastoGasoil;
    private double gastoAutopista;
@@ -31,7 +32,7 @@ public class Parte {
     public Parte() {
     }
 
-    public Parte(double kmPrincipio, double kmFinal, String fecha, String estado, double gastoGasoil, double gastoAutopista, double gastoDietas, double gastosVarios, String incidencias, String validar, double Exceso, String usuario, Aviso aviso, Transportista transportista) {
+    public Parte(double kmPrincipio, double kmFinal, Date fecha, String estado, double gastoGasoil, double gastoAutopista, double gastoDietas, double gastosVarios, String incidencias, String validar, double Exceso, String usuario, Aviso aviso, Transportista transportista) {
         this.kmPrincipio = kmPrincipio;
         this.kmFinal = kmFinal;
         this.fecha = fecha;
@@ -64,11 +65,11 @@ public class Parte {
         this.kmFinal = kmFinal;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

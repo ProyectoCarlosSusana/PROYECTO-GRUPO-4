@@ -11,6 +11,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
@@ -27,8 +29,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
      */
     public VentanaGestionPartes() {
         initComponents();
-         jTextField1LisPartePorTrabajador.requestFocus();
-          this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
 
     Transportista tr;
@@ -44,75 +45,46 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
-        jButton1partesAbiertos = new javax.swing.JButton();
-        jButton2partesCerrados = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1ListPartesCerrados = new javax.swing.JTextPane();
+        bgEstadoParte = new javax.swing.ButtonGroup();
+        jButton1VerPartes = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1ListPartesAbiertos1 = new javax.swing.JTextPane();
-        jButton1ListarParaPoderEliminar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1LisPartePorTrabajador = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1ListPartePorTrabyFech = new javax.swing.JTextField();
+        jTextPane1ListPartes = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
         jButton2EliminarParte = new javax.swing.JButton();
-        Validad = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTextPane1listadoUnParte = new javax.swing.JTextPane();
-        jButton1ListarPartPorTrabYFecha = new javax.swing.JButton();
-        jTextField1ListPartePorFecha = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton4FiltrarPorFechas = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField1Fecha1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField2Fecha2 = new javax.swing.JTextField();
+        jButton4FiltrarPorFechas1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField1ParaFiltrarPorUsuario = new javax.swing.JTextField();
+        jRadioButton1Todos = new javax.swing.JRadioButton();
+        jRadioButton2Abiertos = new javax.swing.JRadioButton();
+        jRadioButton3Cerrados = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jCheckBox1 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1partesAbiertos.setText("Partes abiertos");
-        jButton1partesAbiertos.addActionListener(new java.awt.event.ActionListener() {
+        jButton1VerPartes.setText("Ver partes ...");
+        jButton1VerPartes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1partesAbiertosActionPerformed(evt);
+                jButton1VerPartesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1partesAbiertos, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 22, -1, -1));
+        getContentPane().add(jButton1VerPartes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jButton2partesCerrados.setText("Partes cerrados");
-        jButton2partesCerrados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2partesCerradosActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2partesCerrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
+        jScrollPane2.setViewportView(jTextPane1ListPartes);
 
-        jScrollPane1.setViewportView(jTextPane1ListPartesCerrados);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 828, 110));
-
-        jScrollPane2.setViewportView(jTextPane1ListPartesAbiertos1);
-
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 56, 828, 123));
-
-        jButton1ListarParaPoderEliminar.setText("Listar partes por fecha");
-        jButton1ListarParaPoderEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ListarParaPoderEliminarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1ListarParaPoderEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 403, 230, 40));
-
-        jLabel1.setText("Trabajador");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 90, 20));
-
-        jTextField1LisPartePorTrabajador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1LisPartePorTrabajadorActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField1LisPartePorTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, 110, 20));
-
-        jLabel3.setText("Fecha");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, 90, -1));
-        getContentPane().add(jTextField1ListPartePorTrabyFech, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, 110, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 828, 320));
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -130,25 +102,6 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2EliminarParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 500, -1, -1));
 
-        Validad.setText("Validar");
-        getContentPane().add(Validad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, -1, -1));
-
-        jScrollPane3.setViewportView(jTextPane1listadoUnParte);
-
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 450, 830, 40));
-
-        jButton1ListarPartPorTrabYFecha.setText("Listar partes por trabajador y fecha");
-        jButton1ListarPartPorTrabYFecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ListarPartPorTrabYFechaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1ListarPartPorTrabYFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 230, 40));
-        getContentPane().add(jTextField1ListPartePorFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, 110, -1));
-
-        jLabel4.setText("Fecha");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 400, 90, -1));
-
         jButton2.setText("Volver");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,154 +110,185 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, -1, -1));
 
+        jButton4FiltrarPorFechas.setText("Filtrar por usuario y  fechas");
+        jButton4FiltrarPorFechas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4FiltrarPorFechasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4FiltrarPorFechas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 190, -1));
+
+        jLabel6.setText("DE");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 30, 20));
+        getContentPane().add(jTextField1Fecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 100, 30));
+
+        jLabel7.setText("A");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 10, 20));
+        getContentPane().add(jTextField2Fecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 100, 30));
+
+        jButton4FiltrarPorFechas1.setText("Filtrar por fechas");
+        jButton4FiltrarPorFechas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4FiltrarPorFechas1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4FiltrarPorFechas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        jLabel10.setText("USUARIO");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 60, 20));
+        getContentPane().add(jTextField1ParaFiltrarPorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 100, 30));
+
+        bgEstadoParte.add(jRadioButton1Todos);
+        jRadioButton1Todos.setSelected(true);
+        jRadioButton1Todos.setText("Todos");
+        getContentPane().add(jRadioButton1Todos, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
+
+        bgEstadoParte.add(jRadioButton2Abiertos);
+        jRadioButton2Abiertos.setText("Abiertos");
+        getContentPane().add(jRadioButton2Abiertos, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
+
+        bgEstadoParte.add(jRadioButton3Cerrados);
+        jRadioButton3Cerrados.setText("Cerrados");
+        getContentPane().add(jRadioButton3Cerrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
+
+        jLabel1.setText("nOMBRE");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
+
+        jTextField1.setText("jTextField1");
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
+
+        jLabel2.setText("NUM PARTE");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, -1));
+
+        jTextField2.setText("jTextField2");
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
+
+        jLabel3.setText("HORAS TOTALES");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
+
+        jTextField3.setText("jTextField3");
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, -1, -1));
+
+        jCheckBox1.setText("VALIDACION");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2partesCerradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2partesCerradosActionPerformed
-        try {
-            Class.forName("java.sql.DriverManager");
-            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+    private void jButton1VerPartesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1VerPartesActionPerformed
 
-            Statement sentencia = conexion.createStatement();
+        if (jRadioButton1Todos.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
-            CallableStatement sql = conexion.prepareCall("{call LISTAPARTESCERRADOS(?)}");
-            sql.registerOutParameter(1, OracleTypes.CURSOR);
-            sql.execute();
+                Statement sentencia = conexion.createStatement();
 
-            ResultSet resul = (ResultSet) sql.getObject(1);
-            Document otroDocumento = jTextPane1ListPartesCerrados.getStyledDocument();
-            while (resul.next()) {
+                CallableStatement sql = conexion.prepareCall("{call LISTARPARTES(?)}");
+                sql.registerOutParameter(1, OracleTypes.CURSOR);
+                sql.execute();
 
-                try {
-                    otroDocumento.insertString(otroDocumento.getLength(),
-                            "TRABAJADOR: " + resul.getString(11) + "   /   FECHA: " + resul.getString(3) + "   /   ESTADO: " + resul.getString(4) + "   /   KM PRINCIPIO: " + resul.getString(1) + "   /   KM FINAL: " + resul.getString(2) + "   /   GASTO GASOIL: " + resul.getString(5) + "   /   GASTO AUTOPISTA: " + resul.getString(6) + "   /   DIETAS: " + resul.getString(7) + "   /   GASTOS VARIOS: " + resul.getString(8) + "   /   INCIDENCIAS: " + resul.getString(9) + "   /   VALIDADO: " + resul.getString(10) + "   /   EXCESO: " + resul.getString(12) + "\n" + "\n", null);
+                ResultSet resul = (ResultSet) sql.getObject(1);
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
 
-                } catch (BadLocationException ble) {
-                    ble.printStackTrace();
-                }
-            }
-            resul.close();
-            sentencia.close();
-            conexion.close();
-        } catch (ClassNotFoundException cn) {
-            cn.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+                    try {
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                                "TRABAJADOR: " + resul.getString(11) + "   /   FECHA: " + resul.getString(3) + "   /   ESTADO: " + resul.getString(4) + "   /   KM PRINCIPIO: " + resul.getString(1) + "   /   KM FINAL: " + resul.getString(2) + "   /   GASTO GASOIL: " + resul.getString(5) + "   /   GASTO AUTOPISTA: " + resul.getString(6) + "   /   DIETAS: " + resul.getString(7) + "   /   GASTOS VARIOS: " + resul.getString(8) + "   /   INCIDENCIAS: " + resul.getString(9) + "   /   VALIDADO: " + resul.getString(10) + "   /   EXCESO: " + resul.getString(12) + "\n" + "\n", null);
 
-
-    }//GEN-LAST:event_jButton2partesCerradosActionPerformed
-
-    private void jTextField1LisPartePorTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1LisPartePorTrabajadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1LisPartePorTrabajadorActionPerformed
-
-    private void jButton1ListarParaPoderEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ListarParaPoderEliminarActionPerformed
-        try {
-            Class.forName("java.sql.DriverManager");
-            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-
-            Statement sentencia = conexion.createStatement();
-            String trab = jTextField1LisPartePorTrabajador.getText();
-            String fecha = jTextField1ListPartePorTrabyFech.getText();
-
-            CallableStatement sql = conexion.prepareCall("{call LISTARUNPARTE(?, ?,  ?)}");
-            sql.registerOutParameter(3, OracleTypes.CURSOR);
-            sql.setString(1, trab);
-            sql.setString(2, fecha);
-            sql.execute();
-
-            ResultSet resul = (ResultSet) sql.getObject(3);
-            Document otroDocumento = jTextPane1listadoUnParte.getStyledDocument();
-            while (resul.next()) {
-                try {
-
-                    pr.setUsuario(resul.getString(1));
-                    pr.setFecha(resul.getDate(2).toString());
-                    pr.setEstado(resul.getString(3));
-                    pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
-                    pr.setKmFinal(Double.parseDouble(resul.getString(5)));
-                    pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
-                    pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
-                    pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
-                    pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
-                    pr.setIncidencias(resul.getString(10));
-                    pr.setValidar(resul.getString(11));
-                    pr.setExceso(Double.parseDouble(resul.getString(12)));
-                    /*
-                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
-GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
-                     */
-                    otroDocumento.insertString(otroDocumento.getLength(),
-                            "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
-                            + "\n" + "KM FINAL: " + pr.getKmFinal()
-                            + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
-                            + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
-                            + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
-                            + "VALIDADO: " + pr.getValidar() + "\n"
-                            + "EXCESO: " + pr.getExceso(), null);
-
-                    if (jTextPane1listadoUnParte.getText().length() == 0) {
-                        JOptionPane.showMessageDialog(this, "trabajador inexistente con los datos indicados");
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
                     }
-
-                } catch (BadLocationException ble) {
-                    ble.printStackTrace();
-
                 }
+                resul.close();
+                sentencia.close();
+                conexion.close();
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (jRadioButton2Abiertos.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
+                Statement sentencia = conexion.createStatement();
+
+                CallableStatement sql = conexion.prepareCall("{call LISTAPARTESABIERTOS(?)}");
+                sql.registerOutParameter(1, OracleTypes.CURSOR);
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(1);
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+
+                    try {
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                                "TRABAJADOR: " + resul.getString(11) + "   /   FECHA: " + resul.getString(3) + "   /   ESTADO: " + resul.getString(4) + "   /   KM PRINCIPIO: " + resul.getString(1) + "   /   KM FINAL: " + resul.getString(2) + "   /   GASTO GASOIL: " + resul.getString(5) + "   /   GASTO AUTOPISTA: " + resul.getString(6) + "   /   DIETAS: " + resul.getString(7) + "   /   GASTOS VARIOS: " + resul.getString(8) + "   /   INCIDENCIAS: " + resul.getString(9) + "   /   VALIDADO: " + resul.getString(10) + "   /   EXCESO: " + resul.getString(12) + "\n" + "\n", null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+                    }
+                }
+                resul.close();
+                sentencia.close();
+                conexion.close();
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (jRadioButton3Cerrados.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+
+                CallableStatement sql = conexion.prepareCall("{call LISTAPARTESCERRADOS(?)}");
+                sql.registerOutParameter(1, OracleTypes.CURSOR);
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(1);
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+
+                    try {
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                                "TRABAJADOR: " + resul.getString(11) + "   /   FECHA: " + resul.getString(3) + "   /   ESTADO: " + resul.getString(4) + "   /   KM PRINCIPIO: " + resul.getString(1) + "   /   KM FINAL: " + resul.getString(2) + "   /   GASTO GASOIL: " + resul.getString(5) + "   /   GASTO AUTOPISTA: " + resul.getString(6) + "   /   DIETAS: " + resul.getString(7) + "   /   GASTOS VARIOS: " + resul.getString(8) + "   /   INCIDENCIAS: " + resul.getString(9) + "   /   VALIDADO: " + resul.getString(10) + "   /   EXCESO: " + resul.getString(12) + "\n" + "\n", null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+                    }
+                }
+                resul.close();
+                sentencia.close();
+                conexion.close();
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            resul.close();
-            sentencia.close();
-            conexion.close();
-
-        } catch (ClassNotFoundException cn) {
-            cn.printStackTrace();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }
-        //fuente: aprenderaprogramar.com/foros/index.php?topic=1235.0
-        if (jTextPane1listadoUnParte.getText().length() == 0) {
-            JOptionPane.showMessageDialog(this, "trabajador inexistente con los datos indicados");
-        }
-    }//GEN-LAST:event_jButton1ListarParaPoderEliminarActionPerformed
-
-    private void jButton1partesAbiertosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1partesAbiertosActionPerformed
-        try {
-            Class.forName("java.sql.DriverManager");
-            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-
-            Statement sentencia = conexion.createStatement();
-
-            CallableStatement sql = conexion.prepareCall("{call LISTAPARTESABIERTOS(?)}");
-            sql.registerOutParameter(1, OracleTypes.CURSOR);
-            sql.execute();
-
-            ResultSet resul = (ResultSet) sql.getObject(1);
-            Document otroDocumento = jTextPane1ListPartesAbiertos1.getStyledDocument();
-            while (resul.next()) {
-
-                try {
-                    otroDocumento.insertString(otroDocumento.getLength(),
-                            "TRABAJADOR: " + resul.getString(11) + "   /   FECHA: " + resul.getString(3) + "   /   ESTADO: " + resul.getString(4) + "   /   KM PRINCIPIO: " + resul.getString(1) + "   /   KM FINAL: " + resul.getString(2) + "   /   GASTO GASOIL: " + resul.getString(5) + "   /   GASTO AUTOPISTA: " + resul.getString(6) + "   /   DIETAS: " + resul.getString(7) + "   /   GASTOS VARIOS: " + resul.getString(8) + "   /   INCIDENCIAS: " + resul.getString(9) + "   /   VALIDADO: " + resul.getString(10) + "   /   EXCESO: " + resul.getString(12) + "\n" + "\n", null);
-
-                } catch (BadLocationException ble) {
-                    ble.printStackTrace();
-                }
-            }
-            resul.close();
-            sentencia.close();
-            conexion.close();
-        } catch (ClassNotFoundException cn) {
-            cn.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
 
-    }//GEN-LAST:event_jButton1partesAbiertosActionPerformed
+    }//GEN-LAST:event_jButton1VerPartesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
@@ -314,89 +298,459 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2EliminarParteActionPerformed
 
-    private void jButton1ListarPartPorTrabYFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ListarPartPorTrabYFechaActionPerformed
-       try {
-            Class.forName("java.sql.DriverManager");
-            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-
-            Statement sentencia = conexion.createStatement();
-            String trab = jTextField1LisPartePorTrabajador.getText();
-            String fecha = jTextField1ListPartePorTrabyFech.getText();
-
-            CallableStatement sql = conexion.prepareCall("{call LISTARUNPARTE(?, ?,  ?)}");
-            sql.registerOutParameter(3, OracleTypes.CURSOR);
-            sql.setString(1, trab);
-            sql.setString(2, fecha);
-            sql.execute();
-
-            ResultSet resul = (ResultSet) sql.getObject(3);
-            Document otroDocumento = jTextPane1listadoUnParte.getStyledDocument();
-            while (resul.next()) {
-                try {
-
-                    pr.setUsuario(resul.getString(1));
-                    pr.setFecha(resul.getDate(2).toString());
-                    pr.setEstado(resul.getString(3));
-                    pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
-                    pr.setKmFinal(Double.parseDouble(resul.getString(5)));
-                    pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
-                    pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
-                    pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
-                    pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
-                    pr.setIncidencias(resul.getString(10));
-                    pr.setValidar(resul.getString(11));
-                    pr.setExceso(Double.parseDouble(resul.getString(12)));
-                    /*
-                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
-GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
-                     */
-                    otroDocumento.insertString(otroDocumento.getLength(),
-                            "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
-                            + "\n" + "KM FINAL: " + pr.getKmFinal()
-                            + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
-                            + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
-                            + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
-                            + "VALIDADO: " + pr.getValidar() + "\n"
-                            + "EXCESO: " + pr.getExceso(), null);
-
-                  
-
-                } catch (BadLocationException ble) {
-                    ble.printStackTrace();
-
-                }
-
-            }
-
-            resul.close();
-            sentencia.close();
-            conexion.close();
-
-        } catch (ClassNotFoundException cn) {
-            cn.printStackTrace();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-
-        }
-        //fuente: aprenderaprogramar.com/foros/index.php?topic=1235.0
-        if (jTextPane1listadoUnParte.getText().length() == 0) {
-            JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
-        }
-                                                                   
-
-
-    }//GEN-LAST:event_jButton1ListarPartPorTrabYFechaActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         VentanaAdministrador va = new VentanaAdministrador();
         va.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton4FiltrarPorFechasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4FiltrarPorFechasActionPerformed
+        if (jRadioButton1Todos.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+                String usu = jTextField1ParaFiltrarPorUsuario.getText();
+                String fecha1 = jTextField1Fecha1.getText();
+                String fecha2 = jTextField2Fecha2.getText();
+
+                CallableStatement sql = conexion.prepareCall("{call LISPARTESPORTRABAJADORYRANGO(?, ?, ?,  ?)}");
+                sql.registerOutParameter(4, OracleTypes.CURSOR);
+                sql.setString(1, usu);
+                sql.setString(2, fecha1);
+                sql.setString(3, fecha2);
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(4);
+
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+                    try {
+                        pr = new Parte();
+                        /*este objeton perte es por si acaso lo necesito en el futuro*/
+                        pr.setUsuario(resul.getString(1));
+                        pr.setFecha(resul.getDate(2));
+                        pr.setEstado(resul.getString(3));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
+                        pr.setIncidencias(resul.getString(10));
+                        pr.setValidar(resul.getString(11));
+                        pr.setExceso(Double.parseDouble(resul.getString(12)));
+                        /*
+                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
+GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
+                         */
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
+                                + "\n" + "KM FINAL: " + pr.getKmFinal()
+                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
+                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
+                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
+                                + "VALIDADO: " + pr.getValidar() + "\n"
+                                + "EXCESO: " + pr.getExceso(), null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+
+                    }
+
+                }
+
+                resul.close();
+                sentencia.close();
+                conexion.close();
+
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, e.getMessage());
+
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (jRadioButton2Abiertos.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+                String usu = jTextField1ParaFiltrarPorUsuario.getText();
+                String fecha1 = jTextField1Fecha1.getText();
+                String fecha2 = jTextField2Fecha2.getText();
+
+                CallableStatement sql = conexion.prepareCall("{call LISPARTESTRABAJADORYRANGOABI(?, ?, ?,  ?)}");
+                sql.registerOutParameter(4, OracleTypes.CURSOR);
+                sql.setString(1, usu);
+                sql.setString(2, fecha1);
+                sql.setString(3, fecha2);
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(4);
+
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+                    try {
+                        pr = new Parte();
+                        /*este objeton perte es por si acaso lo necesito en el futuro*/
+                        pr.setUsuario(resul.getString(1));
+                        pr.setFecha(resul.getDate(2));
+                        pr.setEstado(resul.getString(3));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
+                        pr.setIncidencias(resul.getString(10));
+                        pr.setValidar(resul.getString(11));
+                        pr.setExceso(Double.parseDouble(resul.getString(12)));
+                        /*
+                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
+GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
+                         */
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
+                                + "\n" + "KM FINAL: " + pr.getKmFinal()
+                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
+                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
+                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
+                                + "VALIDADO: " + pr.getValidar() + "\n"
+                                + "EXCESO: " + pr.getExceso(), null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+
+                    }
+
+                }
+
+                resul.close();
+                sentencia.close();
+                conexion.close();
+
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, e.getMessage());
+
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (jRadioButton3Cerrados.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+                String usu = jTextField1ParaFiltrarPorUsuario.getText();
+                String fecha1 = jTextField1Fecha1.getText();
+                String fecha2 = jTextField2Fecha2.getText();
+
+                CallableStatement sql = conexion.prepareCall("{call LISPARTESTRABAJADORYRANGOCER(?, ?, ?,  ?)}");
+                sql.registerOutParameter(4, OracleTypes.CURSOR);
+                sql.setString(1, usu);
+                sql.setString(2, fecha1);
+                sql.setString(3, fecha2);
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(4);
+
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+                    try {
+                        pr = new Parte();
+                        /*este objeton perte es por si acaso lo necesito en el futuro*/
+                        pr.setUsuario(resul.getString(1));
+                        pr.setFecha(resul.getDate(2));
+                        pr.setEstado(resul.getString(3));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
+                        pr.setIncidencias(resul.getString(10));
+                        pr.setValidar(resul.getString(11));
+                        pr.setExceso(Double.parseDouble(resul.getString(12)));
+                        /*
+                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
+GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
+                         */
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
+                                + "\n" + "KM FINAL: " + pr.getKmFinal()
+                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
+                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
+                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
+                                + "VALIDADO: " + pr.getValidar() + "\n"
+                                + "EXCESO: " + pr.getExceso(), null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+
+                    }
+
+                }
+
+                resul.close();
+                sentencia.close();
+                conexion.close();
+
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, e.getMessage());
+
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }//GEN-LAST:event_jButton4FiltrarPorFechasActionPerformed
+
+    private void jButton4FiltrarPorFechas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4FiltrarPorFechas1ActionPerformed
+        if (jRadioButton1Todos.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+                String usu = jTextField1ParaFiltrarPorUsuario.getText();
+                String fecha1 = jTextField1Fecha1.getText();
+                String fecha2 = jTextField2Fecha2.getText();
+
+                CallableStatement sql = conexion.prepareCall("{call LISPARTESPORRANGO(?, ?, ?)}");
+                sql.registerOutParameter(3, OracleTypes.CURSOR);
+                sql.setString(1, fecha1);
+                sql.setString(2, fecha2);
+
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(3);
+
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+                    try {
+                        pr = new Parte();
+                        /*este objeton perte es por si acaso lo necesito en el futuro*/
+                        pr.setUsuario(resul.getString(1));
+                        pr.setFecha(resul.getDate(2));
+                        pr.setEstado(resul.getString(3));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
+                        pr.setIncidencias(resul.getString(10));
+                        pr.setValidar(resul.getString(11));
+                        pr.setExceso(Double.parseDouble(resul.getString(12)));
+                        /*
+                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
+GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
+                         */
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
+                                + "\n" + "KM FINAL: " + pr.getKmFinal()
+                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
+                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
+                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
+                                + "VALIDADO: " + pr.getValidar() + "\n"
+                                + "EXCESO: " + pr.getExceso(), null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+
+                    }
+
+                }
+
+                resul.close();
+                sentencia.close();
+                conexion.close();
+
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, e.getMessage());
+
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (jRadioButton2Abiertos.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+                String usu = jTextField1ParaFiltrarPorUsuario.getText();
+                String fecha1 = jTextField1Fecha1.getText();
+                String fecha2 = jTextField2Fecha2.getText();
+
+                CallableStatement sql = conexion.prepareCall("{call LISPARTESPORRANGOABIERTOS(?, ?, ?)}");
+                sql.registerOutParameter(3, OracleTypes.CURSOR);
+                sql.setString(1, fecha1);
+                sql.setString(2, fecha2);
+
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(3);
+
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+                    try {
+                        pr = new Parte();
+                        /*este objeton perte es por si acaso lo necesito en el futuro*/
+                        pr.setUsuario(resul.getString(1));
+                        pr.setFecha(resul.getDate(2));
+                        pr.setEstado(resul.getString(3));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
+                        pr.setIncidencias(resul.getString(10));
+                        pr.setValidar(resul.getString(11));
+                        pr.setExceso(Double.parseDouble(resul.getString(12)));
+                        /*
+                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
+GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
+                         */
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
+                                + "\n" + "KM FINAL: " + pr.getKmFinal()
+                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
+                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
+                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
+                                + "VALIDADO: " + pr.getValidar() + "\n"
+                                + "EXCESO: " + pr.getExceso(), null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+
+                    }
+
+                }
+
+                resul.close();
+                sentencia.close();
+                conexion.close();
+
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, e.getMessage());
+
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (jRadioButton3Cerrados.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+                String usu = jTextField1ParaFiltrarPorUsuario.getText();
+                String fecha1 = jTextField1Fecha1.getText();
+                String fecha2 = jTextField2Fecha2.getText();
+
+                CallableStatement sql = conexion.prepareCall("{call LISPARTESPORRANGOCERRADOS(?, ?, ?)}");
+                sql.registerOutParameter(3, OracleTypes.CURSOR);
+                sql.setString(1, fecha1);
+                sql.setString(2, fecha2);
+
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(3);
+
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+                    try {
+                        pr = new Parte();
+                        /*este objeton perte es por si acaso lo necesito en el futuro*/
+                        pr.setUsuario(resul.getString(1));
+                        pr.setFecha(resul.getDate(2));
+                        pr.setEstado(resul.getString(3));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
+                        pr.setIncidencias(resul.getString(10));
+                        pr.setValidar(resul.getString(11));
+                        pr.setExceso(Double.parseDouble(resul.getString(12)));
+                        /*
+                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
+GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
+                         */
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
+                                + "\n" + "KM FINAL: " + pr.getKmFinal()
+                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
+                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
+                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
+                                + "VALIDADO: " + pr.getValidar() + "\n"
+                                + "EXCESO: " + pr.getExceso(), null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+
+                    }
+
+                }
+
+                resul.close();
+                sentencia.close();
+                conexion.close();
+
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, e.getMessage());
+
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }//GEN-LAST:event_jButton4FiltrarPorFechas1ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        SI HOPRAS TOTALES >8
+             JOptionPane.showMessageDialog(this, "");   
+        
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -408,16 +762,24 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaGestionPartes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaGestionPartes.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaGestionPartes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaGestionPartes.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaGestionPartes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaGestionPartes.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaGestionPartes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaGestionPartes.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -431,26 +793,31 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Validad;
+    private javax.swing.ButtonGroup bgEstadoParte;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton1ListarParaPoderEliminar;
-    private javax.swing.JButton jButton1ListarPartPorTrabYFecha;
-    private javax.swing.JButton jButton1partesAbiertos;
+    private javax.swing.JButton jButton1VerPartes;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton2EliminarParte;
-    private javax.swing.JButton jButton2partesCerrados;
+    private javax.swing.JButton jButton4FiltrarPorFechas;
+    private javax.swing.JButton jButton4FiltrarPorFechas1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPopupMenu jPopupMenu1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JRadioButton jRadioButton1Todos;
+    private javax.swing.JRadioButton jRadioButton2Abiertos;
+    private javax.swing.JRadioButton jRadioButton3Cerrados;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1LisPartePorTrabajador;
-    private javax.swing.JTextField jTextField1ListPartePorFecha;
-    private javax.swing.JTextField jTextField1ListPartePorTrabyFech;
-    private javax.swing.JTextPane jTextPane1ListPartesAbiertos1;
-    private javax.swing.JTextPane jTextPane1ListPartesCerrados;
-    private javax.swing.JTextPane jTextPane1listadoUnParte;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField1Fecha1;
+    private javax.swing.JTextField jTextField1ParaFiltrarPorUsuario;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField2Fecha2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextPane jTextPane1ListPartes;
     // End of variables declaration//GEN-END:variables
 }
