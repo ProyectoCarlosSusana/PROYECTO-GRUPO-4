@@ -23,6 +23,7 @@ import oracle.jdbc.OracleTypes;
  * @author acer
  */
 public class VentanaGestionPartes extends javax.swing.JFrame {
+                
 
     /**
      * Creates new form GestionPartes
@@ -70,6 +71,8 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -84,7 +87,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jTextPane1ListPartes);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 828, 320));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 828, 110));
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -149,12 +152,15 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
         bgEstadoParte.add(jRadioButton3Cerrados);
         jRadioButton3Cerrados.setText("Cerrados");
+        jRadioButton3Cerrados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3CerradosActionPerformed(evt);
+            }
+        });
         getContentPane().add(jRadioButton3Cerrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
-        jLabel1.setText("nOMBRE");
+        jLabel1.setText("Nombre");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
-
-        jTextField1.setText("jTextField1");
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
 
         jLabel2.setText("NUM PARTE");
@@ -177,6 +183,18 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         });
         getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, -1, -1));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "TRABAJADOR", "USUARIO", "FECHA", "ESTADO", "KM PRINCIPIO", "KM FINAL", "G. GASOIL", "G. AUTOPISTA", "G. DIETAS", "G. VARIOS", "INCIDENCIAS", "VALIDADO", "EXCESO"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 910, 150));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -184,6 +202,119 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
         if (jRadioButton1Todos.isSelected()) {
             try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+
+                CallableStatement sql = conexion.prepareCall("{call LISTARPARTES(?)}");
+                sql.registerOutParameter(1, OracleTypes.CURSOR);
+                sql.execute();
+                /*
+                
+                */
+
+                ResultSet resul = (ResultSet) sql.getObject(1);
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+
+                    try {
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                              "NUM. PARTE: " + resul.getString(1) +  "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+                    }
+                }
+                resul.close();
+                sentencia.close();
+                conexion.close();
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (jRadioButton2Abiertos.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+
+                CallableStatement sql = conexion.prepareCall("{call LISTAPARTESABIERTOS(?)}");
+                sql.registerOutParameter(1, OracleTypes.CURSOR);
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(1);
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+
+                    try {
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                              "NUM. PARTE: " + resul.getString(1) +  "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+                    }
+                }
+                resul.close();
+                sentencia.close();
+                conexion.close();
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else if (jRadioButton3Cerrados.isSelected()) {
+            try {
+                Class.forName("java.sql.DriverManager");
+                Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+
+                Statement sentencia = conexion.createStatement();
+
+                CallableStatement sql = conexion.prepareCall("{call LISTAPARTESCERRADOS(?)}");
+                sql.registerOutParameter(1, OracleTypes.CURSOR);
+                sql.execute();
+
+                ResultSet resul = (ResultSet) sql.getObject(1);
+                Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
+                otroDocumento.remove(0, otroDocumento.getLength());
+                while (resul.next()) {
+
+                    try {
+                        otroDocumento.insertString(otroDocumento.getLength(),
+                              "NUM. PARTE: " + resul.getString(1) +  "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
+
+                    } catch (BadLocationException ble) {
+                        ble.printStackTrace();
+                    }
+                }
+                resul.close();
+                sentencia.close();
+                conexion.close();
+            } catch (ClassNotFoundException cn) {
+                cn.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+            } catch (BadLocationException ex) {
+                Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+         if (jTextPane1ListPartes.getText().length() == 0) {
+                        JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
+                    }
+    }
+    
+
+    /*   try {
                 Class.forName("java.sql.DriverManager");
                 Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
@@ -289,7 +420,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton1VerPartesActionPerformed
-
+*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -472,7 +603,7 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                 while (resul.next()) {
                     try {
                         pr = new Parte();
-                        /*este objeton perte es por si acaso lo necesito en el futuro*/
+                        /*por si lo necesito*/
                         pr.setUsuario(resul.getString(1));
                         pr.setFecha(resul.getDate(2));
                         pr.setEstado(resul.getString(3));
@@ -520,6 +651,10 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                 Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+                            if (jTextPane1ListPartes.getText().length() == 0) {
+                        JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
+                    }
+
 
     }//GEN-LAST:event_jButton4FiltrarPorFechasActionPerformed
 
@@ -738,15 +873,22 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                 Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+                 if (jTextPane1ListPartes.getText().length() == 0) {
+                        JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
+                    }
 
     }//GEN-LAST:event_jButton4FiltrarPorFechas1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-        SI HOPRAS TOTALES >8
-             JOptionPane.showMessageDialog(this, "");   
-        
+   //     SI HOPRAS TOTALES > 8
+        JOptionPane.showMessageDialog(this, "");
+
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jRadioButton3CerradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3CerradosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3CerradosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -811,7 +953,9 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
     private javax.swing.JRadioButton jRadioButton1Todos;
     private javax.swing.JRadioButton jRadioButton2Abiertos;
     private javax.swing.JRadioButton jRadioButton3Cerrados;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField1Fecha1;
     private javax.swing.JTextField jTextField1ParaFiltrarPorUsuario;
