@@ -5,6 +5,8 @@
  */
 package com.susana;
 
+import com.susana.Entidades.Parte;
+
 /**
  *
  * @author acer

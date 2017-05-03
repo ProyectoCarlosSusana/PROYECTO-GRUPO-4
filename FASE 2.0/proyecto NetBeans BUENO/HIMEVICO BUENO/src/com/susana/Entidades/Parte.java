@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.susana;
+package com.susana.Entidades;
+import com.susana.Aviso;
+import com.susana.Transportista;
+import com.susana.Viaje;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -24,6 +27,7 @@ public class Parte {
    private String validar;
    private double Exceso;
    private String usuario;
+   private int numParte;
    
    private Aviso aviso;
    private ArrayList<Viaje> viajes;
@@ -32,7 +36,7 @@ public class Parte {
     public Parte() {
     }
 
-    public Parte(double kmPrincipio, double kmFinal, Date fecha, String estado, double gastoGasoil, double gastoAutopista, double gastoDietas, double gastosVarios, String incidencias, String validar, double Exceso, String usuario, Aviso aviso, Transportista transportista) {
+    public Parte(int numParte, double kmPrincipio, double kmFinal, Date fecha, String estado, double gastoGasoil, double gastoAutopista, double gastoDietas, double gastosVarios, String incidencias, String validar, double Exceso, String usuario, Aviso aviso, Transportista transportista) {
         this.kmPrincipio = kmPrincipio;
         this.kmFinal = kmFinal;
         this.fecha = fecha;
@@ -47,6 +51,15 @@ public class Parte {
         this.usuario = usuario;
         this.aviso = aviso;
         this.transportista = transportista;
+        this.numParte = numParte;
+    }
+
+    public int getNumParte() {
+        return numParte;
+    }
+
+    public void setNumParte(int numParte) {
+        this.numParte = numParte;
     }
 
     public double getKmPrincipio() {

@@ -54,7 +54,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="80" width="828" height="110"/>
+          <AbsoluteConstraints x="20" y="80" width="828" height="20"/>
         </Constraint>
       </Constraints>
 
@@ -299,7 +299,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="20" y="200" width="910" height="150"/>
+          <AbsoluteConstraints x="20" y="210" width="910" height="150"/>
         </Constraint>
       </Constraints>
 
@@ -308,21 +308,7 @@
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="13" rowCount="0">
-                <Column editable="true" title="TRABAJADOR" type="java.lang.Object"/>
-                <Column editable="true" title="USUARIO" type="java.lang.Object"/>
-                <Column editable="true" title="FECHA" type="java.lang.Object"/>
-                <Column editable="true" title="ESTADO" type="java.lang.Object"/>
-                <Column editable="true" title="KM PRINCIPIO" type="java.lang.Object"/>
-                <Column editable="true" title="KM FINAL" type="java.lang.Object"/>
-                <Column editable="true" title="G. GASOIL" type="java.lang.Object"/>
-                <Column editable="true" title="G. AUTOPISTA" type="java.lang.Object"/>
-                <Column editable="true" title="G. DIETAS" type="java.lang.Object"/>
-                <Column editable="true" title="G. VARIOS" type="java.lang.Object"/>
-                <Column editable="true" title="INCIDENCIAS" type="java.lang.Object"/>
-                <Column editable="true" title="VALIDADO" type="java.lang.Object"/>
-                <Column editable="true" title="EXCESO" type="java.lang.Object"/>
-              </Table>
+              <Table columnCount="0" rowCount="0"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
@@ -400,5 +386,19 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1FechaFin">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="520" y="370" width="150" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1FechaInicio1">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="330" y="370" width="150" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
   </SubComponents>
 </Form>

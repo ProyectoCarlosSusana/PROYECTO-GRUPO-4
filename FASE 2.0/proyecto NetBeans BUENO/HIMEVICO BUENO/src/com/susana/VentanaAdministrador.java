@@ -5,6 +5,8 @@
  */
 package com.susana;
 
+import com.susana.GUI.VentanaGestionPartes;
+
 /**
  *
  * @author acer

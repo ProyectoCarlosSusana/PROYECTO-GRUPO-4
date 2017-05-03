@@ -5,6 +5,7 @@
  */
 package com.susana;
 
+import com.susana.Entidades.Parte;
 import java.util.ArrayList;
 
 /**

@@ -3,14 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.susana;
+package com.susana.GUI;
 
+import com.susana.Entidades.Parte;
+import com.susana.LogicaNegocio.PartesLN;
+import com.susana.Transportista;
+import com.susana.VentanaAdministrador;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,19 +28,24 @@ import oracle.jdbc.OracleTypes;
  * @author acer
  */
 public class VentanaGestionPartes extends javax.swing.JFrame {
-                
+
+    PartesLN partes;
+    Transportista tr;
+    Parte pr;
 
     /**
      * Creates new form GestionPartes
      */
     public VentanaGestionPartes() {
         initComponents();
+        partes = new PartesLN();
+        ListarTabla();
         this.setLocationRelativeTo(null);
     }
 
-    Transportista tr;
-    Parte pr;
-
+    private void ListarTabla (){
+   List<Parte> lista = partes.listarDatos();
+           }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +83,8 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jDateChooser1FechaFin = new com.toedter.calendar.JDateChooser();
+        jDateChooser1FechaInicio1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -87,7 +99,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
         jScrollPane2.setViewportView(jTextPane1ListPartes);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 828, 110));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 828, 20));
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -188,12 +200,14 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "TRABAJADOR", "USUARIO", "FECHA", "ESTADO", "KM PRINCIPIO", "KM FINAL", "G. GASOIL", "G. AUTOPISTA", "G. DIETAS", "G. VARIOS", "INCIDENCIAS", "VALIDADO", "EXCESO"
+
             }
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 910, 150));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 910, 150));
+        getContentPane().add(jDateChooser1FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, 150, -1));
+        getContentPane().add(jDateChooser1FechaInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 150, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -212,7 +226,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 sql.execute();
                 /*
                 
-                */
+                 */
 
                 ResultSet resul = (ResultSet) sql.getObject(1);
                 Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
@@ -221,7 +235,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
                     try {
                         otroDocumento.insertString(otroDocumento.getLength(),
-                              "NUM. PARTE: " + resul.getString(1) +  "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
+                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
 
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
@@ -255,7 +269,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
                     try {
                         otroDocumento.insertString(otroDocumento.getLength(),
-                              "NUM. PARTE: " + resul.getString(1) +  "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
+                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
 
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
@@ -289,7 +303,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
                     try {
                         otroDocumento.insertString(otroDocumento.getLength(),
-                              "NUM. PARTE: " + resul.getString(1) +  "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
+                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
 
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
@@ -308,11 +322,11 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
             }
 
         }
-         if (jTextPane1ListPartes.getText().length() == 0) {
-                        JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
-                    }
+        if (jTextPane1ListPartes.getText().length() == 0) {
+            JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
+        }
     }
-    
+
 
     /*   try {
                 Class.forName("java.sql.DriverManager");
@@ -443,14 +457,17 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
                 Statement sentencia = conexion.createStatement();
                 String usu = jTextField1ParaFiltrarPorUsuario.getText();
-                String fecha1 = jTextField1Fecha1.getText();
-                String fecha2 = jTextField2Fecha2.getText();
+                java.util.Date fecha1 = jDateChooser1FechaInicio1.getDate();
+                java.sql.Date fech1 = new java.sql.Date(fecha1.getTime());
+
+                java.util.Date fecha2 = jDateChooser1FechaFin.getDate();
+                java.sql.Date fech2 = new java.sql.Date(fecha2.getTime());
 
                 CallableStatement sql = conexion.prepareCall("{call LISPARTESPORTRABAJADORYRANGO(?, ?, ?,  ?)}");
                 sql.registerOutParameter(4, OracleTypes.CURSOR);
                 sql.setString(1, usu);
-                sql.setString(2, fecha1);
-                sql.setString(3, fecha2);
+                sql.setDate(2, fech1);
+                sql.setDate(3, fech2);
                 sql.execute();
 
                 ResultSet resul = (ResultSet) sql.getObject(4);
@@ -461,30 +478,22 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                     try {
                         pr = new Parte();
                         /*este objeton perte es por si acaso lo necesito en el futuro*/
-                        pr.setUsuario(resul.getString(1));
-                        pr.setFecha(resul.getDate(2));
-                        pr.setEstado(resul.getString(3));
-                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
-                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
-                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
-                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
-                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
-                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
-                        pr.setIncidencias(resul.getString(10));
-                        pr.setValidar(resul.getString(11));
-                        pr.setExceso(Double.parseDouble(resul.getString(12)));
-                        /*
-                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
-GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
-                         */
+                        pr.setUsuario(resul.getString(2));
+                        pr.setFecha(resul.getDate(3));
+                        pr.setEstado(resul.getString(4));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
+                        pr.setIncidencias(resul.getString(11));
+                        pr.setValidar(resul.getString(12));
+                        pr.setExceso(Double.parseDouble(resul.getString(13)));
+                        pr.setNumParte(Integer.parseInt(resul.getString(1)));
+
                         otroDocumento.insertString(otroDocumento.getLength(),
-                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
-                                + "\n" + "KM FINAL: " + pr.getKmFinal()
-                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
-                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
-                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
-                                + "VALIDADO: " + pr.getValidar() + "\n"
-                                + "EXCESO: " + pr.getExceso(), null);
+                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
 
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
@@ -514,14 +523,17 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
 
                 Statement sentencia = conexion.createStatement();
                 String usu = jTextField1ParaFiltrarPorUsuario.getText();
-                String fecha1 = jTextField1Fecha1.getText();
-                String fecha2 = jTextField2Fecha2.getText();
+                java.util.Date fecha1 = jDateChooser1FechaInicio1.getDate();
+                java.sql.Date fech1 = new java.sql.Date(fecha1.getTime());
+
+                java.util.Date fecha2 = jDateChooser1FechaFin.getDate();
+                java.sql.Date fech2 = new java.sql.Date(fecha2.getTime());
 
                 CallableStatement sql = conexion.prepareCall("{call LISPARTESTRABAJADORYRANGOABI(?, ?, ?,  ?)}");
                 sql.registerOutParameter(4, OracleTypes.CURSOR);
                 sql.setString(1, usu);
-                sql.setString(2, fecha1);
-                sql.setString(3, fecha2);
+                sql.setDate(2, fech1);
+                sql.setDate(3, fech2);
                 sql.execute();
 
                 ResultSet resul = (ResultSet) sql.getObject(4);
@@ -532,31 +544,21 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                     try {
                         pr = new Parte();
                         /*este objeton perte es por si acaso lo necesito en el futuro*/
-                        pr.setUsuario(resul.getString(1));
-                        pr.setFecha(resul.getDate(2));
-                        pr.setEstado(resul.getString(3));
-                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
-                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
-                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
-                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
-                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
-                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
-                        pr.setIncidencias(resul.getString(10));
-                        pr.setValidar(resul.getString(11));
-                        pr.setExceso(Double.parseDouble(resul.getString(12)));
-                        /*
-                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
-GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
-                         */
+                        pr.setUsuario(resul.getString(2));
+                        pr.setFecha(resul.getDate(3));
+                        pr.setEstado(resul.getString(4));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
+                        pr.setIncidencias(resul.getString(11));
+                        pr.setValidar(resul.getString(12));
+                        pr.setExceso(Double.parseDouble(resul.getString(13)));
+                        pr.setNumParte(Integer.parseInt(resul.getString(1)));
                         otroDocumento.insertString(otroDocumento.getLength(),
-                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
-                                + "\n" + "KM FINAL: " + pr.getKmFinal()
-                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
-                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
-                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
-                                + "VALIDADO: " + pr.getValidar() + "\n"
-                                + "EXCESO: " + pr.getExceso(), null);
-
+                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
 
@@ -586,14 +588,17 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
 
                 Statement sentencia = conexion.createStatement();
                 String usu = jTextField1ParaFiltrarPorUsuario.getText();
-                String fecha1 = jTextField1Fecha1.getText();
-                String fecha2 = jTextField2Fecha2.getText();
+                java.util.Date fecha1 = jDateChooser1FechaInicio1.getDate();
+                java.sql.Date fech1 = new java.sql.Date(fecha1.getTime());
+
+                java.util.Date fecha2 = jDateChooser1FechaFin.getDate();
+                java.sql.Date fech2 = new java.sql.Date(fecha2.getTime());
 
                 CallableStatement sql = conexion.prepareCall("{call LISPARTESTRABAJADORYRANGOCER(?, ?, ?,  ?)}");
                 sql.registerOutParameter(4, OracleTypes.CURSOR);
                 sql.setString(1, usu);
-                sql.setString(2, fecha1);
-                sql.setString(3, fecha2);
+                sql.setDate(2, fech1);
+                sql.setDate(3, fech2);
                 sql.execute();
 
                 ResultSet resul = (ResultSet) sql.getObject(4);
@@ -604,30 +609,22 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                     try {
                         pr = new Parte();
                         /*por si lo necesito*/
-                        pr.setUsuario(resul.getString(1));
-                        pr.setFecha(resul.getDate(2));
-                        pr.setEstado(resul.getString(3));
-                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
-                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
-                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
-                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
-                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
-                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
-                        pr.setIncidencias(resul.getString(10));
-                        pr.setValidar(resul.getString(11));
-                        pr.setExceso(Double.parseDouble(resul.getString(12)));
-                        /*
-                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
-GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
-                         */
+                        pr.setUsuario(resul.getString(2));
+                        pr.setFecha(resul.getDate(3));
+                        pr.setEstado(resul.getString(4));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
+                        pr.setIncidencias(resul.getString(11));
+                        pr.setValidar(resul.getString(12));
+                        pr.setExceso(Double.parseDouble(resul.getString(13)));
+                        pr.setNumParte(Integer.parseInt(resul.getString(1)));
+
                         otroDocumento.insertString(otroDocumento.getLength(),
-                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
-                                + "\n" + "KM FINAL: " + pr.getKmFinal()
-                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
-                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
-                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
-                                + "VALIDADO: " + pr.getValidar() + "\n"
-                                + "EXCESO: " + pr.getExceso(), null);
+                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
 
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
@@ -651,9 +648,9 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                 Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-                            if (jTextPane1ListPartes.getText().length() == 0) {
-                        JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
-                    }
+        if (jTextPane1ListPartes.getText().length() == 0) {
+            JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
+        }
 
 
     }//GEN-LAST:event_jButton4FiltrarPorFechasActionPerformed
@@ -665,14 +662,19 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                 Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
                 Statement sentencia = conexion.createStatement();
-                String usu = jTextField1ParaFiltrarPorUsuario.getText();
-                String fecha1 = jTextField1Fecha1.getText();
-                String fecha2 = jTextField2Fecha2.getText();
+                //   String usu = jTextField1ParaFiltrarPorUsuario.getText();
+
+                java.util.Date fecha1 = jDateChooser1FechaInicio1.getDate();
+                java.sql.Date fech1 = new java.sql.Date(fecha1.getTime());
+
+                java.util.Date fecha2 = jDateChooser1FechaFin.getDate();
+                java.sql.Date fech2 = new java.sql.Date(fecha2.getTime());
 
                 CallableStatement sql = conexion.prepareCall("{call LISPARTESPORRANGO(?, ?, ?)}");
                 sql.registerOutParameter(3, OracleTypes.CURSOR);
-                sql.setString(1, fecha1);
-                sql.setString(2, fecha2);
+
+                sql.setDate(1, fech1);
+                sql.setDate(2, fech2);
 
                 sql.execute();
 
@@ -684,30 +686,26 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                     try {
                         pr = new Parte();
                         /*este objeton perte es por si acaso lo necesito en el futuro*/
-                        pr.setUsuario(resul.getString(1));
-                        pr.setFecha(resul.getDate(2));
-                        pr.setEstado(resul.getString(3));
-                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
-                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
-                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
-                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
-                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
-                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
-                        pr.setIncidencias(resul.getString(10));
-                        pr.setValidar(resul.getString(11));
-                        pr.setExceso(Double.parseDouble(resul.getString(12)));
+                        pr.setUsuario(resul.getString(2));
+                        pr.setFecha(resul.getDate(3));
+                        pr.setEstado(resul.getString(4));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
+                        pr.setIncidencias(resul.getString(11));
+                        pr.setValidar(resul.getString(12));
+                        pr.setExceso(Double.parseDouble(resul.getString(13)));
+                        pr.setNumParte(Integer.parseInt(resul.getString(1)));
                         /*
-                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
-GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
+                    1 NUM_PARTE, 2 TRABAJADOR_USUARIO, 3 FECHA, 4 ESTADO,  
+                        5 KM_PRINCIPIO, 6 KM_FINAL, 7 GASTO_GASOIL, 8 GASTO_AUTOPISTA, 
+9 GASTO_DIETAS, 10 GASTOS_VARIOS, 11 INCIDENCIAS, 12 VALIDADO,  13 EXCESO 
                          */
                         otroDocumento.insertString(otroDocumento.getLength(),
-                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
-                                + "\n" + "KM FINAL: " + pr.getKmFinal()
-                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
-                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
-                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
-                                + "VALIDADO: " + pr.getValidar() + "\n"
-                                + "EXCESO: " + pr.getExceso(), null);
+                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(2) + "   /   FECHA: " + resul.getString(3) + "   /   ESTADO: " + resul.getString(4) + "   /   KM PRINCIPIO: " + resul.getString(5) + "   /   KM FINAL: " + resul.getString(6) + "   /   GASTO GASOIL: " + resul.getString(7) + "   /   GASTO AUTOPISTA: " + resul.getString(8) + "   /   DIETAS: " + resul.getString(9) + "   /   GASTOS VARIOS: " + resul.getString(10) + "   /   INCIDENCIAS: " + resul.getString(11) + "   /   VALIDADO: " + resul.getString(12) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
 
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
@@ -736,14 +734,20 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                 Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
                 Statement sentencia = conexion.createStatement();
-                String usu = jTextField1ParaFiltrarPorUsuario.getText();
-                String fecha1 = jTextField1Fecha1.getText();
-                String fecha2 = jTextField2Fecha2.getText();
+                //   String usu = jTextField1ParaFiltrarPorUsuario.getText();
+                //   String fecha1 = jTextField1Fecha1.getText();
+                //    String fecha2 = jTextField2Fecha2.getText();
+
+                java.util.Date fecha1 = jDateChooser1FechaInicio1.getDate();
+                java.sql.Date fech1 = new java.sql.Date(fecha1.getTime());
+
+                java.util.Date fecha2 = jDateChooser1FechaFin.getDate();
+                java.sql.Date fech2 = new java.sql.Date(fecha2.getTime());
 
                 CallableStatement sql = conexion.prepareCall("{call LISPARTESPORRANGOABIERTOS(?, ?, ?)}");
                 sql.registerOutParameter(3, OracleTypes.CURSOR);
-                sql.setString(1, fecha1);
-                sql.setString(2, fecha2);
+                sql.setDate(1, fech1);
+                sql.setDate(2, fech2);
 
                 sql.execute();
 
@@ -755,30 +759,25 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                     try {
                         pr = new Parte();
                         /*este objeton perte es por si acaso lo necesito en el futuro*/
-                        pr.setUsuario(resul.getString(1));
-                        pr.setFecha(resul.getDate(2));
-                        pr.setEstado(resul.getString(3));
-                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
-                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
-                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
-                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
-                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
-                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
-                        pr.setIncidencias(resul.getString(10));
-                        pr.setValidar(resul.getString(11));
-                        pr.setExceso(Double.parseDouble(resul.getString(12)));
+                        pr.setUsuario(resul.getString(2));
+                        pr.setFecha(resul.getDate(3));
+                        pr.setEstado(resul.getString(4));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
+                        pr.setIncidencias(resul.getString(11));
+                        pr.setValidar(resul.getString(12));
+                        pr.setExceso(Double.parseDouble(resul.getString(13)));
+                        pr.setNumParte(Integer.parseInt(resul.getString(1)));
                         /*
-                    TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
-GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
+                        /*
+                 
                          */
                         otroDocumento.insertString(otroDocumento.getLength(),
-                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
-                                + "\n" + "KM FINAL: " + pr.getKmFinal()
-                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
-                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
-                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
-                                + "VALIDADO: " + pr.getValidar() + "\n"
-                                + "EXCESO: " + pr.getExceso(), null);
+                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
 
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
@@ -807,14 +806,20 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                 Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
                 Statement sentencia = conexion.createStatement();
-                String usu = jTextField1ParaFiltrarPorUsuario.getText();
-                String fecha1 = jTextField1Fecha1.getText();
-                String fecha2 = jTextField2Fecha2.getText();
+                //  String usu = jTextField1ParaFiltrarPorUsuario.getText();
+                //  String fecha1 = jTextField1Fecha1.getText();
+                //   String fecha2 = jTextField2Fecha2.getText();
+
+                java.util.Date fecha1 = jDateChooser1FechaInicio1.getDate();
+                java.sql.Date fech1 = new java.sql.Date(fecha1.getTime());
+
+                java.util.Date fecha2 = jDateChooser1FechaFin.getDate();
+                java.sql.Date fech2 = new java.sql.Date(fecha2.getTime());
 
                 CallableStatement sql = conexion.prepareCall("{call LISPARTESPORRANGOCERRADOS(?, ?, ?)}");
                 sql.registerOutParameter(3, OracleTypes.CURSOR);
-                sql.setString(1, fecha1);
-                sql.setString(2, fecha2);
+                sql.setDate(1, fech1);
+                sql.setDate(2, fech2);
 
                 sql.execute();
 
@@ -826,30 +831,26 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                     try {
                         pr = new Parte();
                         /*este objeton perte es por si acaso lo necesito en el futuro*/
-                        pr.setUsuario(resul.getString(1));
-                        pr.setFecha(resul.getDate(2));
-                        pr.setEstado(resul.getString(3));
-                        pr.setKmPrincipio(Double.parseDouble(resul.getString(4)));
-                        pr.setKmFinal(Double.parseDouble(resul.getString(5)));
-                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
-                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
-                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
-                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
-                        pr.setIncidencias(resul.getString(10));
-                        pr.setValidar(resul.getString(11));
-                        pr.setExceso(Double.parseDouble(resul.getString(12)));
+                        pr.setUsuario(resul.getString(2));
+                        pr.setFecha(resul.getDate(3));
+                        pr.setEstado(resul.getString(4));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
+                        pr.setIncidencias(resul.getString(11));
+                        pr.setValidar(resul.getString(12));
+                        pr.setExceso(Double.parseDouble(resul.getString(13)));
+                        pr.setNumParte(Integer.parseInt(resul.getString(1)));
+                        /*
                         /*
                     TRABAJADOR_USUARIO, FECHA, ESTADO,  KM_PRINCIPIO, KM_FINAL, GASTO_GASOIL, GASTO_AUTOPISTA, 
 GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                          */
                         otroDocumento.insertString(otroDocumento.getLength(),
-                                "TRABAJADOR_USUARIO: " + pr.getUsuario() + "\n" + "FECHA: " + pr.getFecha() + "\n" + "ESTADO: " + pr.getEstado() + "\n" + "KM PRINCIPIO: " + pr.getKmPrincipio()
-                                + "\n" + "KM FINAL: " + pr.getKmFinal()
-                                + "G. GASOIL: " + pr.getGastoGasoil() + "\n" + "g. AUTOPISTA: " + pr.getGastoAutopista()
-                                + "DIETAS: " + pr.getGastoDietas() + "\n" + "G. VARIOS: " + pr.getGastosVarios() + "\n"
-                                + "INCIDENCIAS: " + pr.getIncidencias() + "\n"
-                                + "VALIDADO: " + pr.getValidar() + "\n"
-                                + "EXCESO: " + pr.getExceso(), null);
+                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
 
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
@@ -873,15 +874,15 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
                 Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-                 if (jTextPane1ListPartes.getText().length() == 0) {
-                        JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
-                    }
+        if (jTextPane1ListPartes.getText().length() == 0) {
+            JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
+        }
 
     }//GEN-LAST:event_jButton4FiltrarPorFechas1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-   //     SI HOPRAS TOTALES > 8
+        //     SI HOPRAS TOTALES > 8
         JOptionPane.showMessageDialog(this, "");
 
     }//GEN-LAST:event_jCheckBox1ActionPerformed
@@ -943,6 +944,8 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
     private javax.swing.JButton jButton4FiltrarPorFechas;
     private javax.swing.JButton jButton4FiltrarPorFechas1;
     private javax.swing.JCheckBox jCheckBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1FechaFin;
+    private com.toedter.calendar.JDateChooser jDateChooser1FechaInicio1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
