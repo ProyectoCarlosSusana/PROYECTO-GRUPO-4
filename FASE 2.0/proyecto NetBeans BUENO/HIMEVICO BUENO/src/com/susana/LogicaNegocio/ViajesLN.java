@@ -7,30 +7,33 @@ package com.susana.LogicaNegocio;
 
 import com.susana.DAO.*;
 import com.susana.Entidades.Parte;
+import java.sql.Date;
+import java.sql.Time;
 
 /**
  *
  * @author acer
  */
-public class PartesLN {
-    PartesDAO pdao =new PartesDAO();
+public class ViajesLN {
+    ViajesDAO vdao =new ViajesDAO();
     
     public void insertarDatos (Parte p){
-        pdao.insertarDatos(p);    
+        vdao.insertarDatos(p);    
     }
     public void actualizarDatos (Parte p){
-        pdao.actualizarDatos(p);
+        vdao.actualizarDatos(p);
     }
     public void borrarDatos (Parte p){
-        pdao.borrarDatos(p);
+        vdao.borrarDatos(p);
     }
     public void listarDatos (Parte p){
-        pdao.listarDatos(p);
+        vdao.listarDatos(p);
     }    
 
     public String getSumaHorasViajes(String fechaParte) {
-        ViajesLN vln= new ViajesLN();
-        return vln.getSumaHorasViajes(fechaParte);
+        Date fp=Date.valueOf(fechaParte);
+        Time t=vdao.sumarHoras(fp);
+        return t.toString();
     }
     
 }

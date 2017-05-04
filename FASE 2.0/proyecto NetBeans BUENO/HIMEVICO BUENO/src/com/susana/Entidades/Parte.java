@@ -54,6 +54,14 @@ public class Parte {
         this.numParte = numParte;
     }
 
+    public ArrayList<Viaje> getViajes() {
+        return viajes;
+    }
+
+    public void setViajes(ArrayList<Viaje> viajes) {
+        this.viajes = viajes;
+    }
+
     public int getNumParte() {
         return numParte;
     }
@@ -172,6 +180,15 @@ public class Parte {
 
     public void setTransportista(Transportista transportista) {
         this.transportista = transportista;
+    }
+
+    @Override
+    public String toString() {
+        return "Parte{" + "kmPrincipio=" + kmPrincipio + ", kmFinal=" + kmFinal + ", fecha=" + fecha + ", estado=" + estado + ", gastoGasoil=" + gastoGasoil + ", gastoAutopista=" + gastoAutopista + ", gastoDietas=" + gastoDietas + ", gastosVarios=" + gastosVarios + ", incidencias=" + incidencias + ", validar=" + validar + ", Exceso=" + Exceso + ", usuario=" + usuario + ", numParte=" + numParte + '}';
+    }
+
+    public Object get(int index) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
    

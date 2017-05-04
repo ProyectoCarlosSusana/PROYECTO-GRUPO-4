@@ -8,9 +8,12 @@ package com.susana.DAO;
 import com.susana.Entidades.Parte;
 import com.susana.Login;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,7 +22,7 @@ import javax.swing.JOptionPane;
  *
  * @author acer
  */
-public class PartesDAO {
+public class ViajesDAO {
 
     ConexionTest conexion = new ConexionTest();
 
@@ -32,7 +35,7 @@ public class PartesDAO {
 
             cxn = conexion.getConexion();
             //cxn.setAutoCommit(false);
-            String sql = "INSERT INTO  PARTE( NUM_PARTE, TRABAJADOR_USUARIO,  FECHA,  ESTADO, "
+            String sql = "INSERT INTO  VIAJE( NUM_PARTE, TRABAJADOR_USUARIO,  FECHA,  ESTADO, "
                     + "KM_PRINCIPIO, KM_FINAL,  GASTO_GASOIL, GASTO_AUTOPISTA,"
                     + "GASTO_DIETAS, GASTOS_VARIOS,  INCIDENCIAS, VALIDADO,   EXCESO "
                     + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -79,7 +82,7 @@ public class PartesDAO {
                     + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
              */
             cxn = conexion.getConexion();
-            String sql = "UPDATE PARTE SET TRABAJADOR_USUARIO = ?, ESTADO = ?, KM_PRINCIPIO = ?, KM_FINAL = ?,GASTO_GASOIL=?,"
+            String sql = "UPDATE VIAJE SET TRABAJADOR_USUARIO = ?, ESTADO = ?, KM_PRINCIPIO = ?, KM_FINAL = ?,GASTO_GASOIL=?,"
                     + " GASTO_AUTOPISTA=?, GASTO_DIETAS=?, GASTOS_VARIOS=?,"
                     + " INCIDENCIAS=?, VALIDADO=?, EXCESO=?  WHERE VALIDADO=?";
             sentencia = cxn.prepareStatement(sql);
@@ -140,7 +143,6 @@ public class PartesDAO {
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         } */
-
     //TODO: DELETE
     public void borrarDatos(Parte p) {
         Connection cxn = null;
@@ -155,7 +157,7 @@ public class PartesDAO {
 
             cxn = conexion.getConexion();
             //cxn.setAutoCommit(false);
-            String sql = "DELETE FROM PARTE WHERE NUM_PARTE = ? AND ESTADO = ?; ";
+            String sql = "DELETE FROM VIAJE WHERE NUM_PARTE = ? AND ESTADO = ?; ";
             sentencia = cxn.prepareStatement(sql);
             sentencia.setInt(1, p.getNumParte());
             sentencia.setString(2, "CERRADO");
@@ -186,14 +188,14 @@ public class PartesDAO {
     }    //TODO: SELECT
 
     public void listarDatos(Parte p) {
- Connection cxn = null;
+        Connection cxn = null;
         PreparedStatement sentencia = null;
         boolean resp = true;
         try {
 
             cxn = conexion.getConexion();
             //cxn.setAutoCommit(false);
-            String sql = "select INTO  PARTE( NUM_PARTE, TRABAJADOR_USUARIO,  FECHA,  ESTADO, "
+            String sql = "SELECT FROM VIAJE( NUM_PARTE, TRABAJADOR_USUARIO,  FECHA,  ESTADO, "
                     + "KM_PRINCIPIO, KM_FINAL,  GASTO_GASOIL, GASTO_AUTOPISTA,"
                     + "GASTO_DIETAS, GASTOS_VARIOS,  INCIDENCIAS, VALIDADO,   EXCESO "
                     + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -225,6 +227,37 @@ public class PartesDAO {
         }
 
     }
-    
 
+    public Time sumarHoras(Date fechaParte) {
+        Connection cxn = null;
+        PreparedStatement sentencia = null;
+        Time resp = null;
+        try {
+            conexion.conectar();
+            cxn = conexion.getConexion();
+            //cxn.setAutoCommit(false);
+            String sql = "SELECT sum(Hora_llegada-Hora_salida) as HorasTotales from viaje where PARTE_fecha=?";
+
+            sentencia = cxn.prepareStatement(sql);
+
+            sentencia.setDate(1, fechaParte);
+
+            ResultSet resul = sentencia.executeQuery();
+            if (resul == null) {
+                System.out.println("Me devuelve nulo");
+            } else {
+                resul.next();
+                resp = resul.getTime(1);
+                System.out.println("Me devuelve" +resul.getDouble(1));
+            }
+            sentencia.close();
+            cxn.close(); //conexion.desconectar();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ViajesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resp;
+    }
 }

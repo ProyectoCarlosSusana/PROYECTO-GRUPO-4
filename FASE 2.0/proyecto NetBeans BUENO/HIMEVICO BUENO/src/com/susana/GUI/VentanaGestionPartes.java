@@ -16,9 +16,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import oracle.jdbc.OracleTypes;
@@ -32,7 +34,8 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
     PartesLN partes;
     Transportista tr;
     Parte pr;
-
+    private DefaultTableModel modeloDeTabla;
+    
     /**
      * Creates new form GestionPartes
      */
@@ -43,9 +46,10 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
-    private void ListarTabla (){
-   List<Parte> lista = partes.listarDatos();
-           }
+    private void ListarTabla() {
+        // List<Parte> lista = partes.listarDatos();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,9 +69,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton4FiltrarPorFechas = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1Fecha1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField2Fecha2 = new javax.swing.JTextField();
         jButton4FiltrarPorFechas1 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jTextField1ParaFiltrarPorUsuario = new javax.swing.JTextField();
@@ -75,11 +77,11 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         jRadioButton2Abiertos = new javax.swing.JRadioButton();
         jRadioButton3Cerrados = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField1UsuarioParte = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextField2NumParte = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        jTextField3HorasParte = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -95,11 +97,11 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 jButton1VerPartesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1VerPartes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        getContentPane().add(jButton1VerPartes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, -1));
 
         jScrollPane2.setViewportView(jTextPane1ListPartes);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 828, 20));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 828, 60));
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -135,11 +137,9 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
         jLabel6.setText("DE");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 40, 30, 20));
-        getContentPane().add(jTextField1Fecha1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 100, 30));
 
         jLabel7.setText("A");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 10, 20));
-        getContentPane().add(jTextField2Fecha2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 40, 100, 30));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 10, 20));
 
         jButton4FiltrarPorFechas1.setText("Filtrar por fechas");
         jButton4FiltrarPorFechas1.addActionListener(new java.awt.event.ActionListener() {
@@ -172,20 +172,22 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         getContentPane().add(jRadioButton3Cerrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
         jLabel1.setText("Nombre");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
+
+        jTextField1UsuarioParte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1UsuarioParteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1UsuarioParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 400, 60, -1));
 
         jLabel2.setText("NUM PARTE");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, -1));
-
-        jTextField2.setText("jTextField2");
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
+        getContentPane().add(jTextField2NumParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, 100, -1));
 
         jLabel3.setText("HORAS TOTALES");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
-
-        jTextField3.setText("jTextField3");
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 410, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 410, -1, -1));
+        getContentPane().add(jTextField3HorasParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 410, 90, -1));
 
         jCheckBox1.setText("VALIDACION");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -193,27 +195,32 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 410, -1, -1));
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-
+                "NUM PARTE", "USUARIO", "FECHA", "ESTADO", "KM PRINCIPIO", "KM FINAL", "G. GASOIL", "G. AUTOPISTA", "G. DIETAS", "G. VARIOS", "INCIDENCIAS", "VALIDADO", "EXCESO"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 910, 150));
-        getContentPane().add(jDateChooser1FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, 150, -1));
-        getContentPane().add(jDateChooser1FechaInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 150, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 1060, 200));
+        getContentPane().add(jDateChooser1FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 60, -1));
+        getContentPane().add(jDateChooser1FechaInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 70, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1VerPartesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1VerPartesActionPerformed
-
+        modeloDeTabla = (DefaultTableModel) jTable1.getModel();
         if (jRadioButton1Todos.isSelected()) {
             try {
                 Class.forName("java.sql.DriverManager");
@@ -224,18 +231,44 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 CallableStatement sql = conexion.prepareCall("{call LISTARPARTES(?)}");
                 sql.registerOutParameter(1, OracleTypes.CURSOR);
                 sql.execute();
-                /*
-                
-                 */
 
                 ResultSet resul = (ResultSet) sql.getObject(1);
                 Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
                 otroDocumento.remove(0, otroDocumento.getLength());
                 while (resul.next()) {
-
+/*
+                    NUM_PARTE, KM_PRINCIPIO, KM_FINAL, FECHA, ESTADO, GASTO_GASOIL, GASTO_AUTOPISTA, 
+GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO, TRABAJADOR_USUARIO, EXCESO
+                    */
                     try {
+                        pr = new Parte();
+                        pr.setUsuario(resul.getString(12));
+                        pr.setFecha(resul.getDate(4));
+                        pr.setEstado(resul.getString(5));
+                        pr.setKmPrincipio(Double.parseDouble(resul.getString(2)));
+                        pr.setKmFinal(Double.parseDouble(resul.getString(3)));
+                        pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
+                        pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
+                        pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
+                        pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
+                        pr.setIncidencias(resul.getString(10));
+                        pr.setValidar(resul.getString(11));
+                        pr.setExceso(Double.parseDouble(resul.getString(13)));
+                        pr.setNumParte(Integer.parseInt(resul.getString(1)));
+                        
+                        modeloDeTabla.insertRow(modeloDeTabla.getRowCount(), 
+                                new Object[]{pr.getNumParte(),pr.getUsuario(),pr.getFecha(),pr.getEstado(),
+                                    pr.getKmPrincipio(),pr.getKmFinal(),pr.getGastoGasoil(),pr.getGastoAutopista(),
+                                    pr.getGastoDietas(),pr.getGastosVarios(),pr.getIncidencias(), pr.getValidar(), pr.getExceso()});
+                        
                         otroDocumento.insertString(otroDocumento.getLength(),
-                                "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(12) + "   /   FECHA: " + resul.getString(4) + "   /   ESTADO: " + resul.getString(5) + "   /   KM PRINCIPIO: " + resul.getString(2) + "   /   KM FINAL: " + resul.getString(3) + "   /   GASTO GASOIL: " + resul.getString(6) + "   /   GASTO AUTOPISTA: " + resul.getString(7) + "   /   DIETAS: " + resul.getString(8) + "   /   GASTOS VARIOS: " + resul.getString(9) + "   /   INCIDENCIAS: " + resul.getString(10) + "   /   VALIDADO: " + resul.getString(11) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
+                                "NUM. PARTE: " + pr.getNumParte() + "   /   USUARIO: " + pr.getUsuario() 
+                                        + "   /   FECHA: " + pr.getFecha() + "   /   ESTADO: " + pr.getEstado()
+                                        + "   /   KM PRINCIPIO: " + pr.getKmPrincipio() + "   /   KM FINAL: " + pr.getKmFinal() 
+                                        + "   /   GASTO GASOIL: " + pr.getGastoGasoil() + "   /   GASTO AUTOPISTA: " + pr.getGastoAutopista()
+                                        + "   /   DIETAS: " + pr.getGastoDietas()+ "   /   GASTOS VARIOS: " + pr.getGastosVarios()
+                                        + "   /   INCIDENCIAS: " + pr.getIncidencias()+ "   /   VALIDADO: " + pr.getValidar()
+                                        + "   /   EXCESO: " + pr.getExceso()+ "\n" + "\n", null);
 
                     } catch (BadLocationException ble) {
                         ble.printStackTrace();
@@ -702,7 +735,6 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                         /*
                     1 NUM_PARTE, 2 TRABAJADOR_USUARIO, 3 FECHA, 4 ESTADO,  
                         5 KM_PRINCIPIO, 6 KM_FINAL, 7 GASTO_GASOIL, 8 GASTO_AUTOPISTA, 
-9 GASTO_DIETAS, 10 GASTOS_VARIOS, 11 INCIDENCIAS, 12 VALIDADO,  13 EXCESO 
                          */
                         otroDocumento.insertString(otroDocumento.getLength(),
                                 "NUM. PARTE: " + resul.getString(1) + "   /   TRABAJADOR: " + resul.getString(2) + "   /   FECHA: " + resul.getString(3) + "   /   ESTADO: " + resul.getString(4) + "   /   KM PRINCIPIO: " + resul.getString(5) + "   /   KM FINAL: " + resul.getString(6) + "   /   GASTO GASOIL: " + resul.getString(7) + "   /   GASTO AUTOPISTA: " + resul.getString(8) + "   /   DIETAS: " + resul.getString(9) + "   /   GASTOS VARIOS: " + resul.getString(10) + "   /   INCIDENCIAS: " + resul.getString(11) + "   /   VALIDADO: " + resul.getString(12) + "   /   EXCESO: " + resul.getString(13) + "\n" + "\n", null);
@@ -891,6 +923,37 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton3CerradosActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int fila = jTable1.getSelectedRow();
+        int idParte=(int)modeloDeTabla.getValueAt(fila, 0);
+        String fechaParte=modeloDeTabla.getValueAt(fila, 2).toString();
+        
+        this.jTextField3HorasParte.setText(partes.getSumaHorasViajes(fechaParte));
+      //  String numeroParte = pr.get(index).getnumParte().toString();
+
+        /*
+         this.kmPrincipio = kmPrincipio;
+        this.kmFinal = kmFinal;
+        this.fecha = fecha;
+        this.estado = estado;
+        this.gastoGasoil = gastoGasoil;
+        this.gastoAutopista = gastoAutopista;
+        this.gastoDietas = gastoDietas;
+        this.gastosVarios = gastosVarios;
+        this.incidencias = incidencias;
+        this.validar = validar;
+        this.Exceso = Exceso;
+        this.usuario = usuario;
+        this.aviso = aviso;
+        this.transportista = transportista;
+        this.numParte = numParte
+         */
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTextField1UsuarioParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1UsuarioParteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1UsuarioParteActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -959,12 +1022,10 @@ GASTO_DIETAS, GASTOS_VARIOS, INCIDENCIAS, VALIDADO,  EXCESO
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField1Fecha1;
     private javax.swing.JTextField jTextField1ParaFiltrarPorUsuario;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField2Fecha2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField1UsuarioParte;
+    private javax.swing.JTextField jTextField2NumParte;
+    private javax.swing.JTextField jTextField3HorasParte;
     private javax.swing.JTextPane jTextPane1ListPartes;
     // End of variables declaration//GEN-END:variables
 }
