@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.susana;
+package com.susana.GUI;
 
+import com.susana.Entidades.Trabajador;
 import static java.lang.reflect.Array.set;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -175,12 +176,11 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
             
             ResultSet resul = sentencia.executeQuery();
             if (resul == null) {
-                System.out.println("Me devuelve nulo");
+                    JOptionPane.showMessageDialog(this, "Usuario o contraseña erroneos");
             } else {
                 resul.next();
                 if ("TRANSPORTISTA".equalsIgnoreCase(resul.getString(1))) {
                     JOptionPane.showMessageDialog(this, "Bienvenido, accede a opciones de categoría TRANSPORTISTA");
-                    // System.out.println("Es un transportista");
                 } else if ("ADMINISTRATIVO".equalsIgnoreCase(resul.getString(1))) {
                     VentanaAdministrador vadmin = new VentanaAdministrador();
                     vadmin.setVisible(true);

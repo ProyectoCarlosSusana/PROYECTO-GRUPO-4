@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.susana;
+package com.susana.GUI;
 
+import com.susana.Entidades.Administrativo;
+import com.susana.Entidades.Trabajador;
+import com.susana.Entidades.Transportista;
 import com.toedter.calendar.JDateChooser;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -385,7 +388,8 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
         try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-//DNI, NOMBRE, APELLIDO_1, APELLIDO_2, CALLE, PORTAL, PISO, MANO, CATEGORIA, CENTRO_CENTRO_ID
+
+            
             String sql = "UPDATE TRABAJADOR SET DNI = ?, NOMBRE = ?, APELLIDO_1 = ?, APELLIDO_2 = ?,CALLE=?,"
                     + " PORTAL=?, PISO=?, MANO=?, CATEGORIA=?, CENTRO_CENTRO_ID=?,"
                     + " TELEFONO_EMPRESA=?, TELEFONO_PERSONAL=?, SALARIO=?, FECHA_NACIMIENTO=? WHERE DNI=?";

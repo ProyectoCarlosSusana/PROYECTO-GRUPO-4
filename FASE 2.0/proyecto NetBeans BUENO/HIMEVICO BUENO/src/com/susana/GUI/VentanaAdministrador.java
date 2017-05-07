@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.susana;
+package com.susana.GUI;
 
+import com.susana.GUI.VentanaGestiónCentros;
+import com.susana.GUI.VentanaGestiónUsuarios1;
 import com.susana.GUI.VentanaGestionPartes;
 
 /**

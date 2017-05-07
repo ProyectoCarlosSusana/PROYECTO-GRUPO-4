@@ -6,7 +6,7 @@
 package com.susana.DAO;
 
 import com.susana.Entidades.Parte;
-import com.susana.Login;
+import com.susana.GUI.Login;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -228,7 +228,7 @@ public class ViajesDAO {
 
     }
 
-    public Time sumarHoras(Date fechaParte) {
+ public int sumarHoras(int fechaParte) {
         Connection cxn = null;
         PreparedStatement sentencia = null;
         Time resp = null;
@@ -240,7 +240,7 @@ public class ViajesDAO {
 
             sentencia = cxn.prepareStatement(sql);
 
-            sentencia.setDate(1, fechaParte);
+            sentencia.setT(1, fechaParte);
 
             ResultSet resul = sentencia.executeQuery();
             if (resul == null) {

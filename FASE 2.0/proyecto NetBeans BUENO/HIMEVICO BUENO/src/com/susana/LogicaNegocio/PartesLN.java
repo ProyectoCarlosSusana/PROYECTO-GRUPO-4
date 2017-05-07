@@ -28,9 +28,9 @@ public class PartesLN {
         pdao.listarDatos(p);
     }    
 
-    public String getSumaHorasViajes(String fechaParte) {
+  /*  public String getSumaHorasViajes(String fechaParte) {
         ViajesLN vln= new ViajesLN();
         return vln.getSumaHorasViajes(fechaParte);
     }
-    
+    */
 }

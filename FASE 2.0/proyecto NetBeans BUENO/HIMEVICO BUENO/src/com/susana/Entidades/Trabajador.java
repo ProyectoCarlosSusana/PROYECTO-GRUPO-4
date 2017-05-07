@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.susana;
+package com.susana.Entidades;
 
+import com.susana.GUI.Login;
 import com.susana.DAO.ConexionTest;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.susana;
+package com.susana.GUI;
 
-import com.susana.*;
+import com.susana.Entidades.CentrosHime;
 import com.toedter.calendar.JDateChooser;
 import java.sql.CallableStatement;
 import java.sql.Connection;

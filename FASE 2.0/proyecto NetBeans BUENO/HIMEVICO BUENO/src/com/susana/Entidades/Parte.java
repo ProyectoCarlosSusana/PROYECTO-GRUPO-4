@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package com.susana.Entidades;
-import com.susana.Aviso;
-import com.susana.Transportista;
-import com.susana.Viaje;
 import java.sql.Date;
 import java.util.ArrayList;
 

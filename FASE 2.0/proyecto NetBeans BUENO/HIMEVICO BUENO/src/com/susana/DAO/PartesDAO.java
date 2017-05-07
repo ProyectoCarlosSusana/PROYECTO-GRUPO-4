@@ -6,7 +6,7 @@
 package com.susana.DAO;
 
 import com.susana.Entidades.Parte;
-import com.susana.Login;
+import com.susana.GUI.Login;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

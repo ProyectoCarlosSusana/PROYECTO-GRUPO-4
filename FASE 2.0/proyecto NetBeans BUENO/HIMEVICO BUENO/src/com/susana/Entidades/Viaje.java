@@ -3,24 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.susana;
+package com.susana.Entidades;
 
 import com.susana.Entidades.Parte;
+import java.sql.Date;
 
 /**
  *
  * @author acer
  */
+
+
 public class Viaje {
     
     private int idViaje;
     private int horaSalida;
     private int horaLlegada;
     private int totalHorasViaje;
+    private String matricula;
+   private Date fecha;
     
     
     //metodo total horas viajes (idViaje, usuario, fechaParte)?
     private Parte parte;
+    private Vehiculo vehiculo;
 
     public Viaje() {
     }
@@ -31,6 +37,22 @@ public class Viaje {
         this.horaLlegada = horaLlegada;
         this.totalHorasViaje = totalHorasViaje;
         this.parte = parte;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public int getIdViaje() {
@@ -71,6 +93,14 @@ public class Viaje {
 
     public void setParte(Parte parte) {
         this.parte = parte;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
     }
     
     

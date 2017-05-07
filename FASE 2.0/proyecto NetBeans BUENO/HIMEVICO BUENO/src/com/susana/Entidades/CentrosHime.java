@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.susana;
+package com.susana.Entidades;
+import com.susana.Entidades.Trabajador;
 import java.util.ArrayList;
 
 /**

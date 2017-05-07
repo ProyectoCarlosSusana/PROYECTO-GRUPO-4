@@ -30,10 +30,11 @@ public class ViajesLN {
         vdao.listarDatos(p);
     }    
 
-    public String getSumaHorasViajes(String fechaParte) {
+   /* public String getSumaHorasViajes(String fechaParte) {
         Date fp=Date.valueOf(fechaParte);
         Time t=vdao.sumarHoras(fp);
         return t.toString();
     }
+    */
     
 }
