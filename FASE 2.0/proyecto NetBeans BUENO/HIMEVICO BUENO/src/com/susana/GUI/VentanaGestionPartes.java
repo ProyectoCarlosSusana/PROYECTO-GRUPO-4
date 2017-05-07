@@ -89,18 +89,19 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jDateChooser1FechaFin = new com.toedter.calendar.JDateChooser();
         jDateChooser1FechaInicio1 = new com.toedter.calendar.JDateChooser();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1VerPartes.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1VerPartes.setText("Ver partes ...");
+        jButton1VerPartes.setBackground(new java.awt.Color(153, 255, 255));
+        jButton1VerPartes.setText("VER PARTES");
         jButton1VerPartes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1VerPartesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1VerPartes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 30));
+        getContentPane().add(jButton1VerPartes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1060, 40));
 
         jButton1.setText("Salir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +109,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 500, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(993, 483, 60, 30));
 
         jButton2EliminarParte.setText("Eliminar");
         jButton2EliminarParte.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +125,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 500, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(913, 483, 70, 30));
 
         jScrollPane2.setViewportView(jTextPane1ListPartes);
 
@@ -136,13 +137,13 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 jButton5FiltrarPorFechasUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5FiltrarPorFechasUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 190, 20));
+        getContentPane().add(jButton5FiltrarPorFechasUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 190, 20));
 
         jLabel6.setText("FECHA ORIGEN");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 40, 110, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 70, 110, 20));
 
         jLabel7.setText("FECHA FIN");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, 120, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 70, 120, 20));
 
         jButton4FiltrarPorFechas1.setText("Filtrar por fechas");
         jButton4FiltrarPorFechas1.addActionListener(new java.awt.event.ActionListener() {
@@ -150,20 +151,20 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 jButton4FiltrarPorFechas1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4FiltrarPorFechas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 200, 20));
+        getContentPane().add(jButton4FiltrarPorFechas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 200, 20));
 
         jLabel10.setText("USUARIO");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, 60, 20));
-        getContentPane().add(jTextField1ParaFiltrarPorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 140, 30));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 60, 20));
+        getContentPane().add(jTextField1ParaFiltrarPorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 140, 30));
 
         bgEstadoParte.add(jRadioButton1Todos);
         jRadioButton1Todos.setSelected(true);
         jRadioButton1Todos.setText("Todos");
-        getContentPane().add(jRadioButton1Todos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        getContentPane().add(jRadioButton1Todos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         bgEstadoParte.add(jRadioButton2Abiertos);
         jRadioButton2Abiertos.setText("Abiertos");
-        getContentPane().add(jRadioButton2Abiertos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
+        getContentPane().add(jRadioButton2Abiertos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
 
         bgEstadoParte.add(jRadioButton3Cerrados);
         jRadioButton3Cerrados.setText("Cerrados");
@@ -172,25 +173,31 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 jRadioButton3CerradosActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton3Cerrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
+        getContentPane().add(jRadioButton3Cerrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, -1));
 
         jLabel1.setText("Usuario");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
 
         jTextField1UsuarioParte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1UsuarioParteActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1UsuarioParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 110, -1));
+        getContentPane().add(jTextField1UsuarioParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 110, -1));
 
         jLabel2.setText("NUM PARTE");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, -1, -1));
-        getContentPane().add(jTextField2NumParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 130, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
+        getContentPane().add(jTextField2NumParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 460, 130, -1));
 
         jLabel3.setText("HORAS TOTALES");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
-        getContentPane().add(jTextField3HorasParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 120, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, -1, -1));
+
+        jTextField3HorasParte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3HorasParteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField3HorasParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 120, -1));
 
         jCheckBox1.setText("VALIDAR");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +205,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 jCheckBox1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, -1));
+        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -215,9 +222,17 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 1060, 270));
-        getContentPane().add(jDateChooser1FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, 150, 30));
-        getContentPane().add(jDateChooser1FechaInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 140, 30));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1060, 280));
+        getContentPane().add(jDateChooser1FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 150, 30));
+        getContentPane().add(jDateChooser1FechaInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, 140, 30));
+
+        jButton3.setText("Ver viajes del parte");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(893, 430, 160, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -519,9 +534,12 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4FiltrarPorFechas1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
+             modeloDeTabla = (DefaultTableModel) jTable1.getModel();
+          int selectedRowIndex = jTable1.getSelectedRow();
+          
+      //    jCheckBox1.
         //     SI HOPRAS TOTALES > 8
-        JOptionPane.showMessageDialog(this, "");
+     //   JOptionPane.showMessageDialog(this, "");
 
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
@@ -536,12 +554,24 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
             jTextField1UsuarioParte.setText(modeloDeTabla.getValueAt(selectedRowIndex, 1).toString());
             jTextField2NumParte.setText(modeloDeTabla.getValueAt(selectedRowIndex, 0).toString());
             jTextField3HorasParte.setText(modeloDeTabla.getValueAt(selectedRowIndex, 2).toString());
+            
+            //TODO: MOSTRAS EXCESO DE HORAS PARTE
        
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTextField1UsuarioParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1UsuarioParteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1UsuarioParteActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      VentanaViajes va = new VentanaViajes();
+        va.setVisible(true);
+        dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField3HorasParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3HorasParteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3HorasParteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -593,6 +623,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
     private javax.swing.JButton jButton1VerPartes;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton2EliminarParte;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4FiltrarPorFechas1;
     private javax.swing.JButton jButton5FiltrarPorFechasUsuario;
     private javax.swing.JCheckBox jCheckBox1;

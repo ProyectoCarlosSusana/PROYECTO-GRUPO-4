@@ -16,10 +16,11 @@ import java.sql.Date;
 
 public class Viaje {
     
+    private String usuario;
     private int idViaje;
-    private int horaSalida;
-    private int horaLlegada;
-    private int totalHorasViaje;
+    private double horaSalida;
+    private double horaLlegada;
+    private double totalHorasViaje;
     private String matricula;
    private Date fecha;
     
@@ -27,16 +28,62 @@ public class Viaje {
     //metodo total horas viajes (idViaje, usuario, fechaParte)?
     private Parte parte;
     private Vehiculo vehiculo;
+    private Trabajador trabajador;
 
     public Viaje() {
     }
 
-    public Viaje(int idViaje, int horaSalida, int horaLlegada, int totalHorasViaje, Parte parte) {
+    public Viaje(String usuario, int idViaje, double horaSalida, double horaLlegada, double totalHorasViaje, String matricula, Date fecha, Parte parte, Vehiculo vehiculo, Trabajador trabajador) {
+        this.usuario = usuario;
         this.idViaje = idViaje;
         this.horaSalida = horaSalida;
         this.horaLlegada = horaLlegada;
         this.totalHorasViaje = totalHorasViaje;
+        this.matricula = matricula;
+        this.fecha = fecha;
         this.parte = parte;
+        this.vehiculo = vehiculo;
+        this.trabajador = trabajador;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public int getIdViaje() {
+        return idViaje;
+    }
+
+    public void setIdViaje(int idViaje) {
+        this.idViaje = idViaje;
+    }
+
+    public double getHoraSalida() {
+        return horaSalida;
+    }
+
+    public void setHoraSalida(double horaSalida) {
+        this.horaSalida = horaSalida;
+    }
+
+    public double getHoraLlegada() {
+        return horaLlegada;
+    }
+
+    public void setHoraLlegada(double horaLlegada) {
+        this.horaLlegada = horaLlegada;
+    }
+
+    public double getTotalHorasViaje() {
+        return totalHorasViaje;
+    }
+
+    public void setTotalHorasViaje(double totalHorasViaje) {
+        this.totalHorasViaje = totalHorasViaje;
     }
 
     public String getMatricula() {
@@ -55,38 +102,6 @@ public class Viaje {
         this.fecha = fecha;
     }
 
-    public int getIdViaje() {
-        return idViaje;
-    }
-
-    public void setIdViaje(int idViaje) {
-        this.idViaje = idViaje;
-    }
-
-    public int getHoraSalida() {
-        return horaSalida;
-    }
-
-    public void setHoraSalida(int horaSalida) {
-        this.horaSalida = horaSalida;
-    }
-
-    public int getHoraLlegada() {
-        return horaLlegada;
-    }
-
-    public void setHoraLlegada(int horaLlegada) {
-        this.horaLlegada = horaLlegada;
-    }
-
-    public int getTotalHorasViaje() {
-        return totalHorasViaje;
-    }
-
-    public void setTotalHorasViaje(int totalHorasViaje) {
-        this.totalHorasViaje = totalHorasViaje;
-    }
-
     public Parte getParte() {
         return parte;
     }
@@ -102,7 +117,15 @@ public class Viaje {
     public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
     }
-    
+
+    public Trabajador getTrabajador() {
+        return trabajador;
+    }
+
+    public void setTrabajador(Trabajador trabajador) {
+        this.trabajador = trabajador;
+    }
+
     
     
     

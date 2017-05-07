@@ -18,12 +18,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
+
+
 /**
  *
  * @author acer
  */
 public class ViajesDAO {
 
+    
+
+    
+    
+    
     ConexionTest conexion = new ConexionTest();
 
     //TODO: INSERT
@@ -228,7 +235,23 @@ public class ViajesDAO {
 
     }
 
- public int sumarHoras(int fechaParte) {
+    public ViajesDAO() {
+    }
+
+    public ConexionTest getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(ConexionTest conexion) {
+        this.conexion = conexion;
+    }
+    
+    
+}
+
+/* El transportista introduce las horas (int) y la suma en la columna total horas viaje
+
+public int sumarHoras(int fechaParte) {
         Connection cxn = null;
         PreparedStatement sentencia = null;
         Time resp = null;
@@ -261,3 +284,5 @@ public class ViajesDAO {
         return resp;
     }
 }
+*/
+

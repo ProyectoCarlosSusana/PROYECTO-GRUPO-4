@@ -12,7 +12,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -32,7 +32,7 @@
 <generatorID>9275D7C4-99D2-A2D9-1ECC-3F58D38A9BC6</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <referedAttribute>5EC5E900-9D0E-BBBE-F954-DA764292E9D1</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -40,6 +40,9 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>15</dataTypeSize>
 <ownDataTypeParameters>15,,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Fecha Aviso" id="CA9711D6-634A-3171-23A9-DD44781705FE">
 <createdBy>acer</createdBy>
@@ -47,7 +50,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -63,13 +66,14 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>500</dataTypeSize>
-<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
 <propertyMap>
 <property name="engineerTo" value=""/>
 </propertyMap>
@@ -82,7 +86,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -103,8 +107,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -120,8 +125,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -137,8 +143,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -154,8 +161,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -171,8 +179,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -188,8 +197,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -205,8 +215,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -216,6 +227,20 @@
 <property name="engineerTo" value=""/>
 </propertyMap>
 </Attribute>
+<Attribute name="CENTRO_ID" id="D83DC036-B2FE-3C25-B24F-5802EEC44865">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 14:51:08 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="010BF58B-6062-9945-1110-1EAB159A6740" name="Nombre">
@@ -224,12 +249,15 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <pk>true</pk>
-<newElementsIDs>A793CB74-97D8-706C-BA81-83A119F7B9D5</newElementsIDs>
+<newElementsIDs>D83DC036-B2FE-3C25-B24F-5802EEC44865</newElementsIDs>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 <usedAttributes>
-<attributeRef>A793CB74-97D8-706C-BA81-83A119F7B9D5</attributeRef>
+<attributeRef>D83DC036-B2FE-3C25-B24F-5802EEC44865</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
@@ -240,7 +268,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -250,20 +278,40 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Num_Parte" id="047F919D-8C09-6AEC-171A-E17D1ACF61B5">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 15:15:46 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="Km_principio" id="2DEBA58F-9F64-01D2-3570-C87361D527B6">
 <createdBy>acer</createdBy>
 <createdTime>2017-04-06 04:59:54 UTC</createdTime>
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Km_final" id="3248C067-A30D-F26D-3630-92480DA8F5AE">
 <createdBy>acer</createdBy>
@@ -271,13 +319,16 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>6</dataTypePrecision>
-<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Fecha" id="3D908146-90CB-0F9F-2753-3442D5B66447">
 <createdBy>acer</createdBy>
@@ -285,12 +336,15 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Estado" id="3EDFA14E-7EF3-EDF0-2292-C7AFF3CAC64E">
 <createdBy>acer</createdBy>
@@ -298,13 +352,16 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT006</logicalDatatype>
-<dataTypeSize>1</dataTypeSize>
-<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Gasto_gasoil" id="55CEF192-4DE5-DBA8-16D1-84692747BADF">
 <createdBy>acer</createdBy>
@@ -312,7 +369,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -320,6 +377,9 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Gasto_autopista" id="0FA9EC48-2D44-6A4C-8457-496F46495D33">
 <createdBy>acer</createdBy>
@@ -327,7 +387,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -335,6 +395,9 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Gasto_dietas" id="BDDDAA8A-DF13-EC17-C262-3BBE25E61234">
 <createdBy>acer</createdBy>
@@ -342,7 +405,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -350,6 +413,9 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Gastos_varios" id="E7BFB7B7-863E-66D6-94E9-806C5BF91157">
 <createdBy>acer</createdBy>
@@ -357,7 +423,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -365,6 +431,9 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Indicencias" id="2CF1AA42-4474-E996-84EF-7F33B385069C">
 <createdBy>acer</createdBy>
@@ -372,14 +441,17 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>400</dataTypeSize>
-<ownDataTypeParameters>400,,</ownDataTypeParameters>
+<dataTypeSize>300</dataTypeSize>
+<ownDataTypeParameters>300,,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Validar" id="BF4F89C0-8E43-1BEB-A07B-2686D4C16DB0">
 <createdBy>acer</createdBy>
@@ -387,13 +459,16 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT006</logicalDatatype>
-<dataTypeSize>1 CHAR</dataTypeSize>
-<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Usuario" id="D6A0A4AF-E994-634A-550F-08C85EE6986F">
 <createdBy>acer</createdBy>
@@ -401,7 +476,7 @@
 <generatorID>51346FE8-5E52-DFBB-077B-CE53D96D21BB</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <referedAttribute>5EC5E900-9D0E-BBBE-F954-DA764292E9D1</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -409,6 +484,24 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
+</Attribute>
+<Attribute name="Exceso" id="233B02DA-12C5-42CD-F15B-D906F7E4E2BB">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 15:49:05 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -418,11 +511,14 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 <usedAttributes>
-<attributeRef>3D908146-90CB-0F9F-2753-3442D5B66447</attributeRef>
+<attributeRef>047F919D-8C09-6AEC-171A-E17D1ACF61B5</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
@@ -433,7 +529,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -453,13 +549,14 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 <propertyMap>
 <property name="engineerTo" value=""/>
 </propertyMap>
@@ -470,7 +567,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -487,7 +584,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -504,7 +601,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -521,7 +618,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -538,7 +635,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -555,7 +652,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -572,7 +669,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -589,7 +686,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -607,7 +704,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -625,7 +722,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -636,6 +733,78 @@
 <property name="engineerTo" value=""/>
 </propertyMap>
 </Attribute>
+<Attribute name="Telefono_Empresa" id="DF34A087-FCED-FAB1-9B68-FF4670720FEF">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 15:00:26 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Telefono_Personal" id="DF487CAF-626C-3EEB-A9D4-D9862A097C94">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 15:04:32 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>9</dataTypeSize>
+<ownDataTypeParameters>9,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Salario" id="AE488CF7-98B6-1797-91F0-12BC90A84018">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 15:05:36 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Fecha_Nacimiento" id="67C2264F-A5D2-6DFE-4BA9-A733C23AAA3D">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 15:06:31 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CENTRO_ID" id="C4DBFE58-A96A-1944-2E21-15995B47C85D">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 14:52:23 UTC</createdTime>
+<generatorID>3D10DD0D-F8D2-DA1E-9CA5-8F2543F9DD28</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<referedAttribute>D83DC036-B2FE-3C25-B24F-5802EEC44865</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="2F790F4E-561D-AAEE-F664-2F7B41A7BAE2" name="TRABAJADOR PK">
@@ -644,8 +813,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<deprecated>true</deprecated>
 <pk>true</pk>
 <propertyMap>
 <property name="engineerTo" value=""/>
@@ -662,7 +832,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -682,8 +852,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -699,8 +870,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -716,7 +888,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
@@ -728,6 +900,20 @@
 <property name="engineerTo" value=""/>
 </propertyMap>
 </Attribute>
+<Attribute name="Num_Parte" id="93385416-CEF0-7BB5-B292-FB87152051E3">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 15:16:22 UTC</createdTime>
+<generatorID>C2FEB2C4-4CE9-706D-C01A-08B4F0B36C27</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<referedAttribute>047F919D-8C09-6AEC-171A-E17D1ACF61B5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="79FAE2BE-5392-DE00-E67C-E99D8C0EFF4D" name="VEHICULO PK">
@@ -736,7 +922,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <propertyMap>
@@ -754,7 +940,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -774,8 +960,9 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -791,12 +978,13 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT015</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
 <propertyMap>
 <property name="engineerTo" value=""/>
 </propertyMap>
@@ -807,12 +995,13 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT015</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
 <propertyMap>
 <property name="engineerTo" value=""/>
 </propertyMap>
@@ -823,7 +1012,7 @@
 <generatorID>4FC6BD85-D507-1C7A-7976-380305F7AD3A</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <referedAttribute>787752D3-1BDE-5AB5-8F9F-1291B9CA4545</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
@@ -831,20 +1020,9 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>10</dataTypeSize>
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Fecha" id="2D976C5A-5A4E-F4A4-D1FA-36CB6DE1C431">
-<createdBy>acer</createdBy>
-<createdTime>2017-04-06 05:13:06 UTC</createdTime>
-<generatorID>2E900440-A327-02D5-C6DB-13DB2F18642A</generatorID>
-<ownerDesignName>MERCORREGIDO</ownerDesignName>
-<engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
-</engineerTo>
-<referedAttribute>3D908146-90CB-0F9F-2753-3442D5B66447</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Attribute>
 <Attribute name="Total_horas_viaje" id="DB443932-2AF0-B361-C72B-EA420D2AA044">
 <createdBy>acer</createdBy>
@@ -852,13 +1030,44 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
+</Attribute>
+<Attribute name="Num_Parte" id="A0B92E3E-7086-6D46-93F6-35B6E2D60C6B">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 15:16:22 UTC</createdTime>
+<generatorID>2E900440-A327-02D5-C6DB-13DB2F18642A</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<referedAttribute>047F919D-8C09-6AEC-171A-E17D1ACF61B5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Usuario" id="46E81F3E-8FC5-2804-699D-4D6C330C8FC2">
+<createdBy>acer</createdBy>
+<createdTime>2017-05-07 15:59:11 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MERCORREGIDO</ownerDesignName>
+<engineerTo>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -868,7 +1077,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <propertyMap>
@@ -888,7 +1097,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <targetPk>2F790F4E-561D-AAEE-F664-2F7B41A7BAE2</targetPk>
 <identifying>false</identifying>
@@ -910,11 +1119,11 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
-<sourcePk>EE41647F-203B-C800-1A99-BBB5BF3EA3CE</sourcePk>
+<sourcePk>010BF58B-6062-9945-1110-1EAB159A6740</sourcePk>
 <targetPk>2F790F4E-561D-AAEE-F664-2F7B41A7BAE2</targetPk>
-<identifying>false</identifying>
+<identifying>true</identifying>
 <optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
@@ -933,7 +1142,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <sourcePk>2F790F4E-561D-AAEE-F664-2F7B41A7BAE2</sourcePk>
 <targetPk>1142B93B-881C-4D41-8D74-9C68CD139165</targetPk>
@@ -946,6 +1155,9 @@
 <targetEntity>8AA74B64-6D27-5A86-D62C-B4F1EAE92256</targetEntity>
 <transferable>true</transferable>
 <deleteRule>SET NULL</deleteRule>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Relationship>
 <Relationship class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_11" directorySegmentName="seg_0" id="2E900440-A327-02D5-C6DB-13DB2F18642A">
 <createdBy>acer</createdBy>
@@ -953,7 +1165,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <sourcePk>7FF39D61-A2B2-FE6E-14B4-941A749154FC</sourcePk>
 <targetPk>1142B93B-881C-4D41-8D74-9C68CD139165</targetPk>
@@ -966,29 +1178,29 @@
 <targetEntity>8AA74B64-6D27-5A86-D62C-B4F1EAE92256</targetEntity>
 <transferable>true</transferable>
 <deleteRule>SET NULL</deleteRule>
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
 </Relationship>
-<Relationship class="oracle.dbtools.crest.model.design.logical.Relation" name="VEHICULO_RELACION_ TRABAJADOR" directorySegmentName="seg_0" id="1CDF333E-5D3C-FD2D-7FB3-3DECC2CD14A1">
+<Relationship class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_7" directorySegmentName="seg_0" id="C2FEB2C4-4CE9-706D-C01A-08B4F0B36C27">
 <createdBy>acer</createdBy>
-<createdTime>2017-03-30 06:18:07 UTC</createdTime>
+<createdTime>2017-05-07 14:47:10 UTC</createdTime>
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
-<sourcePk>2F790F4E-561D-AAEE-F664-2F7B41A7BAE2</sourcePk>
-<targetPk>79FAE2BE-5392-DE00-E67C-E99D8C0EFF4D</targetPk>
+<sourcePk>79FAE2BE-5392-DE00-E67C-E99D8C0EFF4D</sourcePk>
+<targetPk>1142B93B-881C-4D41-8D74-9C68CD139165</targetPk>
 <identifying>false</identifying>
 <optionalSource>false</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>*</sourceCardinality>
-<sourceEntity>1A88A047-8498-39EA-670E-2F0DD5960DA5</sourceEntity>
-<targetCardinalityString>*</targetCardinalityString>
-<targetEntity>A90A5257-0922-4B66-EDC6-9BE094B50D5F</targetEntity>
+<sourceEntity>A90A5257-0922-4B66-EDC6-9BE094B50D5F</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>8AA74B64-6D27-5A86-D62C-B4F1EAE92256</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
-<propertyMap>
-<property name="engineerTo" value=""/>
-</propertyMap>
 </Relationship>
 <Relationship class="oracle.dbtools.crest.model.design.logical.Relation" name="VIAJE_RELACION_VEHICULO" directorySegmentName="seg_0" id="4FC6BD85-D507-1C7A-7976-380305F7AD3A">
 <createdBy>acer</createdBy>
@@ -996,7 +1208,7 @@
 <generatorID>Generado por el Usuario</generatorID>
 <ownerDesignName>MERCORREGIDO</ownerDesignName>
 <engineerTo>
-<item key="AE31E917-8763-84FE-1350-30E67BC22E21" value="true"/>
+<item key="4ADF984F-13B4-BC60-6FD2-033E9139C12E" value="true"/>
 </engineerTo>
 <sourcePk>7FF39D61-A2B2-FE6E-14B4-941A749154FC</sourcePk>
 <targetPk>79FAE2BE-5392-DE00-E67C-E99D8C0EFF4D</targetPk>
@@ -1031,7 +1243,7 @@
 <objectViews>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="1A88A047-8498-39EA-670E-2F0DD5960DA5" otype="Entity" vid="1F156D05-15A8-88CE-BAC2-259C2534F21D">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="238" y="77" width="178" height="200"/>
+<bounds x="238" y="77" width="178" height="260"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="4861516B-DCBB-9068-CADC-9022EB910E41" otype="Entity" vid="AF4E0558-BD07-EBEF-7C6D-4467692518A1">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
@@ -1043,48 +1255,40 @@
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="A90A5257-0922-4B66-EDC6-9BE094B50D5F" otype="Entity" vid="846162F6-3C36-F857-5ADE-16468D71D186">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="79" y="351" width="205" height="104"/>
+<bounds x="716" y="382" width="205" height="104"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="AD67913E-7CAD-1B00-0DCE-27C5C879C3E6" otype="Entity" vid="3DA5CFBD-89D9-56BB-AAE9-CB72681C01C2">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="89" y="79" width="130" height="169"/>
+<bounds x="67" y="74" width="130" height="169"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="FB94301E-F813-F48E-FE01-5D2B7718285E" otype="Entity" vid="AFA1AD55-2048-FDB2-80FE-68197FF061ED">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="518" y="393" width="173" height="95"/>
+<bounds x="472" y="391" width="173" height="95"/>
 </OView>
 </objectViews>
 <connectors>
-<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="1CDF333E-5D3C-FD2D-7FB3-3DECC2CD14A1" otype="Relation" vid_source="1F156D05-15A8-88CE-BAC2-259C2534F21D" vid_target="846162F6-3C36-F857-5ADE-16468D71D186">
-<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<lineWidth>1</lineWidth>
-<points>
-<point x="261" y="277"/>
-<point x="261" y="351"/>
-</points>
-</Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="2E900440-A327-02D5-C6DB-13DB2F18642A" otype="Relation" vid_source="AFA1AD55-2048-FDB2-80FE-68197FF061ED" vid_target="7FDEE1C7-9952-0FC7-4F63-2978138D0B03">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <lineWidth>1</lineWidth>
 <points>
-<point x="657" y="393"/>
-<point x="657" y="256"/>
+<point x="634" y="391"/>
+<point x="634" y="256"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="3D10DD0D-F8D2-DA1E-9CA5-8F2543F9DD28" otype="Relation" vid_source="3DA5CFBD-89D9-56BB-AAE9-CB72681C01C2" vid_target="1F156D05-15A8-88CE-BAC2-259C2534F21D">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <lineWidth>1</lineWidth>
 <points>
-<point x="219" y="163"/>
-<point x="238" y="163"/>
+<point x="197" y="160"/>
+<point x="238" y="160"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="4FC6BD85-D507-1C7A-7976-380305F7AD3A" otype="Relation" vid_source="AFA1AD55-2048-FDB2-80FE-68197FF061ED" vid_target="846162F6-3C36-F857-5ADE-16468D71D186">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <lineWidth>1</lineWidth>
 <points>
-<point x="518" y="424"/>
-<point x="284" y="424"/>
+<point x="645" y="438"/>
+<point x="716" y="438"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="51346FE8-5E52-DFBB-077B-CE53D96D21BB" otype="Relation" vid_source="1F156D05-15A8-88CE-BAC2-259C2534F21D" vid_target="7FDEE1C7-9952-0FC7-4F63-2978138D0B03">
@@ -1099,8 +1303,16 @@
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <lineWidth>1</lineWidth>
 <points>
-<point x="456" y="244"/>
-<point x="416" y="244"/>
+<point x="456" y="274"/>
+<point x="416" y="274"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="C2FEB2C4-4CE9-706D-C01A-08B4F0B36C27" otype="Relation" vid_source="846162F6-3C36-F857-5ADE-16468D71D186" vid_target="7FDEE1C7-9952-0FC7-4F63-2978138D0B03">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<lineWidth>1</lineWidth>
+<points>
+<point x="742" y="382"/>
+<point x="742" y="256"/>
 </points>
 </Connector>
 </connectors>

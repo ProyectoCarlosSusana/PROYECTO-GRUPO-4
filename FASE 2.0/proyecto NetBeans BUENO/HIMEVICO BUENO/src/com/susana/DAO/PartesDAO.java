@@ -142,7 +142,7 @@ public class PartesDAO {
         } */
 
     //TODO: DELETE
-    public void borrarDatos(Parte p) {
+    public void borrarParteCerrado(Parte p) {
         Connection cxn = null;
         PreparedStatement sentencia = null;
         boolean resp = true;
@@ -224,6 +224,10 @@ public class PartesDAO {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public void borrarDatos(Parte p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 

@@ -10,6 +10,6 @@
    <object objectType="Relation" objectID="3D10DD0D-F8D2-DA1E-9CA5-8F2543F9DD28" name="CENTRO_RELACION_TRABAJADOR" seqName="seg_0"/>
    <object objectType="Relation" objectID="51346FE8-5E52-DFBB-077B-CE53D96D21BB" name="Relation_10" seqName="seg_0"/>
    <object objectType="Relation" objectID="2E900440-A327-02D5-C6DB-13DB2F18642A" name="Relation_11" seqName="seg_0"/>
-   <object objectType="Relation" objectID="1CDF333E-5D3C-FD2D-7FB3-3DECC2CD14A1" name="VEHICULO_RELACION_ TRABAJADOR" seqName="seg_0"/>
+   <object objectType="Relation" objectID="C2FEB2C4-4CE9-706D-C01A-08B4F0B36C27" name="Relation_7" seqName="seg_0"/>
    <object objectType="Relation" objectID="4FC6BD85-D507-1C7A-7976-380305F7AD3A" name="VIAJE_RELACION_VEHICULO" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.logical.LogicalDesign>

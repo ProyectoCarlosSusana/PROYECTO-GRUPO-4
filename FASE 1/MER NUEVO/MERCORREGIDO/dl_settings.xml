@@ -330,6 +330,13 @@
 		<attribute_column>
 		</attribute_column>
 		<key_index>
+			<property name="Nombre" selected="true"/>
+			<property name="Anticuado" selected="true"/>
+			<property name="Comentario" selected="true"/>
+			<property name="Comentarios en RDBMS" selected="true"/>
+			<property name="Notas" selected="true"/>
+			<property name="Clave Primaria" selected="true"/>
+			<property name="Atributos/Columnas" selected="true"/>
 		</key_index>
 		<relation_fk>
 		</relation_fk>
@@ -359,7 +366,7 @@
 	<model_compare_storage_props_filter>
 	</model_compare_storage_props_filter>
 	<naming_options>
-		<model_options objectid="AE31E917-8763-84FE-1350-30E67BC22E21">
+		<model_options objectid="4ADF984F-13B4-BC60-6FD2-033E9139C12E">
 			<naming_option class_name="oracle.dbtools.crest.model.design.relational.Table" max_name_length="30" case_type="2" valid_characters="" all_valid="true" />
 			<naming_option class_name="oracle.dbtools.crest.model.design.relational.Column" max_name_length="30" case_type="2" valid_characters="" all_valid="true" />
 			<naming_option class_name="oracle.dbtools.crest.model.design.relational.TableView" max_name_length="30" case_type="2" valid_characters="" all_valid="true" />
