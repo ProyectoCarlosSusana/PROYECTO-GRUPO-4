@@ -550,10 +550,22 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
           modeloDeTabla = (DefaultTableModel) jTable1.getModel();
           int selectedRowIndex = jTable1.getSelectedRow();
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
 
             jTextField1UsuarioParte.setText(modeloDeTabla.getValueAt(selectedRowIndex, 1).toString());
             jTextField2NumParte.setText(modeloDeTabla.getValueAt(selectedRowIndex, 0).toString());
-            jTextField3HorasParte.setText(modeloDeTabla.getValueAt(selectedRowIndex, 2).toString());
+            jTextField3HorasParte.setText(modeloDeTabla.getValueAt(selectedRowIndex, 2).toString());//aqui tiene que salir las horas totales
             
             //TODO: MOSTRAS EXCESO DE HORAS PARTE
        

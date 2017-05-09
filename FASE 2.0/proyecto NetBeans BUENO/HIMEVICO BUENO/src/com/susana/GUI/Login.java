@@ -41,6 +41,7 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setText("");
 
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -179,8 +180,21 @@ System.exit(0);System.exit(0);    }//GEN-LAST:event_jButton1SalirActionPerformed
                     JOptionPane.showMessageDialog(this, "Usuario o contraseña erroneos");
             } else {
                 resul.next();
-                if ("TRANSPORTISTA".equalsIgnoreCase(resul.getString(1))) {
+                
+              
+                     if ("TRANSPORTISTA".equalsIgnoreCase(resul.getString(1))) {
+                    VentanaCrearParteLogistica vtr = new VentanaCrearParteLogistica();
+                    vtr.prepararParteAbierto(usuario);
+                    vtr.setVisible(true);
+                    dispose();           
                     JOptionPane.showMessageDialog(this, "Bienvenido, accede a opciones de categoría TRANSPORTISTA");
+                    
+                            
+                        
+               
+                    
+                
+                  //  JOptionPane.showMessageDialog(this, "Bienvenido, accede a opciones de categoría TRANSPORTISTA");
                 } else if ("ADMINISTRATIVO".equalsIgnoreCase(resul.getString(1))) {
                     VentanaAdministrador vadmin = new VentanaAdministrador();
                     vadmin.setVisible(true);

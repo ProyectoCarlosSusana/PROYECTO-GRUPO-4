@@ -15,8 +15,8 @@ import com.susana.Entidades.Parte;
 public class PartesLN {
     PartesDAO pdao =new PartesDAO();
     
-    public void insertarDatos (Parte p){
-        pdao.insertarDatos(p);    
+    public Integer insertarDatos (Parte p){
+        return pdao.insertarDatos(p);    
     }
     public void actualizarDatos (Parte p){
         pdao.actualizarDatos(p);
@@ -33,4 +33,8 @@ public class PartesLN {
         return vln.getSumaHorasViajes(fechaParte);
     }
     */
+
+    public Parte listarParteAbierto(Parte p) {
+       return pdao.listarParteAbierto(p);
+    }
 }
