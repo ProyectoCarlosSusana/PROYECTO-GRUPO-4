@@ -15,7 +15,6 @@ import java.util.ArrayList;
  */
 public class Transportista extends Trabajador {
     
-    private ArrayList<Vehiculo>vehiculos;
     private ArrayList<Parte> partes;
     
 }

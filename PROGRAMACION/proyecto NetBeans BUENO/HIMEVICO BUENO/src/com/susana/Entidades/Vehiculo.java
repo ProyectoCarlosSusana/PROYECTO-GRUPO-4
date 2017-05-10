@@ -18,7 +18,6 @@ public class Vehiculo {
     private String marca;
     private String modelo;
     
-    private ArrayList<Transportista>transportistas;
 
     public Vehiculo() {
     }
