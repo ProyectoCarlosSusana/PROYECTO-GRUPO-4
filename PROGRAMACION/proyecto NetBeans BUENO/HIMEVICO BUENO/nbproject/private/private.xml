@@ -13,14 +13,21 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/GUI/VentanaGestionPartes.java</file>
-            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/GUI/VentanaGestiónUsuarios1.java</file>
-            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/DAO/ConexionTest.java</file>
-            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/DAO/PartesDAO.java</file>
-            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/GUI/VEHICULOS.java</file>
-            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/GUI/Login.java</file>
-            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/DAO/ViajesDAO.java</file>
             <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/GUI/VentanaViajes.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/GUI/Login.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/Entidades/Viaje.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/Entidades/Aviso.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/GUI/VentanaGestiónUsuarios1.java</file>
             <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/GUI/VentanaCrearParteLogistica.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/DAO/PartesDAO.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/Entidades/Vehiculo.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/DAO/ConexionTest.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/Entidades/Administrativo.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/Entidades/CentrosHime.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/DAO/ViajesDAO.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/Entidades/Transportista.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/Entidades/Trabajador.java</file>
+            <file>file:/C:/Users/acer/PROYECTO-GRUPO-4/PROGRAMACION/proyecto%20NetBeans%20BUENO/HIMEVICO%20BUENO/src/com/susana/GUI/VEHICULOS.java</file>
         </group>
     </open-files>
 </project-private>
