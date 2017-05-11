@@ -22,7 +22,7 @@ public class Parte {
    private double gastosVarios;
    private String incidencias;
    private String validar;
-   private double Exceso;
+   private double totalHoras;
    private String usuario;
    private int numParte;
    
@@ -30,10 +30,16 @@ public class Parte {
    private ArrayList<Viaje> viajes;
    private Transportista transportista;
 
+      /*
+ * Constructor de clase vacio     
+ */
     public Parte() {
     }
 
-    public Parte(int numParte, double kmPrincipio, double kmFinal, Date fecha, String estado, double gastoGasoil, double gastoAutopista, double gastoDietas, double gastosVarios, String incidencias, String validar, double Exceso, String usuario, Aviso aviso, Transportista transportista) {
+       /*
+ * Constructor de clase con todos los atributos     
+ */
+    public Parte(int numParte, double kmPrincipio, double kmFinal, Date fecha, String estado, double gastoGasoil, double gastoAutopista, double gastoDietas, double gastosVarios, String incidencias, String validar, double totalHoras, String usuario, Aviso aviso, Transportista transportista) {
         this.kmPrincipio = kmPrincipio;
         this.kmFinal = kmFinal;
         this.fecha = fecha;
@@ -44,7 +50,7 @@ public class Parte {
         this.gastosVarios = gastosVarios;
         this.incidencias = incidencias;
         this.validar = validar;
-        this.Exceso = Exceso;
+        this.totalHoras = totalHoras;
         this.usuario = usuario;
         this.aviso = aviso;
         this.transportista = transportista;
@@ -147,12 +153,12 @@ public class Parte {
         this.validar = validar;
     }
 
-    public double getExceso() {
-        return Exceso;
+    public double gettotalHoras() {
+        return totalHoras;
     }
 
-    public void setExceso(double Exceso) {
-        this.Exceso = Exceso;
+    public void settotalHoras(double totalHoras) {
+        this.totalHoras = totalHoras;
     }
 
     public String getUsuario() {
@@ -181,7 +187,7 @@ public class Parte {
 
     @Override
     public String toString() {
-        return "Parte{" + "kmPrincipio=" + kmPrincipio + ", kmFinal=" + kmFinal + ", fecha=" + fecha + ", estado=" + estado + ", gastoGasoil=" + gastoGasoil + ", gastoAutopista=" + gastoAutopista + ", gastoDietas=" + gastoDietas + ", gastosVarios=" + gastosVarios + ", incidencias=" + incidencias + ", validar=" + validar + ", Exceso=" + Exceso + ", usuario=" + usuario + ", numParte=" + numParte + '}';
+        return "Parte{" + "kmPrincipio=" + kmPrincipio + ", kmFinal=" + kmFinal + ", fecha=" + fecha + ", estado=" + estado + ", gastoGasoil=" + gastoGasoil + ", gastoAutopista=" + gastoAutopista + ", gastoDietas=" + gastoDietas + ", gastosVarios=" + gastosVarios + ", incidencias=" + incidencias + ", validar=" + validar + ", totalHoras=" + totalHoras + ", usuario=" + usuario + ", numParte=" + numParte + '}';
     }
 
     public Object get(int index) {

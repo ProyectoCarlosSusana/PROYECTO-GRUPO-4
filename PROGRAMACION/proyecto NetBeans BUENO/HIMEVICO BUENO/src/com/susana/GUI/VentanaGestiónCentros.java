@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.susana.GUI;
 
 import com.susana.Entidades.CentrosHime;
@@ -38,6 +33,7 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
         initComponents();
         jTextField1inserNombreCentro.requestFocus();
         this.setLocationRelativeTo(null);
+        dispose();
 
     }
 
@@ -53,7 +49,7 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2Centros = new javax.swing.JTextPane();
-        jButton3untrabajador = new javax.swing.JButton();
+        jButton3unCentro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1inserNombreCentro = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -94,13 +90,13 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 730, 170));
 
-        jButton3untrabajador.setText("Buscar centro");
-        jButton3untrabajador.addActionListener(new java.awt.event.ActionListener() {
+        jButton3unCentro.setText("Buscar centro");
+        jButton3unCentro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3untrabajadorActionPerformed(evt);
+                jButton3unCentroActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3untrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 240, -1));
+        getContentPane().add(jButton3unCentro, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 240, -1));
 
         jLabel1.setText("    Insertar nombre centro para borrar/actualizar");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 250, -1));
@@ -235,8 +231,8 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3untrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3untrabajadorActionPerformed
+//ACCIONAMIENTO BUSCAR UN CENTRO, DESPUES DE INTRODUCIR NOMBRE CENTRO EN LA CASILLA HABILITADA PARA ELLO
+    private void jButton3unCentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3unCentroActionPerformed
 
         try {
             Class.forName("java.sql.DriverManager");
@@ -272,8 +268,7 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
                             + "\n" + "CÓDIGO POSTAL: " + c.getCodigoPostal() + "\n" + "TELÉFONO: " + c.getTelefono()
                             + "\n" + "CIUDAD: " + c.getCiudad() + "\n" + "PROVINCIA: " + c.getProvincia()
                             + "NÚMERO CENTRO: " + c.getIdCentro() + "\n", null);
-//NOMBRE, CALLE, NUMERO, CODIGO_POSTAL, TELEFONO, CIUDAD, PROVINCIA, CENTRO_ID;
-                    //   jTextField1Nombre.setText(c.getNombre());
+//
                     jTextField1CalleCentro.setText(c.getCalle());
                     jTextFieldNumCalleCentro.setText(c.getNumero());
                     jTextField1CodigoPostal.setText(c.getCodigoPostal());
@@ -309,7 +304,7 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
         if (jTextPane4unCentro.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "Centro inexistente con los datos indicados");
         }
-    }//GEN-LAST:event_jButton3untrabajadorActionPerformed
+    }//GEN-LAST:event_jButton3unCentroActionPerformed
 
     private void jTextField1inserNombreCentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1inserNombreCentroActionPerformed
 
@@ -364,21 +359,27 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }    }//GEN-LAST:event_jButton1ActionPerformed
-
+//VENTANA ADMINISTRADOR BORRANDO LA ANTERIOR
     private void jButton3AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3AtrasActionPerformed
-        VentanaAdministrador va = new VentanaAdministrador();
-        va.setVisible(true);
+        VentanaAdministrador vc = new VentanaAdministrador();
+        vc.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3AtrasActionPerformed
 
+//SALIR DE PROGRAMA
     private void jButton3exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3exitActionPerformed
 System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
 
+    //ACCIONAMIENTO BORRAR TRABAJADOR
     private void jButton3borrarTrabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3borrarTrabActionPerformed
         try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-//clicando sobre el boton borrar trabajador, aprovecha el trabajador insertado en la búsqueda para borrarlo
+
+            /*
+            Clicando sobre el boton borrar trabajador, borra  el trabajador visualizado y que bien 
+            se ha  buscado introduciendo DNI en la casilla habilitada para ello o se acaba de hacer nuevo y todavía está en pantalla
+             */
             String sql = "DELETE FROM CENTRO WHERE NOMBRE=?";
             PreparedStatement sentencia = conexion.prepareStatement(sql);
             sentencia.setString(1, jTextField1inserNombreCentro.getText());
@@ -400,28 +401,20 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
             /*if (jTextPane4unCentro.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "centro inexistente con los datos indicados");
         }
-            no me deja quitar la llave que esta en el espacio azul
+            no me deja quitar la llave que esta en el espacio azul por eso tengo que dejarlo así
              */
         }       }//GEN-LAST:event_jButton3borrarTrabActionPerformed
 
     private void jTextField1NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1NombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1NombreActionPerformed
 
+    }//GEN-LAST:event_jTextField1NombreActionPerformed
+//CREAR NUEVO CENTRO
     private void jButton3NuevoCentroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3NuevoCentroActionPerformed
         int identificador = 0;
         try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-//NOMBRE, CALLE, NUMERO, CODIGO_POSTAL, TELEFONO, CIUDAD, PROVINCIA, CENTRO_ID;
 
-            /*      String sqlSecuencia = "select CENTRO_CENTRO_ID_SEQ.NEXTVAL from CENTRO";
-            PreparedStatement pst = conexion.prepareStatement(sqlSecuencia);
-            synchronized (this) {
-                ResultSet r = pst.executeQuery();
-                if (r.next()) {
-                }
-            }*/
             String sql = "INSERT INTO  CENTRO( NOMBRE, CALLE, NUMERO, CODIGO_POSTAL, TELEFONO, CIUDAD, PROVINCIA, CENTRO_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement sentencia = conexion.prepareStatement(sql);
 
@@ -440,7 +433,6 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
                 JOptionPane.showMessageDialog(this, "Error datos, introduzca datos correctos");
 
             }
-            //sentencia.setInt(8, Integer.parseInt(jTextFieldIdCentro.getText()));
             sentencia.close();
             conexion.close();
         } catch (ClassNotFoundException cn) {
@@ -448,9 +440,7 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*   if (jTextPane4unCentro.getText().length() == 0) {
-            JOptionPane.showMessageDialog(this, "centro inexistente con los datos indicados");
-        }*/
+
     }//GEN-LAST:event_jButton3NuevoCentroActionPerformed
 
     private void jTextField1inserNombreCentroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1inserNombreCentroFocusGained
@@ -458,7 +448,7 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
     }//GEN-LAST:event_jTextField1inserNombreCentroFocusGained
 
     private void jTextField1inserNombreCentroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1inserNombreCentroFocusLost
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField1inserNombreCentroFocusLost
 
     /**
@@ -504,7 +494,7 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
     private javax.swing.JButton jButton3NuevoCentro;
     private javax.swing.JButton jButton3borrarTrab;
     private javax.swing.JButton jButton3exit;
-    private javax.swing.JButton jButton3untrabajador;
+    private javax.swing.JButton jButton3unCentro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

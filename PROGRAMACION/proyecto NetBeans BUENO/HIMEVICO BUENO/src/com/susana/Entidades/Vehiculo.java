@@ -19,9 +19,15 @@ public class Vehiculo {
     private String modelo;
     
 
+       /*
+ * Constructor de clase VACIO     
+ */
     public Vehiculo() {
     }
 
+       /*
+ * Constructor de clase con todos los atributos     
+ */
     public Vehiculo(String matricula, String marca, String modelo) {
         this.matricula = matricula;
         this.marca = marca;

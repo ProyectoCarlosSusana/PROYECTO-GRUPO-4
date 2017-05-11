@@ -41,6 +41,8 @@ public abstract class Trabajador {
     private ArrayList<Aviso>avisos;
     private CentrosHime centrosHimes;
     
+    //METODO CAMBIO CONTRASEÑA: PARÁMETROS DE ENTRADA, USUARIO, CONTRASEÑA NUEVA, CONSTRASEÑA A CAMBIAR
+    
     public static boolean cambioContrase (String usu, String contraNuev, String contraViej) throws SQLException{
         try {
             ConexionTest.conectar();

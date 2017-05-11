@@ -14,22 +14,24 @@ import java.sql.Time;
  *
  * @author acer
  */
+//GESTIONA TODO LO REFERENTE A LINEA DE NEGOCIO DE VIAJES, SEPARANDO EL CÓDIGO POR RESPONSABILIDADES
+//TODO: VIAJES
 public class ViajesLN {
     ViajesDAO vdao =new ViajesDAO();
     
-    public void insertarDatos (Parte p){
-        vdao.insertarDatos(p);    
+  /*  public void insertarDatos (Viaje v){
+        vdao.insertarDatos(v);    
     }
-    public void actualizarDatos (Parte p){
-        vdao.actualizarDatos(p);
+    public void actualizarDatos (Viaje v){
+        vdao.actualizarDatos(v);
     }
-    public void borrarDatos (Parte p){
-        vdao.borrarDatos(p);
+    public void borrarDatos (Viaje v){
+        vdao.borrarDatos(v);
     }
-    public void listarDatos (Parte p){
-        vdao.listarDatos(p);
+    public void listarDatos (Viaje v){
+        vdao.listarDatos(v);
     }    
-
+*/
    /* public String getSumaHorasViajes(String fechaParte) {
         Date fp=Date.valueOf(fechaParte);
         Time t=vdao.sumarHoras(fp);

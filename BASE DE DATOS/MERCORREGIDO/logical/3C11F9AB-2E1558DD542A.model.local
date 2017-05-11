@@ -534,6 +534,12 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>12</dataTypeSize>
 <ownDataTypeParameters>12,,</ownDataTypeParameters>
+<<<<<<< HEAD
+=======
+<propertyMap>
+<property name="engineerTo" value=""/>
+</propertyMap>
+>>>>>>> master
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -1171,7 +1177,7 @@
 <targetPk>2F790F4E-561D-AAEE-F664-2F7B41A7BAE2</targetPk>
 <identifying>false</identifying>
 <optionalSource>false</optionalSource>
-<optionalTarget>true</optionalTarget>
+<optionalTarget>false</optionalTarget>
 <sourceCardinality>*</sourceCardinality>
 <sourceEntity>4861516B-DCBB-9068-CADC-9022EB910E41</sourceEntity>
 <targetCardinalityString>1</targetCardinalityString>

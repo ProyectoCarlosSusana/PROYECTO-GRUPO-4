@@ -23,9 +23,15 @@ public class CentrosHime {
 
     private ArrayList<Trabajador>trabajadores;
     
+    /**
+ * Constructor de clase vacio     
+ */
     public CentrosHime() {
     }
 
+    /*
+ * Constructor de clase con todos los atributos     
+ */
     public CentrosHime(String nombre, String calle, String numero, String codigoPostal, String telefono, String ciudad, String provincia, Integer idCentro) {
         this.nombre = nombre;
         this.calle = calle;
