@@ -19,6 +19,10 @@ public class Aviso {
 
     private Parte parte;
     private Trabajador trabajador;
+    
+    /**
+ * Constructor de clase     
+ */
 
     public Aviso(String fechaAviso, String comentario, Parte parte) {
         this.fechaAviso = fechaAviso;

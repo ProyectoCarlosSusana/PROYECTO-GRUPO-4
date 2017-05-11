@@ -6,34 +6,30 @@
 package com.susana.Entidades;
 
 import com.susana.Entidades.Parte;
-import java.sql.Date;
-
-/**
- *
- * @author acer
- */
-
+import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class Viaje {
-    
+
     private String usuario;
     private int idViaje;
-    private double horaSalida;
-    private double horaLlegada;
-    private double totalHorasViaje;
+    private LocalTime horaSalida;
+    private LocalTime horaLlegada;
+    private LocalTime totalHorasViaje;
     private String matricula;
-   private Date fecha;
-    
-    
-    //metodo total horas viajes (idViaje, usuario, fechaParte)?
-    private Parte parte;
-    private Vehiculo vehiculo;
-    private Trabajador trabajador;
+    private LocalDate fecha;
+    private int numParte;
 
+    /*
+ * Constructor de clase VACIO     
+     */
     public Viaje() {
     }
 
-    public Viaje(String usuario, int idViaje, double horaSalida, double horaLlegada, double totalHorasViaje, String matricula, Date fecha, Parte parte, Vehiculo vehiculo, Trabajador trabajador) {
+    /*
+ * Constructor de clase con todos los atributos     
+     */
+    public Viaje(String usuario, int idViaje, LocalTime horaSalida, LocalTime horaLlegada, LocalTime totalHorasViaje, String matricula, LocalDate fecha, int numParte) {
         this.usuario = usuario;
         this.idViaje = idViaje;
         this.horaSalida = horaSalida;
@@ -41,11 +37,10 @@ public class Viaje {
         this.totalHorasViaje = totalHorasViaje;
         this.matricula = matricula;
         this.fecha = fecha;
-        this.parte = parte;
-        this.vehiculo = vehiculo;
-        this.trabajador = trabajador;
+        this.numParte = numParte;
     }
 
+  
     public String getUsuario() {
         return usuario;
     }
@@ -62,27 +57,27 @@ public class Viaje {
         this.idViaje = idViaje;
     }
 
-    public double getHoraSalida() {
+    public LocalTime getHoraSalida() {
         return horaSalida;
     }
 
-    public void setHoraSalida(double horaSalida) {
+    public void setHoraSalida(LocalTime horaSalida) {
         this.horaSalida = horaSalida;
     }
 
-    public double getHoraLlegada() {
+    public LocalTime getHoraLlegada() {
         return horaLlegada;
     }
 
-    public void setHoraLlegada(double horaLlegada) {
+    public void setHoraLlegada(LocalTime horaLlegada) {
         this.horaLlegada = horaLlegada;
     }
 
-    public double getTotalHorasViaje() {
+    public LocalTime getTotalHorasViaje() {
         return totalHorasViaje;
     }
 
-    public void setTotalHorasViaje(double totalHorasViaje) {
+    public void setTotalHorasViaje(LocalTime totalHorasViaje) {
         this.totalHorasViaje = totalHorasViaje;
     }
 
@@ -94,39 +89,20 @@ public class Viaje {
         this.matricula = matricula;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
-    public Parte getParte() {
-        return parte;
+    public int getNumParte() {
+        return numParte;
     }
 
-    public void setParte(Parte parte) {
-        this.parte = parte;
+    public void setNumParte(int numParte) {
+        this.numParte = numParte;
     }
 
-    public Vehiculo getVehiculo() {
-        return vehiculo;
-    }
-
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
-    }
-
-    public Trabajador getTrabajador() {
-        return trabajador;
-    }
-
-    public void setTrabajador(Trabajador trabajador) {
-        this.trabajador = trabajador;
-    }
-
-    
-    
-    
 }

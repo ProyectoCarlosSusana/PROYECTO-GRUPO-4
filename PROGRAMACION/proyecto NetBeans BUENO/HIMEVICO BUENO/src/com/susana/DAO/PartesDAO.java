@@ -12,19 +12,21 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author acer
+
+/*
+//GESTIONA EN LA BASE DE DATOS TODO LO REFERENTE A PARTES, SEPARANDO EL CÓDIGO POR RESPONSABILIDADES
+
+
  */
 public class PartesDAO {
 
     ConexionTest conexion = new ConexionTest();
 
-    //TODO: INSERT
     public Integer insertarDatos(Parte p) {
         Connection cxn = null;
         PreparedStatement sentencia = null;
@@ -50,7 +52,7 @@ public class PartesDAO {
             sentencia.setDouble(10, p.getGastosVarios());
             sentencia.setString(11, p.getIncidencias());
             sentencia.setString(12, p.getValidar());
-            sentencia.setDouble(13, p.getExceso());
+            sentencia.setDouble(13, p.gettotalHoras());
             int filas = sentencia.executeUpdate();
             if (filas == 1) {
 
@@ -71,8 +73,6 @@ public class PartesDAO {
         }
         return resp;
     }
-//TODO: UPDATE PARA ADMINISTRADOR ES modificarlo todo si no está validado
-    //UPDATE PARA EL TRANSPORTISTA ES PONER EL ESTADO COMO CERRADO
 
     public void actualizarDatos(Parte p) {
         Connection cxn = null;
@@ -95,7 +95,7 @@ public class PartesDAO {
             sentencia.setDouble(8, p.getGastosVarios());
             sentencia.setString(9, p.getIncidencias());
             sentencia.setString(10, p.getValidar());
-            sentencia.setDouble(11, p.getExceso());
+            sentencia.setDouble(11, p.gettotalHoras());
             sentencia.setInt(12, p.getNumParte());
             int filas = sentencia.executeUpdate();
             if (filas == 1) {
@@ -114,50 +114,14 @@ public class PartesDAO {
 
     }
 
-    //cxn.setAutoCommit(false);
-    /*   String sql = "UPDATE INTO  PARTE( TRABAJADOR_USUARIO,  FECHA,  ESTADO, "
-                    + "KM_PRINCIPIO, KM_FINAL,  GASTO_GASOIL, GASTO_AUTOPISTA,"
-                    + "GASTO_DIETAS, GASTOS_VARIOS,  INCIDENCIAS, VALIDADO,   TOTAL_HORAS "
-                    + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            sentencia = cxn.prepareStatement(sql);
-            sentencia.setString(1, p.getUsuario());
-            sentencia.setDate(2, p.getFecha());
-            sentencia.setString(3, p.getEstado());
-            sentencia.setDouble(4, p.getKmPrincipio());
-            sentencia.setDouble(5, p.getKmFinal());
-            sentencia.setDouble(6, p.getGastoGasoil());
-            sentencia.setDouble(7, p.getGastoAutopista());
-            sentencia.setDouble(8, p.getGastoDietas());
-            sentencia.setDouble(9, p.getGastosVarios());
-            sentencia.setString(10, p.getIncidencias());
-            sentencia.setString(11, p.getValidar());
-            sentencia.setDouble(12, p.getExceso());
-            int filas = sentencia.executeUpdate();
-            if (filas == 1) {
-                resp=true;
-            } else {
-                resp=false;
-            }
-            sentencia.close();
-            cxn.close();
-         
-        } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        } */
-    //TODO: DELETE
     public void borrarParteCerrado(Parte p) {
         Connection cxn = null;
         PreparedStatement sentencia = null;
         boolean resp = true;
         try {
-            /*
-              String sql = "DELETE FROM CENTRO WHERE NOMBRE=?";
-            PreparedStatement sentencia = conexion.prepareStatement(sql);
-            sentencia.setString(1, jTextField1inserNombreCentro.getText());
-             */
+
             ConexionTest.conectar();
             cxn = conexion.getConexion();
-            //cxn.setAutoCommit(false);
             String sql = "DELETE FROM PARTE WHERE NUM_PARTE = ? AND ESTADO = ?; ";
             sentencia = cxn.prepareStatement(sql);
             sentencia.setInt(1, p.getNumParte());
@@ -171,7 +135,7 @@ public class PartesDAO {
             sentencia.setDouble(8, p.getGastosVarios());
             sentencia.setString(9, p.getIncidencias());
             sentencia.setString(10, p.getValidar());
-            sentencia.setDouble(11, p.getExceso());
+            sentencia.setDouble(11, p.gettotalHoras());
             sentencia.setString(12, "NO");
             int filas = sentencia.executeUpdate();
             if (filas == 1) {
@@ -188,12 +152,12 @@ public class PartesDAO {
             Logger.getLogger(PartesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }    //TODO: SELECT
+    }
 
-    public void listarDatos(Parte p) {
+    public ArrayList<Parte> listarDatos(Parte p) {
         Connection cxn = null;
         PreparedStatement sentencia = null;
-        boolean resp = true;
+        ArrayList<Parte> resp = new ArrayList<Parte>();
         try {
             ConexionTest.conectar();
             cxn = conexion.getConexion();
@@ -215,12 +179,27 @@ public class PartesDAO {
             sentencia.setDouble(10, p.getGastosVarios());
             sentencia.setString(11, p.getIncidencias());
             sentencia.setString(12, p.getValidar());
-            sentencia.setDouble(13, p.getExceso());
-            int filas = sentencia.executeUpdate();
-            if (filas == 1) {
-                resp = true;
-            } else {
-                resp = false;
+            sentencia.setDouble(13, p.gettotalHoras());
+
+            ResultSet rs = sentencia.executeQuery();
+
+            while (rs.next()) {
+                Parte r = new Parte();
+                r.setNumParte(rs.getInt(1));
+                r.setUsuario(rs.getString(2));
+                r.setFecha(rs.getDate(3));
+                r.setEstado(rs.getString(4));
+                r.setKmPrincipio(rs.getDouble(5));
+                r.setKmFinal(rs.getDouble(6));
+                r.setGastoGasoil(rs.getDouble(7));
+                r.setGastoAutopista(rs.getDouble(8));
+                r.setGastoDietas(rs.getDouble(9));
+                r.setGastosVarios(rs.getDouble(10));
+                r.setIncidencias(rs.getString(11));
+                r.setValidar(rs.getString(12));
+                r.settotalHoras(rs.getDouble(13));
+
+                resp.add(r);
             }
             sentencia.close();
             cxn.close();
@@ -230,7 +209,7 @@ public class PartesDAO {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PartesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return resp;
     }
 
     public void borrarDatos(Parte p) {
@@ -255,7 +234,7 @@ public class PartesDAO {
             ResultSet rs = sentencia.executeQuery();
             if (rs != null) {
                 rs.next();
-                resp=new Parte();
+                resp = new Parte();
                 resp.setNumParte(rs.getInt(1));
                 resp.setUsuario(rs.getString(2));
                 resp.setFecha(rs.getDate(3));
@@ -268,7 +247,7 @@ public class PartesDAO {
                 resp.setGastosVarios(rs.getDouble(10));
                 resp.setIncidencias(rs.getString(11));
                 resp.setValidar(rs.getString(12));
-                resp.setExceso(rs.getDouble(13));
+                resp.settotalHoras(rs.getDouble(13));
             } else {
                 resp = null;
             }

@@ -33,7 +33,8 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
     Trabajador t;
 
     /**
-     * Creates new form VentanaGestiónUsuarios
+     * FOCO EN LA CASILLA DNI
+     * LOCATION RELATIVE
      */
     public VentanaGestiónUsuarios1() {
         initComponents();
@@ -50,15 +51,15 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        jBListarTrabajadores = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextPane2Trabajadores = new javax.swing.JTextPane();
-        jButton3untrabajador = new javax.swing.JButton();
+        jBBuscarUnTrabajador = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextField1inserDni = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextPane4unTrabaj = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
+        jButton1ActualizarUnTrabajador = new javax.swing.JButton();
         jTextField1dni = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -79,9 +80,9 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
         jTextField1piso = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextField1CentroUsu = new javax.swing.JTextField();
-        jButton3Atras = new javax.swing.JButton();
+        jButton3VolverAdministrador = new javax.swing.JButton();
         jButton3exit = new javax.swing.JButton();
-        jButton3borrarTrab = new javax.swing.JButton();
+        jBBorrarUnTrabajador = new javax.swing.JButton();
         jButton3NuevoTrab = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jTextField1Usuario = new javax.swing.JTextField();
@@ -99,28 +100,29 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("Listado trabajadores");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBListarTrabajadores.setText("Listado trabajadores");
+        jBListarTrabajadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBListarTrabajadoresActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 730, -1));
+        getContentPane().add(jBListarTrabajadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 730, -1));
 
         jScrollPane2.setViewportView(jTextPane2Trabajadores);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 730, 170));
 
-        jButton3untrabajador.setText("Buscar trabajador");
-        jButton3untrabajador.addActionListener(new java.awt.event.ActionListener() {
+        jBBuscarUnTrabajador.setText("Buscar trabajador");
+        jBBuscarUnTrabajador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3untrabajadorActionPerformed(evt);
+                jBBuscarUnTrabajadorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3untrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 240, -1));
+        getContentPane().add(jBBuscarUnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 240, -1));
 
-        jLabel1.setText("    Introducir DNI para borrar o actualizar trabajador");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 250, -1));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("    Introducir DNI para borrar o actualizar ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 10, 240, -1));
 
         jTextField1inserDni.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextField1inserDni.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -136,19 +138,19 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
                 jTextField1inserDniActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1inserDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 240, 25));
+        getContentPane().add(jTextField1inserDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 240, 25));
 
         jScrollPane4.setViewportView(jTextPane4unTrabaj);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 89, 240, 100));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 90, 240, 100));
 
-        jButton1.setText("Actualizar trabajador");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1ActualizarUnTrabajador.setText("Actualizar trabajador");
+        jButton1ActualizarUnTrabajador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1ActualizarUnTrabajadorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 240, -1));
+        getContentPane().add(jButton1ActualizarUnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 240, -1));
 
         jTextField1dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,13 +198,13 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
         getContentPane().add(jTextField1CentroUsu, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 70, -1));
 
-        jButton3Atras.setText("Volver atrás");
-        jButton3Atras.addActionListener(new java.awt.event.ActionListener() {
+        jButton3VolverAdministrador.setText("Volver atrás");
+        jButton3VolverAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3AtrasActionPerformed(evt);
+                jButton3VolverAdministradorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 370, -1, -1));
+        getContentPane().add(jButton3VolverAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 360, -1, -1));
 
         jButton3exit.setText("Salir");
         jButton3exit.addActionListener(new java.awt.event.ActionListener() {
@@ -210,15 +212,15 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
                 jButton3exitActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 410, 90, -1));
+        getContentPane().add(jButton3exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 400, 90, -1));
 
-        jButton3borrarTrab.setText("Borrar trabajador");
-        jButton3borrarTrab.addActionListener(new java.awt.event.ActionListener() {
+        jBBorrarUnTrabajador.setText("Borrar trabajador");
+        jBBorrarUnTrabajador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3borrarTrabActionPerformed(evt);
+                jBBorrarUnTrabajadorActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3borrarTrab, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 200, 240, -1));
+        getContentPane().add(jBBorrarUnTrabajador, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 200, 240, -1));
 
         jButton3NuevoTrab.setText("Nuevo trabajador");
         jButton3NuevoTrab.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +228,7 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
                 jButton3NuevoTrabActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3NuevoTrab, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 260, 240, -1));
+        getContentPane().add(jButton3NuevoTrab, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 240, -1));
 
         jLabel3.setText("Usuario");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
@@ -255,7 +257,9 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+//BOTTON PARA LISTAR TRABAJADORES
+
+    private void jBListarTrabajadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarTrabajadoresActionPerformed
         try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
@@ -285,9 +289,11 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jBListarTrabajadoresActionPerformed
 
-    private void jButton3untrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3untrabajadorActionPerformed
+    //BOTÓN PARA ACCIONAR BUSCAR UN TRABAJADOR, PREVIAMENTE SE HA INSERTADO DNI EN LA CASILLA HABILITADA PAR ELLO
+
+    private void jBBuscarUnTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarUnTrabajadorActionPerformed
 
         try {
             Class.forName("java.sql.DriverManager");
@@ -326,7 +332,6 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
                     t.setFecha(resul.getDate(14));
 
                     otroDocumento.insertString(otroDocumento.getLength(),
-                            
                             "DNI: " + t.getDni() + "\n" + "NOMBRE: " + t.getNombre() + "\n" + "PRIMER APELLIDO: " + t.getApellido1()
                             + "\n" + "SEGUNDO APELLIDO: " + t.getApellido2() + "\n" + "DIRECCIÓN: " + t.getCalle()
                             + " , " + t.getPortal() + " - " + t.getPiso()
@@ -352,6 +357,7 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
                     jTextField1Salario.setText(salar);
                     jDateChooser1FechaNac.setDate(t.getFecha());
 
+                    //SI ESTA CASILLA ESTÁ VACÍA SALDRÁ UN MENSAJE DE QUE EL TRABAJADOR CON ESOS DATOS NO EXISTE
                     if (jTextPane4unTrabaj.getText().length() == 0) {
                         JOptionPane.showMessageDialog(this, "trabajador inexistente con los datos indicados");
                     }
@@ -374,22 +380,27 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
             e.printStackTrace();
 
         }
-        //fuente: aprenderaprogramar.com/foros/index.php?topic=1235.0
+        //AGRADECIMIENTO fuente: aprenderaprogramar.com/foros/index.php?topic=1235.0. 
+
         if (jTextPane4unTrabaj.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "trabajador inexistente con los datos indicados");
         }
-    }//GEN-LAST:event_jButton3untrabajadorActionPerformed
+    }//GEN-LAST:event_jBBuscarUnTrabajadorActionPerformed
 
     private void jTextField1inserDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1inserDniActionPerformed
 
     }//GEN-LAST:event_jTextField1inserDniActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    /*
+    BOTÓN PARA ACCIONAR LA ACTUALIZACIÓN DE LOS DATOS DEL TRABAJADOR QUE HEMOS LOCALIZADO EN LA BASE DE DATOS
+    CON LA OPCIÓN DE BÚSQUEDA DE UN TRABAJADOR INTRODUCIENDO DNI EN LA CASILLA CORRESPONDIENTE
+   UNA VEZ ACTUALIZADO, LOS CAMPOS SE VACÍAN
+     */
+    private void jButton1ActualizarUnTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActualizarUnTrabajadorActionPerformed
         try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
-            
             String sql = "UPDATE TRABAJADOR SET DNI = ?, NOMBRE = ?, APELLIDO_1 = ?, APELLIDO_2 = ?,CALLE=?,"
                     + " PORTAL=?, PISO=?, MANO=?, CATEGORIA=?, CENTRO_ID=?,"
                     + " TELEFONO_EMPRESA=?, TELEFONO_PERSONAL=?, SALARIO=?, FECHA_NACIMIENTO=? WHERE DNI=?";
@@ -412,6 +423,7 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
             sentencia.setDate(14, fech);
             sentencia.setString(15, t.getDni());
 
+//SE VACIAN LOS CAMPOS 
             int filas = sentencia.executeUpdate();
             if (filas == 1) {
                 JOptionPane.showMessageDialog(this, "Datos trabajador actualizados");
@@ -440,22 +452,30 @@ public class VentanaGestiónUsuarios1 extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, cn);
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        }    }//GEN-LAST:event_jButton1ActionPerformed
+        }    }//GEN-LAST:event_jButton1ActualizarUnTrabajadorActionPerformed
 
-    private void jButton3AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3AtrasActionPerformed
+    //OPCIÓN DE VOLVER A LAS OPCIONES DE ADMINISTRATIVO
+
+    private void jButton3VolverAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3VolverAdministradorActionPerformed
         VentanaAdministrador va = new VentanaAdministrador();
         va.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton3AtrasActionPerformed
+    }//GEN-LAST:event_jButton3VolverAdministradorActionPerformed
+
+    //OPCIÓN PARA SALIR DEL PROGRAMA
 
     private void jButton3exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3exitActionPerformed
 System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
 
-    private void jButton3borrarTrabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3borrarTrabActionPerformed
+    private void jBBorrarUnTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBorrarUnTrabajadorActionPerformed
         try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-//clicando sobre el boton borrar trabajador, aprovecha el trabajador insertado en la búsqueda para borrarlo
+
+            /*
+    BOTÓN PARA ACCIONAR EL BORRADO  DEL TRABAJADOR QUE HEMOS LOCALIZADO EN LA BASE DE DATOS
+    CON LA OPCIÓN DE BÚSQUEDA DE UN TRABAJADOR INTRODUCIENDO DNI EN LA CASILLA CORRESPONDIENTE
+             */
             String sql = "DELETE FROM TRABAJADOR WHERE DNI=?";
             PreparedStatement sentencia = conexion.prepareStatement(sql);
             sentencia.setString(1, jTextField1inserDni.getText());
@@ -477,18 +497,19 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
         if (jTextPane4unTrabaj.getText().length() == 0) {
             JOptionPane.showMessageDialog(this, "trabajador inexistente con los datos indicados");
 
-        }       }//GEN-LAST:event_jButton3borrarTrabActionPerformed
+        }       }//GEN-LAST:event_jBBorrarUnTrabajadorActionPerformed
 
     private void jTextField1dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1dniActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jTextField1dniActionPerformed
 
+    //OPCIÓN PARA CREAR NUEVO TRABAJADOR
+    
     private void jButton3NuevoTrabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3NuevoTrabActionPerformed
 
         try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-//DNI, NOMBRE, APELLIDO_1, APELLIDO_2, CALLE, PORTAL, PISO, MANO, CATEGORIA, CENTRO_ID
 
             String sql = "INSERT INTO  TRABAJADOR( DNI, NOMBRE, APELLIDO_1, "
                     + "APELLIDO_2, CALLE, PORTAL, PISO, MANO, CATEGORIA, "
@@ -513,8 +534,8 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
             java.sql.Date fech = new java.sql.Date(ff.getTime());
             sentencia.setDate(16, fech);
 
-         //   sentencia.execute();
-   int filas = sentencia.executeUpdate();
+            //   sentencia.execute();
+            int filas = sentencia.executeUpdate();
             if (filas == 1) {
                 JOptionPane.showMessageDialog(this, "Trabajador creado");
             } else {
@@ -523,13 +544,13 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
             }
             sentencia.close();
             conexion.close();
-         
+
         } catch (ClassNotFoundException cn) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, cn);
-              JOptionPane.showMessageDialog(this, "Error datos, introduzca datos correctos");
+            JOptionPane.showMessageDialog(this, "Error datos, introduzca datos correctos");
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-              JOptionPane.showMessageDialog(this, "Error datos, introduzca datos correctos");
+            JOptionPane.showMessageDialog(this, "Error datos, introduzca datos correctos");
         }
 
     }//GEN-LAST:event_jButton3NuevoTrabActionPerformed
@@ -539,7 +560,7 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
     }//GEN-LAST:event_jTextField1inserDniFocusGained
 
     private void jTextField1inserDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1inserDniFocusLost
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextField1inserDniFocusLost
 
     /**
@@ -579,13 +600,13 @@ System.exit(0);    }//GEN-LAST:event_jButton3exitActionPerformed
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3Atras;
+    private javax.swing.JButton jBBorrarUnTrabajador;
+    private javax.swing.JButton jBBuscarUnTrabajador;
+    private javax.swing.JButton jBListarTrabajadores;
+    private javax.swing.JButton jButton1ActualizarUnTrabajador;
     private javax.swing.JButton jButton3NuevoTrab;
-    private javax.swing.JButton jButton3borrarTrab;
+    private javax.swing.JButton jButton3VolverAdministrador;
     private javax.swing.JButton jButton3exit;
-    private javax.swing.JButton jButton3untrabajador;
     private com.toedter.calendar.JDateChooser jDateChooser1FechaNac;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

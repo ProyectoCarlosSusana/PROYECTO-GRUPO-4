@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class PartesMDT extends AbstractTableModel {
 
-    String[] nombresColumnas = {"NUM_PARTE", "TRABAJADOR_USUARIO", "FECHA", "ESTADO", "KM_PRINCIPIO", "KM_FINAL", "GASTO_GASOIL", "GASTO_AUTOPISTA", "GASTO_DIETAS", "GASTOS_VARIOS", "INCIDENCIAS", "VALIDADO", "EXCESO"};
+    String[] nombresColumnas = {"NUM_PARTE", "TRABAJADOR_USUARIO", "FECHA", "ESTADO", "KM_PRINCIPIO", "KM_FINAL", "GASTO_GASOIL", "GASTO_AUTOPISTA", "GASTO_DIETAS", "GASTOS_VARIOS", "INCIDENCIAS", "VALIDADO", "TOTAL_HORAS"};
     List<Parte> datos = new ArrayList<>();
 
     public PartesMDT(List<Parte> datos) {
@@ -65,7 +65,7 @@ public class PartesMDT extends AbstractTableModel {
         } else if (columnIndex == 11) {
             resp = datos.get(rowIndex).getValidar();
         } else if (columnIndex == 12) {
-            resp = datos.get(rowIndex).getExceso();
+            resp = datos.get(rowIndex).gettotalHoras();
         }
         return resp;
     }

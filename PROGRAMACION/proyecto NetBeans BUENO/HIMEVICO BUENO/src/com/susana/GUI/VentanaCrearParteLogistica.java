@@ -39,7 +39,7 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
         p = pln.listarParteAbierto(p);
         jTextFieldUsuario.setText(p.getUsuario());
         if (p != null) {
-            
+
             jTextFieldKmFinal.setText(String.valueOf(p.getKmFinal()));
             jTextField2GastosDieta.setText(String.valueOf(p.getGastoDietas()));
             jTextField1GasstoGastoil.setText(String.valueOf(p.getGastoGasoil()));
@@ -48,7 +48,7 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
             jTextField1KmPrincipio.setText(String.valueOf(p.getKmPrincipio()));
             jTextField1GastosVarios.setText(String.valueOf(p.getGastosVarios()));
             jDateChooserFechaParte.setDate(p.getFecha());
-            
+
             jTextFieldKmFinal.setEnabled(true);
             jTextField2GastosDieta.setEnabled(true);
             jTextField1GasstoGastoil.setEnabled(true);
@@ -57,7 +57,7 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
             jTextField1KmPrincipio.setEnabled(true);
             jTextField1GastosVarios.setEnabled(true);
             jDateChooserFechaParte.setEnabled(true);
-            
+
             numParte = p.getNumParte();
 
             jButtonNuevoParte.setEnabled(false);
@@ -100,8 +100,10 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jBCerrarParte = new javax.swing.JButton();
         jBGuardarParte = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PARTE DIARIO TRANSPORTISTA");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("USUARIO");
@@ -113,7 +115,7 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
                 jTextFieldUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 310, -1));
+        getContentPane().add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 310, 30));
 
         jLabel12.setText("KM. PRINCIPIO JORNAD");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 150, -1));
@@ -152,16 +154,16 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
         getContentPane().add(jTextField1GasstoGastoil, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 180, -1));
 
         jLabel17.setText("FECHA");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 80, -1));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 80, -1));
 
         jDateChooserFechaParte.setEnabled(false);
-        getContentPane().add(jDateChooserFechaParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 200, -1));
+        getContentPane().add(jDateChooserFechaParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 230, 30));
 
         jLabel5.setText("INCIDENCIAS");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
 
         jTextField1Incidencias.setEnabled(false);
-        getContentPane().add(jTextField1Incidencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 260, -1));
+        getContentPane().add(jTextField1Incidencias, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 240, 180));
 
         jButtonNuevoParte.setText("Nuevo Parte");
         jButtonNuevoParte.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +171,7 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
                 jButtonNuevoParteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonNuevoParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 240, -1));
+        getContentPane().add(jButtonNuevoParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 240, 30));
 
         jButton5.setText("Salir");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -177,10 +179,13 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 430, -1, -1));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 70, 30));
 
-        jLabel1.setText("No tienes partes abiertos puedes crear un nuevo parte");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 360, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("En caso de visualizar un parte abierto, obligatorio cerrarlo para poder crear uno nuevo");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 24, 570, 30));
 
         jBCerrarParte.setText("Cerrar Parte");
         jBCerrarParte.setEnabled(false);
@@ -189,7 +194,7 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
                 jBCerrarParteActionPerformed(evt);
             }
         });
-        getContentPane().add(jBCerrarParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, -1, -1));
+        getContentPane().add(jBCerrarParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 140, 30));
 
         jBGuardarParte.setText("Guardar parte");
         jBGuardarParte.setEnabled(false);
@@ -198,15 +203,28 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
                 jBGuardarParteActionPerformed(evt);
             }
         });
-        getContentPane().add(jBGuardarParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
+        getContentPane().add(jBGuardarParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 140, 30));
+
+        jButton1.setText("Añadir viaje");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 120, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
+    /*
+
+* Crea un nuevo parte y el usuario ya podría introducir datos
+
+     */
     private void jButtonNuevoParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoParteActionPerformed
         jTextField1KmPrincipio.setText("");
         jTextFieldKmFinal.setText("");
@@ -238,7 +256,7 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton5ActionPerformed
-
+//El usuario cierra el parte definitivamente
     private void jBCerrarParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCerrarParteActionPerformed
         PartesLN pln = new PartesLN();
         Parte p = new Parte();
@@ -291,6 +309,11 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
         jBCerrarParte.setEnabled(true);
     }//GEN-LAST:event_jBGuardarParteActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        VentanaInsertarViajes iv = new VentanaInsertarViajes();
+        iv.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -329,6 +352,7 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCerrarParte;
     private javax.swing.JButton jBGuardarParte;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonNuevoParte;
     private com.toedter.calendar.JDateChooser jDateChooserFechaParte;

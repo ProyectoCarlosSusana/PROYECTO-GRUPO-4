@@ -124,9 +124,15 @@ public class VentanaCambioContras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1UsuActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1UsuActualActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jTextField1UsuActualActionPerformed
 
+    
+        /*
+
+* El programa actualiza la contraseña del usuario (siempre y cuando haya introducido de forma correcta la natigua contraseña).
+
+*/
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             String contrasVieja = new String (jPasswordField1ContrasActual.getPassword());

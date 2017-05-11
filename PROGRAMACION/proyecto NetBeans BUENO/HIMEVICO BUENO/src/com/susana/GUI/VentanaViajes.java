@@ -72,24 +72,16 @@ public class VentanaViajes extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(682, 430, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, -1, -1));
 
         jTable1Viajes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID VIAJE", "HORA SALIDA", "HORA LLEGADA", "MATRICULA VEHICULO", "FECHA PARTE", "USUARIO", "TOTAL HORAS VIAJE"
+                "ID VIAJE", "HORA SALIDA", "HORA LLEGADA", "MATRICULA VEHICULO", "TOTAL HORAS VIAJE", "NUM PARTE", "USUARIO", "FECHA "
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Long.class, java.lang.Long.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Long.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jTable1Viajes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1ViajesMouseClicked(evt);
@@ -113,15 +105,17 @@ public class VentanaViajes extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+//TODO: VIAJES
+
     private void jButton1VerPartesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1VerPartesActionPerformed
         modeloDeTabla = (DefaultTableModel) jTable1Viajes.getModel();
 
-        try {
+        /*     try {
             Class.forName("java.sql.DriverManager");
             Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
 
@@ -144,21 +138,22 @@ public class VentanaViajes extends javax.swing.JFrame {
 
                 try {
                     vj = new Viaje();
-                      vj.setUsuario(resul.getString(1));
+                      vj.setUsuario(resul.getString(7));
 
-                    vj.setIdViaje(Integer.parseInt(resul.getString(2)));
-                    vj.setHoraSalida(Double.parseDouble(resul.getString(3)));
-                    vj.setHoraLlegada(Double.parseDouble(resul.getString(4)));
-                    vj.setMatricula(resul.getString(5));
-                    vj.setFecha(resul.getDate(6));
-                    vj.setTotalHorasViaje(Double.parseDouble(resul.getString(7)));
+                    vj.setIdViaje(Integer.parseInt(resul.getString(1)));
+                    vj.setNumParte(Integer.parseInt(resul.getString(6)));
+                    vj.setHoraSalida(localTime(resul.getTime(2)));
+                    vj.setHoraLlegada(Double.parseDouble(resul.getString(3)));
+                    vj.setMatricula(resul.getString(4));
+                    vj.setFecha(resul.getDate(8));
+                    vj.setTotalHorasViaje(Double.parseDouble(resul.getString(5)));
 
                     modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
                             new Object[]{vj.getIdViaje(), vj.getHoraSalida(), vj.getHoraLlegada(),
                                 vj.getMatricula(), vj.getFecha(), vj.getUsuario(), vj.getTotalHorasViaje()});
 
                     if (modeloDeTabla.getRowCount() == 0) {
-                        JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
+                        JOptionPane.showMessageDialog(this, "Viaje inexistente con los datos indicados");
                     }
 
                 } catch (SQLException ex) {
@@ -178,14 +173,18 @@ public class VentanaViajes extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+         */
 
     }//GEN-LAST:event_jButton1VerPartesActionPerformed
 
+    //OPCIÓN PARA SALIR DEL PROGRAMA
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    //VOLVER A GESTIÓN PARTES
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         VentanaGestionPartes va = new VentanaGestionPartes();
         va.setVisible(true);
@@ -193,7 +192,7 @@ public class VentanaViajes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTable1ViajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1ViajesMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTable1ViajesMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -233,7 +232,7 @@ public class VentanaViajes extends javax.swing.JFrame {
             public void run() {
                 new VentanaViajes().setVisible(true);
 
-             }
+            }
         });
     }
 
