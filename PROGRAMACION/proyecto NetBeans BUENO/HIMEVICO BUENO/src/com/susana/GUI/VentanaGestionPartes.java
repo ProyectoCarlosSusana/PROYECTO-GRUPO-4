@@ -67,8 +67,6 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2EliminarParte = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1ListPartes = new javax.swing.JTextPane();
         jButton5FiltrarPorFechasUsuario = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -84,12 +82,12 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         jTextField2NumParte = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField3HorasParte = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox1Validar = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jDateChooser1FechaFin = new com.toedter.calendar.JDateChooser();
         jDateChooser1FechaInicio1 = new com.toedter.calendar.JDateChooser();
-        jButton3 = new javax.swing.JButton();
+        jButton3DetalleViajes = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextField3HorasParte1 = new javax.swing.JTextField();
 
@@ -119,7 +117,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
                 jButton2EliminarParteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2EliminarParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, -1, -1));
+        getContentPane().add(jButton2EliminarParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 460, -1, -1));
 
         jButton2.setText("Volver");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -128,10 +126,6 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 490, 70, 30));
-
-        jScrollPane2.setViewportView(jTextPane1ListPartes);
-
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 828, 0));
 
         jButton5FiltrarPorFechasUsuario.setText("Filtrar por usuario y  fechas");
         jButton5FiltrarPorFechasUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -201,13 +195,13 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField3HorasParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 120, -1));
 
-        jCheckBox1.setText("VALIDAR");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox1Validar.setText("VALIDAR");
+        jCheckBox1Validar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jCheckBox1ValidarActionPerformed(evt);
             }
         });
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
+        getContentPane().add(jCheckBox1Validar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -228,13 +222,14 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         getContentPane().add(jDateChooser1FechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 150, 30));
         getContentPane().add(jDateChooser1FechaInicio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 90, 140, 30));
 
-        jButton3.setText("Detalle Viajes");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton3DetalleViajes.setText("Detalle Viajes");
+        jButton3DetalleViajes.setEnabled(false);
+        jButton3DetalleViajes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton3DetalleViajesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 160, 40));
+        getContentPane().add(jButton3DetalleViajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 430, 160, 40));
 
         jLabel4.setText("HORAS EXCESO");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, -1, -1));
@@ -277,47 +272,33 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
             sql.execute();
 
             ResultSet resul = (ResultSet) sql.getObject(1);
-            Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
 
-            otroDocumento.remove(0, otroDocumento.getLength());
             while (resul.next()) {
 
-                try {
-                    pr = new Parte();
-                    pr.setUsuario(resul.getString(12));
-                    pr.setFecha(resul.getDate(4));
-                    pr.setEstado(resul.getString(5));
-                    pr.setKmPrincipio(Double.parseDouble(resul.getString(2)));
-                    pr.setKmFinal(Double.parseDouble(resul.getString(3)));
-                    pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
-                    pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
-                    pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
-                    pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
-                    pr.setIncidencias(resul.getString(10));
-                    pr.setValidar(resul.getString(11));
-                    pr.settotalHoras(Double.parseDouble(resul.getString(13)));
-                    pr.setNumParte(Integer.parseInt(resul.getString(1)));
+                pr = new Parte();
+                pr.setUsuario(resul.getString(12));
+                pr.setFecha(resul.getDate(4));
+                pr.setEstado(resul.getString(5));
+                pr.setKmPrincipio(Double.parseDouble(resul.getString(2)));
+                pr.setKmFinal(Double.parseDouble(resul.getString(3)));
+                pr.setGastoGasoil(Double.parseDouble(resul.getString(6)));
+                pr.setGastoAutopista(Double.parseDouble(resul.getString(7)));
+                pr.setGastoDietas(Double.parseDouble(resul.getString(8)));
+                pr.setGastosVarios(Double.parseDouble(resul.getString(9)));
+                pr.setIncidencias(resul.getString(10));
+                pr.setValidar(resul.getString(11));
+                pr.settotalHoras(Double.parseDouble(resul.getString(13)));
+                pr.setNumParte(Integer.parseInt(resul.getString(1)));
 
-                    modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
-                            new Object[]{pr.getNumParte(), pr.getUsuario(), pr.getFecha(), pr.getEstado(),
-                                pr.getKmPrincipio(), pr.getKmFinal(), pr.getGastoGasoil(), pr.getGastoAutopista(),
-                                pr.getGastoDietas(), pr.getGastosVarios(), pr.getIncidencias(), pr.getValidar(), pr.gettotalHoras()});
+                modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
+                        new Object[]{pr.getNumParte(), pr.getUsuario(), pr.getFecha(), pr.getEstado(),
+                            pr.getKmPrincipio(), pr.getKmFinal(), pr.getGastoGasoil(), pr.getGastoAutopista(),
+                            pr.getGastoDietas(), pr.getGastosVarios(), pr.getIncidencias(), pr.getValidar(), pr.gettotalHoras()});
 
-                    otroDocumento.insertString(otroDocumento.getLength(),
-                            "NUM. PARTE: " + pr.getNumParte() + "   /   USUARIO: " + pr.getUsuario()
-                            + "   /   FECHA: " + pr.getFecha() + "   /   ESTADO: " + pr.getEstado()
-                            + "   /   KM PRINCIPIO: " + pr.getKmPrincipio() + "   /   KM FINAL: " + pr.getKmFinal()
-                            + "   /   GASTO GASOIL: " + pr.getGastoGasoil() + "   /   GASTO AUTOPISTA: " + pr.getGastoAutopista()
-                            + "   /   DIETAS: " + pr.getGastoDietas() + "   /   GASTOS VARIOS: " + pr.getGastosVarios()
-                            + "   /   INCIDENCIAS: " + pr.getIncidencias() + "   /   VALIDADO: " + pr.getValidar()
-                            + "   /   TOTAL_HORAS: " + pr.gettotalHoras() + "\n" + "\n", null);
-                    if (modeloDeTabla.getRowCount() == 0) {
-                        JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
-                    }
-
-                } catch (BadLocationException ble) {
-                    ble.printStackTrace();
+                if (modeloDeTabla.getRowCount() == 0) {
+                    JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
                 }
+
             }
             if (modeloDeTabla.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
@@ -331,10 +312,8 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (BadLocationException ex) {
-            Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        jButton3DetalleViajes.setEnabled(false);
     }
 
 
@@ -399,44 +378,30 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
             sql.execute();
 
             ResultSet resul = (ResultSet) sql.getObject(4);
-            Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
 
-            otroDocumento.remove(0, otroDocumento.getLength());
             while (resul.next()) {
 
-                try {
-                    pr = new Parte();
-                    pr.setUsuario(resul.getString(2));
-                    pr.setFecha(resul.getDate(3));
-                    pr.setEstado(resul.getString(4));
-                    pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
-                    pr.setKmFinal(Double.parseDouble(resul.getString(6)));
-                    pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
-                    pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
-                    pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
-                    pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
-                    pr.setIncidencias(resul.getString(11));
-                    pr.setValidar(resul.getString(12));
-                    pr.settotalHoras(Double.parseDouble(resul.getString(13)));
-                    pr.setNumParte(Integer.parseInt(resul.getString(1)));
+                pr = new Parte();
+                pr.setUsuario(resul.getString(2));
+                pr.setFecha(resul.getDate(3));
+                pr.setEstado(resul.getString(4));
+                pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
+                pr.setKmFinal(Double.parseDouble(resul.getString(6)));
+                pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
+                pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
+                pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
+                pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
+                pr.setIncidencias(resul.getString(11));
+                pr.setValidar(resul.getString(12));
+                pr.settotalHoras(Double.parseDouble(resul.getString(13)));
+                pr.setNumParte(Integer.parseInt(resul.getString(1)));
 //LISTADO EN JTABLE
-                    modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
-                            new Object[]{pr.getNumParte(), pr.getUsuario(), pr.getFecha(), pr.getEstado(),
-                                pr.getKmPrincipio(), pr.getKmFinal(), pr.getGastoGasoil(), pr.getGastoAutopista(),
-                                pr.getGastoDietas(), pr.getGastosVarios(), pr.getIncidencias(), pr.getValidar(), pr.gettotalHoras()});
+                modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
+                        new Object[]{pr.getNumParte(), pr.getUsuario(), pr.getFecha(), pr.getEstado(),
+                            pr.getKmPrincipio(), pr.getKmFinal(), pr.getGastoGasoil(), pr.getGastoAutopista(),
+                            pr.getGastoDietas(), pr.getGastosVarios(), pr.getIncidencias(), pr.getValidar(), pr.gettotalHoras()});
 //LISTADO EN JTEXPANE (OPCIONAL, DE MOMENTO DEBAJO DEL CONTAINER)
-                    otroDocumento.insertString(otroDocumento.getLength(),
-                            "NUM. PARTE: " + pr.getNumParte() + "   /   USUARIO: " + pr.getUsuario()
-                            + "   /   FECHA: " + pr.getFecha() + "   /   ESTADO: " + pr.getEstado()
-                            + "   /   KM PRINCIPIO: " + pr.getKmPrincipio() + "   /   KM FINAL: " + pr.getKmFinal()
-                            + "   /   GASTO GASOIL: " + pr.getGastoGasoil() + "   /   GASTO AUTOPISTA: " + pr.getGastoAutopista()
-                            + "   /   DIETAS: " + pr.getGastoDietas() + "   /   GASTOS VARIOS: " + pr.getGastosVarios()
-                            + "   /   INCIDENCIAS: " + pr.getIncidencias() + "   /   VALIDADO: " + pr.getValidar()
-                            + "   /   TOTAL_HORAS: " + pr.gettotalHoras() + "\n" + "\n", null);
 
-                } catch (BadLocationException ble) {
-                    ble.printStackTrace();
-                }
             }
             if (modeloDeTabla.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
@@ -450,10 +415,8 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
             cn.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (BadLocationException ex) {
-            Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        jButton3DetalleViajes.setEnabled(false);
     }//GEN-LAST:event_jButton5FiltrarPorFechasUsuarioActionPerformed
 
     //OPCION ACCIONAR FILTRAR PARTES POR FECHA  DESPUES DE HABER INTRODUCIDO DATOS EN SUS CORRESPONDIENTES CASILLAS
@@ -492,44 +455,29 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
             sql.execute();
 
             ResultSet resul = (ResultSet) sql.getObject(3);
-            Document otroDocumento = jTextPane1ListPartes.getStyledDocument();
 
-            otroDocumento.remove(0, otroDocumento.getLength());
             while (resul.next()) {
 
-                try {
-                    pr = new Parte();
-                    pr.setUsuario(resul.getString(2));
-                    pr.setFecha(resul.getDate(3));
-                    pr.setEstado(resul.getString(4));
-                    pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
-                    pr.setKmFinal(Double.parseDouble(resul.getString(6)));
-                    pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
-                    pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
-                    pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
-                    pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
-                    pr.setIncidencias(resul.getString(11));
-                    pr.setValidar(resul.getString(12));
-                    pr.settotalHoras(Double.parseDouble(resul.getString(13)));
-                    pr.setNumParte(Integer.parseInt(resul.getString(1)));
+                pr = new Parte();
+                pr.setUsuario(resul.getString(2));
+                pr.setFecha(resul.getDate(3));
+                pr.setEstado(resul.getString(4));
+                pr.setKmPrincipio(Double.parseDouble(resul.getString(5)));
+                pr.setKmFinal(Double.parseDouble(resul.getString(6)));
+                pr.setGastoGasoil(Double.parseDouble(resul.getString(7)));
+                pr.setGastoAutopista(Double.parseDouble(resul.getString(8)));
+                pr.setGastoDietas(Double.parseDouble(resul.getString(9)));
+                pr.setGastosVarios(Double.parseDouble(resul.getString(10)));
+                pr.setIncidencias(resul.getString(11));
+                pr.setValidar(resul.getString(12));
+                pr.settotalHoras(Double.parseDouble(resul.getString(13)));
+                pr.setNumParte(Integer.parseInt(resul.getString(1)));
 
-                    modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
-                            new Object[]{pr.getNumParte(), pr.getUsuario(), pr.getFecha(), pr.getEstado(),
-                                pr.getKmPrincipio(), pr.getKmFinal(), pr.getGastoGasoil(), pr.getGastoAutopista(),
-                                pr.getGastoDietas(), pr.getGastosVarios(), pr.getIncidencias(), pr.getValidar(), pr.gettotalHoras()});
+                modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
+                        new Object[]{pr.getNumParte(), pr.getUsuario(), pr.getFecha(), pr.getEstado(),
+                            pr.getKmPrincipio(), pr.getKmFinal(), pr.getGastoGasoil(), pr.getGastoAutopista(),
+                            pr.getGastoDietas(), pr.getGastosVarios(), pr.getIncidencias(), pr.getValidar(), pr.gettotalHoras()});
 
-                    otroDocumento.insertString(otroDocumento.getLength(),
-                            "NUM. PARTE: " + pr.getNumParte() + "   /   USUARIO: " + pr.getUsuario()
-                            + "   /   FECHA: " + pr.getFecha() + "   /   ESTADO: " + pr.getEstado()
-                            + "   /   KM PRINCIPIO: " + pr.getKmPrincipio() + "   /   KM FINAL: " + pr.getKmFinal()
-                            + "   /   GASTO GASOIL: " + pr.getGastoGasoil() + "   /   GASTO AUTOPISTA: " + pr.getGastoAutopista()
-                            + "   /   DIETAS: " + pr.getGastoDietas() + "   /   GASTOS VARIOS: " + pr.getGastosVarios()
-                            + "   /   INCIDENCIAS: " + pr.getIncidencias() + "   /   VALIDADO: " + pr.getValidar()
-                            + "   /   TOTAL_HORAS: " + pr.gettotalHoras() + "\n" + "\n", null);
-
-                } catch (BadLocationException ble) {
-                    ble.printStackTrace();
-                }
             }
             if (modeloDeTabla.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
@@ -543,14 +491,12 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
             cn.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (BadLocationException ex) {
-            Logger.getLogger(VentanaGestionPartes.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        jButton3DetalleViajes.setEnabled(false);
 
     }//GEN-LAST:event_jButton4FiltrarPorFechas1ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void jCheckBox1ValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ValidarActionPerformed
         modeloDeTabla = (DefaultTableModel) jTable1.getModel();
         int selectedRowIndex = jTable1.getSelectedRow();
 
@@ -558,7 +504,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
           TODO: SI HOPRAS TOTALES > 8
          */ JOptionPane.showMessageDialog(this, "");
 
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_jCheckBox1ValidarActionPerformed
 
     private void jRadioButton3CerradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3CerradosActionPerformed
 
@@ -566,6 +512,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
     //SELECCION DE VARIOS CAMPOS DE LA TABLA Y MOSTRARLOS ESPECIFICAMENTE EN TRES CASILLAS
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        jButton3DetalleViajes.setEnabled(true);
         modeloDeTabla = (DefaultTableModel) jTable1.getModel();
         int selectedRowIndex = jTable1.getSelectedRow();
 
@@ -573,6 +520,7 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         jTextField2NumParte.setText(modeloDeTabla.getValueAt(selectedRowIndex, 0).toString());
         jTextField3HorasParte.setText(modeloDeTabla.getValueAt(selectedRowIndex, 12).toString());//aqui tiene que salir las horas totales
 
+        
         //TODO: MOSTRAR TOTAL_HORAS DE HORAS PARTE
 
     }//GEN-LAST:event_jTable1MouseClicked
@@ -581,12 +529,14 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTextField1UsuarioParteActionPerformed
 //VISUALIZAR VENTANA VIAJES, DESAPARECIENDO LA DE PARTES
-    
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+    private void jButton3DetalleViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3DetalleViajesActionPerformed
         VentanaViajes va = new VentanaViajes();
         va.setVisible(true);
+        va.setUsuario(jTextField1UsuarioParte.getText());
+        va.setNumParte(jTextField2NumParte.getText());
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton3DetalleViajesActionPerformed
 
     private void jTextField3HorasParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3HorasParteActionPerformed
 
@@ -646,10 +596,10 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
     private javax.swing.JButton jButton1VerPartes;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton2EliminarParte;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton3DetalleViajes;
     private javax.swing.JButton jButton4FiltrarPorFechas1;
     private javax.swing.JButton jButton5FiltrarPorFechasUsuario;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox1Validar;
     private com.toedter.calendar.JDateChooser jDateChooser1FechaFin;
     private com.toedter.calendar.JDateChooser jDateChooser1FechaInicio1;
     private javax.swing.JLabel jLabel1;
@@ -664,13 +614,11 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2Abiertos;
     private javax.swing.JRadioButton jRadioButton3Cerrados;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1ParaFiltrarPorUsuario;
     private javax.swing.JTextField jTextField1UsuarioParte;
     private javax.swing.JTextField jTextField2NumParte;
     private javax.swing.JTextField jTextField3HorasParte;
     private javax.swing.JTextField jTextField3HorasParte1;
-    private javax.swing.JTextPane jTextPane1ListPartes;
     // End of variables declaration//GEN-END:variables
 }

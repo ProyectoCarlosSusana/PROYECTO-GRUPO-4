@@ -15,7 +15,7 @@ public class Viaje {
     private int idViaje;
     private LocalTime horaSalida;
     private LocalTime horaLlegada;
-    private LocalTime totalHorasViaje;
+    private long totalHorasViaje;
     private String matricula;
     private LocalDate fecha;
     private int numParte;
@@ -29,7 +29,7 @@ public class Viaje {
     /*
  * Constructor de clase con todos los atributos     
      */
-    public Viaje(String usuario, int idViaje, LocalTime horaSalida, LocalTime horaLlegada, LocalTime totalHorasViaje, String matricula, LocalDate fecha, int numParte) {
+    public Viaje(String usuario, int idViaje, LocalTime horaSalida, LocalTime horaLlegada, long totalHorasViaje, String matricula, LocalDate fecha, int numParte) {
         this.usuario = usuario;
         this.idViaje = idViaje;
         this.horaSalida = horaSalida;
@@ -73,11 +73,11 @@ public class Viaje {
         this.horaLlegada = horaLlegada;
     }
 
-    public LocalTime getTotalHorasViaje() {
+    public long getTotalHorasViaje() {
         return totalHorasViaje;
     }
 
-    public void setTotalHorasViaje(LocalTime totalHorasViaje) {
+    public void setTotalHorasViaje(long totalHorasViaje) {
         this.totalHorasViaje = totalHorasViaje;
     }
 

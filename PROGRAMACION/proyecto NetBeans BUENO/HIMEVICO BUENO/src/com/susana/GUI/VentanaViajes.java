@@ -16,9 +16,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
@@ -40,6 +42,7 @@ public class VentanaViajes extends javax.swing.JFrame {
      */
     public VentanaViajes() {
         initComponents();
+        vj = new Viaje();
     }
 
     /**
@@ -51,11 +54,11 @@ public class VentanaViajes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jButton1Salir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1Viajes = new javax.swing.JTable();
-        jButton1VerPartes = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButton1VerViajes = new javax.swing.JButton();
+        jButton3Volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("VIAJES");
@@ -66,13 +69,13 @@ public class VentanaViajes extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Salir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1Salir.setText("Salir");
+        jButton1Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton1SalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, -1, -1));
+        getContentPane().add(jButton1Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 330, -1, -1));
 
         jTable1Viajes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -91,108 +94,58 @@ public class VentanaViajes extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 789, 290));
 
-        jButton1VerPartes.setText("Ver viajes");
-        jButton1VerPartes.addActionListener(new java.awt.event.ActionListener() {
+        jButton1VerViajes.setText("Ver viajes");
+        jButton1VerViajes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1VerPartesActionPerformed(evt);
+                jButton1VerViajesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1VerPartes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 100, -1));
+        getContentPane().add(jButton1VerViajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 100, -1));
 
-        jButton3.setText("Volver");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton3Volver.setText("Volver");
+        jButton3Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton3VolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, -1, -1));
+        getContentPane().add(jButton3Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 //TODO: VIAJES
 
-    private void jButton1VerPartesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1VerPartesActionPerformed
-        modeloDeTabla = (DefaultTableModel) jTable1Viajes.getModel();
-
-        /*     try {
-            Class.forName("java.sql.DriverManager");
-            Connection conexion = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
-
-            Statement sentencia = conexion.createStatement();
-
-            CallableStatement sql = null;
-
-            for (int i = 0; i < modeloDeTabla.getRowCount(); i++) {
-                modeloDeTabla.removeRow(i);
-                i -= 1;
-            }
-
-            sql = conexion.prepareCall("{call LISTARVIAJES(?)}");
-
-            sql.registerOutParameter(1, OracleTypes.CURSOR);
-            sql.execute();
-
-            ResultSet resul = (ResultSet) sql.getObject(1);
-            while (resul.next()) {
-
-                try {
-                    vj = new Viaje();
-                      vj.setUsuario(resul.getString(7));
-
-                    vj.setIdViaje(Integer.parseInt(resul.getString(1)));
-                    vj.setNumParte(Integer.parseInt(resul.getString(6)));
-                    vj.setHoraSalida(localTime(resul.getTime(2)));
-                    vj.setHoraLlegada(Double.parseDouble(resul.getString(3)));
-                    vj.setMatricula(resul.getString(4));
-                    vj.setFecha(resul.getDate(8));
-                    vj.setTotalHorasViaje(Double.parseDouble(resul.getString(5)));
-
-                    modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
-                            new Object[]{vj.getIdViaje(), vj.getHoraSalida(), vj.getHoraLlegada(),
-                                vj.getMatricula(), vj.getFecha(), vj.getUsuario(), vj.getTotalHorasViaje()});
-
-                    if (modeloDeTabla.getRowCount() == 0) {
-                        JOptionPane.showMessageDialog(this, "Viaje inexistente con los datos indicados");
-                    }
-
-                } catch (SQLException ex) {
-                    Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            if (modeloDeTabla.getRowCount() == 0) {
-                JOptionPane.showMessageDialog(this, "Parte inexistente con los datos indicados");
-            }
-            resul.close();
-            sentencia.close();
-            conexion.close();
-
-        } catch (ClassNotFoundException cn) {
-            cn.printStackTrace();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+    private void jButton1VerViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1VerViajesActionPerformed
+         modeloDeTabla = (DefaultTableModel) jTable1Viajes.getModel();
+        ViajesLN vln = new ViajesLN();
+        List<Viaje> viajes = vln.listarDatos(vj);
+        for (int i = 0; i < viajes.size(); i++) {
+            modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
+                    new Object[]{vj.getIdViaje(), vj.getHoraSalida(), vj.getHoraLlegada(),
+                        vj.getMatricula(), vj.getFecha(), vj.getUsuario(), vj.getTotalHorasViaje()});
         }
-         */
 
-    }//GEN-LAST:event_jButton1VerPartesActionPerformed
+        if (modeloDeTabla.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(this, "Viaje inexistente con los datos indicados");
+        }
+    }//GEN-LAST:event_jButton1VerViajesActionPerformed
 
     //OPCIÓN PARA SALIR DEL PROGRAMA
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+    private void jButton1SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1SalirActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
+    }//GEN-LAST:event_jButton1SalirActionPerformed
+
     //VOLVER A GESTIÓN PARTES
-    
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+    private void jButton3VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3VolverActionPerformed
         VentanaGestionPartes va = new VentanaGestionPartes();
         va.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButton3VolverActionPerformed
 
     private void jTable1ViajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1ViajesMouseClicked
-        
+
     }//GEN-LAST:event_jTable1ViajesMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -238,10 +191,18 @@ public class VentanaViajes extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton1VerPartes;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton1Salir;
+    private javax.swing.JButton jButton1VerViajes;
+    private javax.swing.JButton jButton3Volver;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1Viajes;
     // End of variables declaration//GEN-END:variables
+
+    void setUsuario(String usuario) {
+        this.vj.setUsuario(usuario);
+    }
+
+    void setNumParte(String numParte) {
+        this.vj.setNumParte(Integer.valueOf(numParte));
+    }
 }

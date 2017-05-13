@@ -8,14 +8,12 @@ package com.susana.DAO;
 import com.susana.Entidades.Parte;
 import com.susana.GUI.Login;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 
 /*
@@ -40,7 +38,7 @@ public class PartesDAO {
                     + "GASTO_DIETAS, GASTOS_VARIOS,  INCIDENCIAS, VALIDADO,   TOTAL_HORAS "
                     + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             sentencia = cxn.prepareStatement(sql, new String[]{"NUM_PARTE"});
-            sentencia.setString(1, null);
+            sentencia.setNull(1, java.sql.Types.INTEGER);
             sentencia.setString(2, p.getUsuario());
             sentencia.setDate(3, p.getFecha());
             sentencia.setString(4, p.getEstado());

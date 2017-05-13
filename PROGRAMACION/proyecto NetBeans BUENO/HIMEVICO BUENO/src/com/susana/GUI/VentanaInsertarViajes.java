@@ -5,19 +5,31 @@
  */
 package com.susana.GUI;
 
+import com.susana.Entidades.Viaje;
+import com.susana.LogicaNegocio.ViajesLN;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import static java.time.temporal.ChronoUnit.MINUTES;
+
 /**
  *
  * @author acer
  */
 public class VentanaInsertarViajes extends javax.swing.JFrame {
 
+    private Integer numParte;
+    private Integer idViaje;
+    private LocalDate f;
+
     /**
      * Creates new form VentanaInsertarViajes
      */
     public VentanaInsertarViajes() {
         initComponents();
-                this.dispose();
-                        this.setLocationRelativeTo(null);
+        this.dispose();
+        this.setLocationRelativeTo(null);
 
     }
 
@@ -31,12 +43,10 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel12 = new javax.swing.JLabel();
-        jTextField1KmPrincipio = new javax.swing.JTextField();
         jDateChooserFechaParte = new com.toedter.calendar.JDateChooser();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1KmPrincipio1 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField1KmPrincipio2 = new javax.swing.JTextField();
+        jTextField3MatriculaVehiculo = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
@@ -44,6 +54,10 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
         jBInsertarViaje = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jSpinner1HoraSalida = new javax.swing.JSpinner();
+        jSpinner2MinutoSalida = new javax.swing.JSpinner();
+        jSpinner1HoraLlegada = new javax.swing.JSpinner();
+        jSpinner2MinutoLlegada = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,23 +65,15 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
         jLabel12.setText("FECHA");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 150, 10));
 
-        jTextField1KmPrincipio.setEnabled(false);
-        getContentPane().add(jTextField1KmPrincipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 200, 30));
-
         jDateChooserFechaParte.setEnabled(false);
         getContentPane().add(jDateChooserFechaParte, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 230, 30));
 
         jLabel13.setText("HORA SALIDA");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 150, -1));
 
-        jTextField1KmPrincipio1.setEnabled(false);
-        getContentPane().add(jTextField1KmPrincipio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 200, 30));
-
         jLabel14.setText("HORA LLEGADA");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 150, -1));
-
-        jTextField1KmPrincipio2.setEnabled(false);
-        getContentPane().add(jTextField1KmPrincipio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 200, 30));
+        getContentPane().add(jTextField3MatriculaVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 200, 30));
 
         jLabel15.setText("MATRICULA VEHICULO");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 150, -1));
@@ -108,6 +114,19 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
         getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 310, 60, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSpinner1HoraSalida.setModel(new javax.swing.SpinnerNumberModel(0, 0, 24, 1));
+        jPanel1.add(jSpinner1HoraSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 40, -1));
+
+        jSpinner2MinutoSalida.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 1));
+        jPanel1.add(jSpinner2MinutoSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 40, -1));
+
+        jSpinner1HoraLlegada.setModel(new javax.swing.SpinnerNumberModel(0, 0, 24, 1));
+        jPanel1.add(jSpinner1HoraLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 40, -1));
+
+        jSpinner2MinutoLlegada.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 1));
+        jPanel1.add(jSpinner2MinutoLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 40, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
 
         pack();
@@ -124,11 +143,39 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-       System.exit(0); 
+        System.exit(0);
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBInsertarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInsertarViajeActionPerformed
-        // TODO: CODIGO PARA FUNCIONAMIENTO DE INSERCIÓN VIAJE
+        ViajesLN vln = new ViajesLN();
+        Viaje v = new Viaje();
+        if (idViaje != null) {
+            v.setIdViaje(idViaje);
+        }
+        /*
+        pagina stackoverflow.com Convert java.util.Date to java.time.LocalDate.
+         solución a problemas java util date tiene problemas de entendimiento de zona horaria.  
+
+         */
+        v.setFecha(jDateChooserFechaParte.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        v.setHoraLlegada(LocalTime.now()
+                .withHour((int) jSpinner1HoraLlegada.getValue())
+                .withMinute((int) jSpinner2MinutoLlegada.getValue())
+                .withSecond(0)
+                .withNano(0));
+        v.setHoraSalida(LocalTime.now()
+                .withHour((int) jSpinner1HoraSalida.getValue())
+                .withMinute((int) jSpinner2MinutoSalida.getValue())
+                .withSecond(0)
+                .withNano(0));
+        v.setMatricula(jTextField3MatriculaVehiculo.getText());
+        v.setTotalHorasViaje( v.getHoraLlegada().until(v.getHoraSalida(),MINUTES));
+
+        if (numParte == null) {
+            numParte = vln.insertarDatos(v);
+        } else {
+            vln.actualizarDatos(v);
+        }
     }//GEN-LAST:event_jBInsertarViajeActionPerformed
 
     /**
@@ -177,9 +224,30 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1KmPrincipio;
-    private javax.swing.JTextField jTextField1KmPrincipio1;
-    private javax.swing.JTextField jTextField1KmPrincipio2;
+    private javax.swing.JSpinner jSpinner1HoraLlegada;
+    private javax.swing.JSpinner jSpinner1HoraSalida;
+    private javax.swing.JSpinner jSpinner2MinutoLlegada;
+    private javax.swing.JSpinner jSpinner2MinutoSalida;
+    private javax.swing.JTextField jTextField3MatriculaVehiculo;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
+
+    void setNumParte(Integer numParte) {
+        this.numParte = numParte;
+    }
+
+    void setFechaViaje(Date fecha) {
+
+        jDateChooserFechaParte.setDate(fecha);
+    }
+
+    void setUsuario(String usuario) {
+        jTextFieldUsuario.setText(usuario);
+    }
+//inutilizar casilla matricula cuando ya hay un vehiculo utilizado, para que sea el mismo
+
+    void setMatricula(String matricula) {
+        jTextField3MatriculaVehiculo.setText(matricula);
+        jTextField3MatriculaVehiculo.setEnabled(false);
+    }
 }

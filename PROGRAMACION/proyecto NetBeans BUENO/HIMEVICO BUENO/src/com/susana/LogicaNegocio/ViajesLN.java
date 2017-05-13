@@ -7,8 +7,11 @@ package com.susana.LogicaNegocio;
 
 import com.susana.DAO.*;
 import com.susana.Entidades.Parte;
+import com.susana.Entidades.Viaje;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.util.List;
 
 /**
  *
@@ -19,24 +22,25 @@ import java.sql.Time;
 public class ViajesLN {
     ViajesDAO vdao =new ViajesDAO();
     
-  /*  public void insertarDatos (Viaje v){
-        vdao.insertarDatos(v);    
+
+    public String getSumaHorasViajes(LocalDate fechaParte) {
+        long t=vdao.sumarHorasParte(fechaParte);
+        return String.valueOf(t);
     }
-    public void actualizarDatos (Viaje v){
+    
+
+    public Integer insertarDatos(Viaje v) {
+        return vdao.insertarDatos(v);
+    }
+
+    public void actualizarDatos(Viaje v) {
         vdao.actualizarDatos(v);
     }
     public void borrarDatos (Viaje v){
         vdao.borrarDatos(v);
     }
-    public void listarDatos (Viaje v){
-        vdao.listarDatos(v);
+    public List<Viaje> listarDatos (Viaje v){
+        return vdao.listarDatos(v);
     }    
-*/
-   /* public String getSumaHorasViajes(String fechaParte) {
-        Date fp=Date.valueOf(fechaParte);
-        Time t=vdao.sumarHoras(fp);
-        return t.toString();
-    }
-    */
     
 }
