@@ -275,9 +275,9 @@ public class VentanaCrearParteLogistica extends javax.swing.JFrame {
     private void jBGuardarParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarParteActionPerformed
         PartesLN pln = new PartesLN();
         p = new Parte();
-        if (numParte != null) {
-            p.setNumParte(numParte);
-        }
+      if (numParte != null) {
+         p.setNumParte(numParte);
+   }
         p.setKmPrincipio(Double.parseDouble(jTextField1KmPrincipio.getText()));
         p.setKmFinal(Double.parseDouble(jTextFieldKmFinal.getText()));
         p.setFecha(new java.sql.Date(jDateChooserFechaParte.getDate().getTime()));

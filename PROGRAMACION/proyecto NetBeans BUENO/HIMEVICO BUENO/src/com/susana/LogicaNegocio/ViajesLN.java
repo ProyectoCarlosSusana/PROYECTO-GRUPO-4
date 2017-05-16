@@ -29,17 +29,17 @@ public class ViajesLN {
     }
     
 
-    public Integer insertarDatos(Viaje v) {
+    public Integer insertarDatos(Viaje v) throws ClassNotFoundException {
         return vdao.insertarDatos(v);
     }
 
-    public void actualizarDatos(Viaje v) {
+    public void actualizarDatos(Viaje v) throws ClassNotFoundException {
         vdao.actualizarDatos(v);
     }
-    public void borrarDatos (Viaje v){
+    public void borrarDatos (Viaje v) throws ClassNotFoundException{
         vdao.borrarDatos(v);
     }
-    public List<Viaje> listarDatos (Viaje v){
+    public List<Viaje> listarDatos (Viaje v) throws ClassNotFoundException{
         return vdao.listarDatos(v);
     }    
     

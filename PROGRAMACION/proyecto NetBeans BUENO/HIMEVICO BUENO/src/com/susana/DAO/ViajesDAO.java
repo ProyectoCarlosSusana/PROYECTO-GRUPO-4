@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oracle.jdbc.OracleTypes;
 
 /**
@@ -39,14 +40,16 @@ public class ViajesDAO {
         try {
             ConexionTest.conectar();
             cxn = conexion.getConexion();
-            String sql = "INSERT INTO  VIAJE  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            sentencia = cxn.prepareStatement(sql, new String[]{"ID_VIAJE"});
-            sentencia.setNull(1, java.sql.Types.INTEGER);
-            //conversión tipo para que la base de datos lo entienda. 
+            String sql = "INSERT INTO  VIAJE  VALUES (?, ?, ?, ?, ?, ?, ?)";
+            sentencia = cxn.prepareStatement(sql);
+     //    sentencia = cxn.prepareStatement(sql, new String[]{"ID_VIAJE"});
+
+       //     sentencia.setNull(1, java.sql.Types.INTEGER);
+            //conversión tipo para que la base de datos lo entienda.
+            sentencia.setString(1, null);
             sentencia.setDate(2, Date.valueOf(v.getFecha()));
             sentencia.setTime(3, Time.valueOf(v.getHoraSalida()));
             sentencia.setTime(4, Time.valueOf(v.getHoraLlegada()));
-
             sentencia.setString(5, v.getMatricula());
             sentencia.setInt(6, v.getNumParte());
             sentencia.setString(7, v.getUsuario());
@@ -77,7 +80,7 @@ public class ViajesDAO {
             ConexionTest.conectar();
             cxn = conexion.getConexion();
             String sql = "UPDATE VIAJE SET HORA_SALIDA = ?, HORA_LLEGADA = ?,"
-                    + " MATRICULA_VEHICULO = ?, NUM_PARTE=?,"
+                    + " VEHICULO_MATRICULA = ?, PARTE_NUM_PARTE=?,"
                     + " USUARIO=?, FECHA=? WHERE ID_VIAJE=?";
             sentencia = cxn.prepareStatement(sql);
 

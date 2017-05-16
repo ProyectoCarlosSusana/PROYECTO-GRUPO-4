@@ -116,17 +116,21 @@ public class VentanaViajes extends javax.swing.JFrame {
 //TODO: VIAJES
 
     private void jButton1VerViajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1VerViajesActionPerformed
-         modeloDeTabla = (DefaultTableModel) jTable1Viajes.getModel();
-        ViajesLN vln = new ViajesLN();
-        List<Viaje> viajes = vln.listarDatos(vj);
-        for (int i = 0; i < viajes.size(); i++) {
-            modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
-                    new Object[]{vj.getIdViaje(), vj.getHoraSalida(), vj.getHoraLlegada(),
-                        vj.getMatricula(), vj.getFecha(), vj.getUsuario(), vj.getTotalHorasViaje()});
-        }
-
-        if (modeloDeTabla.getRowCount() == 0) {
-            JOptionPane.showMessageDialog(this, "Viaje inexistente con los datos indicados");
+        try {
+            modeloDeTabla = (DefaultTableModel) jTable1Viajes.getModel();
+            ViajesLN vln = new ViajesLN();
+            List<Viaje> viajes = vln.listarDatos(vj);
+            for (int i = 0; i < viajes.size(); i++) {
+                modeloDeTabla.insertRow(modeloDeTabla.getRowCount(),
+                        new Object[]{vj.getIdViaje(), vj.getHoraSalida(), vj.getHoraLlegada(),
+                            vj.getMatricula(), vj.getFecha(), vj.getUsuario(), vj.getTotalHorasViaje()});
+            }
+            
+            if (modeloDeTabla.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Viaje inexistente con los datos indicados");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(VentanaViajes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1VerViajesActionPerformed
 
