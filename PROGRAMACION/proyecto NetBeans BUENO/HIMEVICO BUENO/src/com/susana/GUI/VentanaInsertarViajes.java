@@ -12,13 +12,15 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import static java.time.temporal.ChronoUnit.MINUTES;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author acer
  */
 public class VentanaInsertarViajes extends javax.swing.JFrame {
-
+    
     private Integer numParte;
     private Integer idViaje;
     private LocalDate f;
@@ -30,7 +32,7 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
         initComponents();
         this.dispose();
         this.setLocationRelativeTo(null);
-
+        
     }
 
     /**
@@ -116,16 +118,16 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSpinner1HoraSalida.setModel(new javax.swing.SpinnerNumberModel(0, 0, 24, 1));
-        jPanel1.add(jSpinner1HoraSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 40, -1));
+        jPanel1.add(jSpinner1HoraSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 90, -1));
 
         jSpinner2MinutoSalida.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 1));
-        jPanel1.add(jSpinner2MinutoSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 40, -1));
+        jPanel1.add(jSpinner2MinutoSalida, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 90, -1));
 
         jSpinner1HoraLlegada.setModel(new javax.swing.SpinnerNumberModel(0, 0, 24, 1));
-        jPanel1.add(jSpinner1HoraLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 40, -1));
+        jPanel1.add(jSpinner1HoraLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 100, -1));
 
         jSpinner2MinutoLlegada.setModel(new javax.swing.SpinnerNumberModel(0, 0, 60, 1));
-        jPanel1.add(jSpinner2MinutoLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 40, -1));
+        jPanel1.add(jSpinner2MinutoLlegada, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 80, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
 
@@ -137,9 +139,10 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        VentanaCrearParteLogistica va = new VentanaCrearParteLogistica();
+        /*  VentanaCrearParteLogistica va = new VentanaCrearParteLogistica();
         va.setVisible(true);
-        dispose();
+        dispose();*/
+        this.getOwner().pack();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
@@ -169,13 +172,24 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
                 .withSecond(0)
                 .withNano(0));
         v.setMatricula(jTextField3MatriculaVehiculo.getText());
-        v.setTotalHorasViaje( v.getHoraLlegada().until(v.getHoraSalida(),MINUTES));
-
-        if (numParte == null) {
-            numParte = vln.insertarDatos(v);
+        v.setTotalHorasViaje(v.getHoraLlegada().until(v.getHoraSalida(), MINUTES));
+        v.setUsuario(jTextFieldUsuario.getText());
+        v.setNumParte(numParte);
+        
+        if (idViaje == null) {
+            try {
+                idViaje = vln.insertarDatos(v);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(VentanaInsertarViajes.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
-            vln.actualizarDatos(v);
+            try {
+                vln.actualizarDatos(v);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(VentanaInsertarViajes.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
     }//GEN-LAST:event_jBInsertarViajeActionPerformed
 
     /**
@@ -235,12 +249,12 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
     void setNumParte(Integer numParte) {
         this.numParte = numParte;
     }
-
+    
     void setFechaViaje(Date fecha) {
-
+        
         jDateChooserFechaParte.setDate(fecha);
     }
-
+    
     void setUsuario(String usuario) {
         jTextFieldUsuario.setText(usuario);
     }

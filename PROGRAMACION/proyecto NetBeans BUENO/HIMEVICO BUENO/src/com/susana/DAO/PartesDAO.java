@@ -30,26 +30,34 @@ public class PartesDAO {
         PreparedStatement sentencia = null;
         Integer resp = null;
         try {
+            
+            /*
+            ( NUM_PARTE, TRABAJADOR_USUARIO,  FECHA,  ESTADO, "
+                    + "KM_PRINCIPIO, KM_FINAL,  GASTO_GASOIL, GASTO_AUTOPISTA,"
+                    + "GASTO_DIETAS, GASTOS_VARIOS,  INCIDENCIAS, VALIDADO,   TOTAL_HORAS "
+                    + ")
+            */
             ConexionTest.conectar();
             cxn = conexion.getConexion();
             //cxn.setAutoCommit(false);
-            String sql = "INSERT INTO  PARTE( NUM_PARTE, TRABAJADOR_USUARIO,  FECHA,  ESTADO, "
-                    + "KM_PRINCIPIO, KM_FINAL,  GASTO_GASOIL, GASTO_AUTOPISTA,"
-                    + "GASTO_DIETAS, GASTOS_VARIOS,  INCIDENCIAS, VALIDADO,   TOTAL_HORAS "
-                    + ") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            sentencia = cxn.prepareStatement(sql, new String[]{"NUM_PARTE"});
-            sentencia.setNull(1, java.sql.Types.INTEGER);
-            sentencia.setString(2, p.getUsuario());
-            sentencia.setDate(3, p.getFecha());
-            sentencia.setString(4, p.getEstado());
-            sentencia.setDouble(5, p.getKmPrincipio());
-            sentencia.setDouble(6, p.getKmFinal());
-            sentencia.setDouble(7, p.getGastoGasoil());
-            sentencia.setDouble(8, p.getGastoAutopista());
-            sentencia.setDouble(9, p.getGastoDietas());
-            sentencia.setDouble(10, p.getGastosVarios());
-            sentencia.setString(11, p.getIncidencias());
-            sentencia.setString(12, p.getValidar());
+            String sql = "INSERT INTO  PARTE VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+           sentencia = cxn.prepareStatement(sql, new String[]{"NUM_PARTE"});
+        // sentencia = cxn.prepareStatement(sql);
+            // PreparedStatement sentencia = conexion.prepareStatement(sql);
+
+           sentencia.setNull(1, java.sql.Types.INTEGER);
+            sentencia.setString(1, null);
+            sentencia.setString(12, p.getUsuario());
+            sentencia.setDate(4, p.getFecha());
+            sentencia.setString(5, p.getEstado());
+            sentencia.setDouble(2, p.getKmPrincipio());
+            sentencia.setDouble(3, p.getKmFinal());
+            sentencia.setDouble(6, p.getGastoGasoil());
+            sentencia.setDouble(7, p.getGastoAutopista());
+            sentencia.setDouble(8, p.getGastoDietas());
+            sentencia.setDouble(9, p.getGastosVarios());
+            sentencia.setString(10, p.getIncidencias());
+            sentencia.setString(11, p.getValidar());
             sentencia.setDouble(13, p.gettotalHoras());
             int filas = sentencia.executeUpdate();
             if (filas == 1) {

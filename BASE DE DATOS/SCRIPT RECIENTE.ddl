@@ -87,7 +87,6 @@ CREATE TABLE VEHICULO
     Matricula       VARCHAR2 (12) NOT NULL ,
     Marca           VARCHAR2 (15) ,
     Modelo          VARCHAR2 (15) ,
-	parte_num_parte NUMBER NOT NULL
  
   ) ;
 ALTER TABLE VEHICULO ADD CONSTRAINT VEHICULO_PK PRIMARY KEY ( Matricula ) ;
