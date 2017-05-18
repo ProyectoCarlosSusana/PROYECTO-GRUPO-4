@@ -7,7 +7,7 @@ package com.susana.GUI;
 
 /**
  *
- * @author acer
+ * @author com.susana
  */
 public class VentanaMViajes extends javax.swing.JFrame {
 
@@ -15,6 +15,7 @@ public class VentanaMViajes extends javax.swing.JFrame {
      * Creates new form VentanaMViajes
      */
     public VentanaMViajes() {
+        
         initComponents();
     }
 
