@@ -100,7 +100,7 @@ public class VentanaViajes extends javax.swing.JFrame {
                 jButton1VerViajesActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1VerViajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 100, -1));
+        getContentPane().add(jButton1VerViajes, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 100, -1));
 
         jButton3Volver.setText("Volver");
         jButton3Volver.addActionListener(new java.awt.event.ActionListener() {

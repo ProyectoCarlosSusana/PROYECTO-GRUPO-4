@@ -156,6 +156,11 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
         bgEstadoParte.add(jRadioButton1Todos);
         jRadioButton1Todos.setSelected(true);
         jRadioButton1Todos.setText("Todos");
+        jRadioButton1Todos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1TodosActionPerformed(evt);
+            }
+        });
         getContentPane().add(jRadioButton1Todos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         bgEstadoParte.add(jRadioButton2Abiertos);
@@ -545,6 +550,10 @@ public class VentanaGestionPartes extends javax.swing.JFrame {
     private void jTextField3HorasParte1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3HorasParte1ActionPerformed
 
     }//GEN-LAST:event_jTextField3HorasParte1ActionPerformed
+
+    private void jRadioButton1TodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1TodosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1TodosActionPerformed
 
     /**
      * @param args the command line arguments
