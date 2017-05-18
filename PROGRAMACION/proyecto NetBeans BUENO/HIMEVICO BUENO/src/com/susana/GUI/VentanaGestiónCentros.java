@@ -84,11 +84,11 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 730, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 690, -1));
 
         jScrollPane2.setViewportView(jTextPane2Centros);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 730, 170));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 690, 170));
 
         jButton3unCentro.setText("Buscar centro");
         jButton3unCentro.addActionListener(new java.awt.event.ActionListener() {
@@ -96,10 +96,10 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
                 jButton3unCentroActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3unCentro, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 240, -1));
+        getContentPane().add(jButton3unCentro, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 80, 280, -1));
 
         jLabel1.setText("    Insertar nombre centro para borrar/actualizar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, 250, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, 290, 30));
 
         jTextField1inserNombreCentro.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextField1inserNombreCentro.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -115,11 +115,11 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
                 jTextField1inserNombreCentroActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1inserNombreCentro, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 30, 240, 25));
+        getContentPane().add(jTextField1inserNombreCentro, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 280, 30));
 
         jScrollPane4.setViewportView(jTextPane4unCentro);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(771, 89, 240, 100));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 110, 280, 130));
 
         jButton1.setText("Actualizar centro");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 230, 240, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 280, 280, -1));
 
         jTextField1Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,7 +177,7 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
                 jButton3borrarTrabActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3borrarTrab, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 200, 240, -1));
+        getContentPane().add(jButton3borrarTrab, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 250, 280, -1));
 
         jButton3NuevoCentro.setText("Nuevo centro");
         jButton3NuevoCentro.addActionListener(new java.awt.event.ActionListener() {
@@ -185,7 +185,7 @@ public class VentanaGestiónCentros extends javax.swing.JFrame {
                 jButton3NuevoCentroActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3NuevoCentro, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 240, -1));
+        getContentPane().add(jButton3NuevoCentro, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, 280, -1));
 
         jLabel3.setText("Código postal");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));

@@ -283,7 +283,6 @@
     <Component class="javax.swing.JButton" name="jBAnadirViaje">
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;adir viaje"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAnadirViajeActionPerformed"/>

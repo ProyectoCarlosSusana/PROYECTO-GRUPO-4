@@ -14,6 +14,7 @@ import java.time.ZoneId;
 import static java.time.temporal.ChronoUnit.MINUTES;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +35,7 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
+        int finViaje;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -150,7 +152,8 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
     }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBInsertarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInsertarViajeActionPerformed
-        ViajesLN vln = new ViajesLN();
+            
+            ViajesLN vln = new ViajesLN();
         Viaje v = new Viaje();
         if (idViaje != null) {
             v.setIdViaje(idViaje);
@@ -175,6 +178,7 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
         v.setTotalHorasViaje(v.getHoraLlegada().until(v.getHoraSalida(), MINUTES));
         v.setUsuario(jTextFieldUsuario.getText());
         v.setNumParte(numParte);
+        int partAbierto = numParte;
         
         if (idViaje == null) {
             try {
@@ -189,7 +193,11 @@ public class VentanaInsertarViajes extends javax.swing.JFrame {
                 Logger.getLogger(VentanaInsertarViajes.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+        int finViaje=1;
+       
+             
+              
+
     }//GEN-LAST:event_jBInsertarViajeActionPerformed
 
     /**
